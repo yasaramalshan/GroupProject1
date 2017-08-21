@@ -2,19 +2,26 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interface.SubjectClerk;
+package SubjectClerk;
+
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
 
 /**
  *
  * @author Umesh Saranga
  */
 public class SubjectClerk_ApproveApplication extends javax.swing.JFrame {
-
+    JComboBox cmb1 = new JComboBox(new String[]{"A","B"});
+    
     /**
      * Creates new form SubjectClerk_ApproveApplication
      */
     public SubjectClerk_ApproveApplication() {
         initComponents();
+        
+       
+       
     }
 
     /**
@@ -58,7 +65,7 @@ public class SubjectClerk_ApproveApplication extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                { new Integer(1), null, "Officer of  UDA"},
+                { new Integer(1), null, ""},
                 { new Integer(2), null, null},
                 { new Integer(3), null, null},
                 { new Integer(4), null, null},
@@ -78,6 +85,7 @@ public class SubjectClerk_ApproveApplication extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(cmb1));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
