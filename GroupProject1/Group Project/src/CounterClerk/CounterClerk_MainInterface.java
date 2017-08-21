@@ -4,6 +4,12 @@
  */
 package CounterClerk;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.Timer;
+
 /**
  *
  * @author Umesh Saranga
@@ -15,6 +21,8 @@ public class CounterClerk_MainInterface extends javax.swing.JFrame {
      */
     public CounterClerk_MainInterface() {
         initComponents();
+        showDate();
+        showTime();
     }
 
     /**
@@ -32,9 +40,12 @@ public class CounterClerk_MainInterface extends javax.swing.JFrame {
         CounterClerk_ApplicantRegistration = new javax.swing.JButton();
         CounterClerk_ApplicationRegistration = new javax.swing.JButton();
         CounterClerk_SearchDetails = new javax.swing.JButton();
+        lblDate = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        Exit = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         CounterClerk_ChangePassword = new javax.swing.JMenuItem();
 
@@ -73,19 +84,37 @@ public class CounterClerk_MainInterface extends javax.swing.JFrame {
                     .addComponent(CounterClerk_SearchDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CounterClerk_ApplicationRegistration, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                     .addComponent(CounterClerk_ApplicantRegistration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(20, 20, 20)
+=======
+                .addGap(45, 45, 45)
+>>>>>>> 406377b22dec8dc63c5d3f00b266520097624383
                 .addComponent(CounterClerk_ApplicantRegistration, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(CounterClerk_ApplicationRegistration, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(CounterClerk_SearchDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addGap(22, 22, 22))
+=======
+                .addContainerGap(45, Short.MAX_VALUE))
+>>>>>>> 406377b22dec8dc63c5d3f00b266520097624383
         );
+
+        lblDate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(0, 0, 255));
+        lblDate.setText("Date");
+
+        lblTime.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblTime.setForeground(new java.awt.Color(0, 0, 255));
+        lblTime.setText("Time");
+
+        btnLogout.setText("Logout");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,32 +123,47 @@ public class CounterClerk_MainInterface extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54)
+                        .addComponent(lblDate)
+                        .addGap(81, 81, 81)
+                        .addComponent(lblTime)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLogout))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(134, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(197, 197, 197)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 113, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addGap(29, 29, 29)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTime)
+                    .addComponent(lblDate)
+                    .addComponent(btnLogout))
+                .addGap(24, 24, 24))
         );
 
         jMenu3.setText("File");
 
-        jMenuItem1.setText("Logout");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        Exit.setText("Exit");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                ExitActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem1);
+        jMenu3.add(Exit);
 
         jMenuBar2.add(jMenu3);
 
@@ -150,13 +194,31 @@ public class CounterClerk_MainInterface extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void showDate() {
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        lblDate.setText(df.format(date));
+    }
+
+    private void showTime() {
+        new Timer(0, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Date date = new Date();
+                SimpleDateFormat df = new SimpleDateFormat("hh:mm:ss a"); // use HH for het time in 24 hour format
+                lblTime.setText(df.format(date));
+            }
+        }).start();
+    }
+    
     private void CounterClerk_ApplicantRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CounterClerk_ApplicantRegistrationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CounterClerk_ApplicantRegistrationActionPerformed
@@ -165,9 +227,9 @@ public class CounterClerk_MainInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CounterClerk_SearchDetailsActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_ExitActionPerformed
 
     private void CounterClerk_ChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CounterClerk_ChangePasswordActionPerformed
         // TODO add your handling code here:
@@ -212,12 +274,15 @@ public class CounterClerk_MainInterface extends javax.swing.JFrame {
     private javax.swing.JButton CounterClerk_ApplicationRegistration;
     private javax.swing.JMenuItem CounterClerk_ChangePassword;
     private javax.swing.JButton CounterClerk_SearchDetails;
+    private javax.swing.JMenuItem Exit;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblTime;
     // End of variables declaration//GEN-END:variables
 }
