@@ -141,11 +141,15 @@ public class Login extends javax.swing.JFrame {
         }else if(login_txtPassword.getText().equals("")){
             JOptionPane.showMessageDialog(this,"Please Enter Your Password");
         }else{
-            String password = new DBOperations().userLogin(login_txtUserName.getText());
-            if(password == null){
+            String[] data = new DBOperations().userLogin(login_txtUserName.getText());
+            if(data == null){
                 JOptionPane.showMessageDialog(this,"user name not found....!");
-            }else if(login_txtPassword.getText().equals(password)){
+            }else if(login_txtPassword.getText().equals(data[0])){
                 JOptionPane.showMessageDialog(this,"login success....!");
+                switch(data[1]){
+                    case "Admin":
+                        JOptionPane.showMessageDialog(this,"login as admin....!");
+                }
             }else{
                 JOptionPane.showMessageDialog(this,"incorrect password....!");
             }

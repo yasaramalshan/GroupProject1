@@ -18,7 +18,7 @@ public class DBOperations {
     private PreparedStatement pst;
     private ResultSet rs;
 
-    public String userLogin(String userId) {
+    public String[] userLogin(String userId) {
         try {
             con = DriverManager.getConnection(url, userName, password);
             String query = "SELECT * FROM login_detail WHERE login_id =" + userId;
@@ -26,8 +26,9 @@ public class DBOperations {
             rs = pst.executeQuery();
             rs.next();//for pass the pointer to data raw,because normally the pointer points the raw with column names..without this statement the pointer does not go down 
             String adminPassword = rs.getString("password");
+            String permission_level = rs.getString("permission_level");
 
-            return adminPassword;
+            return (new String[]{adminPassword,permission_level});
         } catch (Exception e) {
             System.out.println("Exception in getAdminPassword method\n" + e);
             return null;
