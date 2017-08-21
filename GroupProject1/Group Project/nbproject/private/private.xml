@@ -2,27 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/CounterClerk/CounterClerk_MainInterface.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/TO/SearchDetails.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/TO/TOnext2.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/TO/TO.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/CounterClerk/CounterClerk_ApplicantRegistratoin.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/CounterClerk/SearchApplication.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/TO/GroupProject1.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/TO/TOMainInterface.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/CounterClerk/RegisterApplicationDetails_2.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/TO/VeiwSearchedTODetails1.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/SubjectClerk/SubjectClerk.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/TO/TOnext1.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/Login/Login.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/CounterClerk/RegisterApplicationDetails_3.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/CounterClerk/RegisterApplicationDetails_1.java</file>
-            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/TO/ViewSearchedTODetails2.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/CounterClerk/SearchApplication.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/TO/TOnext1.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/CounterClerk/RegisterApplicationDetails_2.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/CounterClerk/CounterClerk_MainInterface.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/CounterClerk/RegisterApplicationDetails_1.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/TO/TOMainInterface.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/ManagementAssistant/RateSectionReport.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/TO/VeiwSearchedTODetails1.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/TO/ViewSearchedTODetails2.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Login/Login.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/TO/SearchDetails.java</file>
+            <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/CounterClerk/RegisterApplicationDetails_3.java</file>
         </group>
-=======
-        <group/>
->>>>>>> 2657f6f58643408535bc9e3efd896fb40358936d
     </open-files>
 </project-private>
