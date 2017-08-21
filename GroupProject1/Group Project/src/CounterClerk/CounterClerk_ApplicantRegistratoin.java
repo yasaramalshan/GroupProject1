@@ -85,7 +85,7 @@ public class CounterClerk_ApplicantRegistratoin extends javax.swing.JFrame {
         jPanel2.add(ApplicantRegistration_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 260, 30));
 
         RegisterApplicantDetails_Submit.setText("Submit");
-        jPanel2.add(RegisterApplicantDetails_Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
+        jPanel2.add(RegisterApplicantDetails_Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
 
         RegisterApplicantDetails_Close.setText("Close");
         jPanel2.add(RegisterApplicantDetails_Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, -1, -1));
