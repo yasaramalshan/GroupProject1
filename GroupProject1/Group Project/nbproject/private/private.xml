@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/CounterClerk/CounterClerk_MainInterface.java</file>
             <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/TO/SearchDetails.java</file>
@@ -20,5 +21,8 @@
             <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/CounterClerk/RegisterApplicationDetails_1.java</file>
             <file>file:/C:/Users/HP/Documents/GitHub/GroupProject1/GroupProject1/Group%20Project/src/Interface/TO/ViewSearchedTODetails2.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 2657f6f58643408535bc9e3efd896fb40358936d
     </open-files>
 </project-private>
