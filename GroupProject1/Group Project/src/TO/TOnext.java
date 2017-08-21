@@ -244,9 +244,9 @@ public class TOnext extends javax.swing.JFrame {
 
         jLabel11.setText("If not..");
 
-        jButton1.setText("Add");
+        jButton1.setText("View");
 
-        jButton7.setText("View");
+        jButton7.setText("Edit");
 
         jButton8.setText("Add");
 
