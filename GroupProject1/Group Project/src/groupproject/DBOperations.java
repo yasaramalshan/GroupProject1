@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  *
@@ -13,21 +11,21 @@ import java.util.Date;
  */
 public class DBOperations {
 
-    private final String url = "jdbc:mysql://localhost:3306/hospital_management_system";
+    private final String url = "jdbc:mysql://localhost:3306/groupproject";
     private final String userName = "root";
     private final String password = "1234";
     private Connection con;//null
     private PreparedStatement pst;
     private ResultSet rs;
 
-    public String getAdminPassword() {
+    public String userLogin(String userId) {
         try {
             con = DriverManager.getConnection(url, userName, password);
-            String query = "SELECT * FROM admin_password";
+            String query = "SELECT * FROM login_detail WHERE login_id =" + userId;
             pst = con.prepareStatement(query);
             rs = pst.executeQuery();
             rs.next();//for pass the pointer to data raw,because normally the pointer points the raw with column names..without this statement the pointer does not go down 
-            String adminPassword = rs.getString("admin_password");
+            String adminPassword = rs.getString("password");
 
             return adminPassword;
         } catch (Exception e) {

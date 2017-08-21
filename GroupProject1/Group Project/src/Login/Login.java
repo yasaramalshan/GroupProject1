@@ -1,5 +1,8 @@
 package Login;
 
+import groupproject.DBOperations;
+import javax.swing.JOptionPane;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -48,6 +51,11 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Password");
 
         login_btnLogin.setText("Login");
+        login_btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_btnLoginActionPerformed(evt);
+            }
+        });
 
         login_btnClose.setText("Close");
         login_btnClose.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +134,24 @@ public class Login extends javax.swing.JFrame {
     private void login_btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnCloseActionPerformed
         System.exit(0);
     }//GEN-LAST:event_login_btnCloseActionPerformed
+
+    private void login_btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnLoginActionPerformed
+        if(login_txtUserName.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"Please Enter Your User Id");
+        }else if(login_txtPassword.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"Please Enter Your Password");
+        }else{
+            String password = new DBOperations().userLogin(login_txtUserName.getText());
+            if(password == null){
+                JOptionPane.showMessageDialog(this,"user name not found....!");
+            }else if(login_txtPassword.getText().equals(password)){
+                JOptionPane.showMessageDialog(this,"login success....!");
+            }else{
+                JOptionPane.showMessageDialog(this,"incorrect password....!");
+            }
+            
+        }
+    }//GEN-LAST:event_login_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
