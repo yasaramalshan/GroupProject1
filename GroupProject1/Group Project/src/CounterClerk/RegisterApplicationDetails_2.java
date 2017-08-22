@@ -75,7 +75,7 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
         jLabel1.setText("Register Application Details");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("2. Praposed development details");
+        jLabel2.setText("2. Praposed Development Details");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -84,7 +84,7 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
 
         jLabel4.setText("b.) Praposed Used");
 
-        jLabel5.setText("c.) Effect on neigbour houses");
+        jLabel5.setText("c.) Effects On Neigbour Houses");
 
         buttonGroup3.add(jRadioButton8);
         jRadioButton8.setText("Yes");
@@ -97,7 +97,7 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("(I)   Area coverd for the building(hectare/acre)");
+        jLabel6.setText("(I)   Area Coverd By The Building(Hectare/Acre)");
 
         RegisterApplication_2_CoveredArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,15 +105,15 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("(II)  Area of flor(hectare/acre) :");
+        jLabel7.setText("(II)  Area of The Floor(Hectare/Acre) :");
 
-        jLabel8.setText("First flor");
+        jLabel8.setText("First Floor");
 
-        jLabel9.setText("Ground flor");
+        jLabel9.setText("Ground Floor");
 
-        jLabel10.setText("Second flor");
+        jLabel10.setText("Second Floor");
 
-        jLabel11.setText("Under ground");
+        jLabel11.setText("Under Ground");
 
         RegisterApplication_2_GroundFlorArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,17 +127,17 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setText("f.) Building Location(m/km)");
+        jLabel12.setText("e.) Proposed Building Location(m/km)");
 
-        jLabel13.setText("Distance from Road");
+        jLabel13.setText("Distance From The Road");
 
         jLabel14.setText("d.)");
 
-        jLabel15.setText("Distance from right boader of the land");
+        jLabel15.setText("Distance From right Boader Of The Land");
 
-        jLabel16.setText("Distance from back boader of the land");
+        jLabel16.setText("Distance From Back Boader Of The Land");
 
-        jLabel17.setText("Distance from left boader of the land");
+        jLabel17.setText("Distance From left Boader Of The Land");
 
         RegisterApplicationDetails_2_DistanceRight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +153,7 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel18.setText("If yes..");
+        jLabel18.setText("If Yes;");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -178,19 +178,19 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jLabel18)
+                                .addComponent(jLabel18))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jRadioButton8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton8))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 12, Short.MAX_VALUE)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton9)
-                        .addGap(180, 180, 180))
+                                .addComponent(jRadioButton9)))
+                        .addGap(114, 114, 114))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18)
@@ -225,13 +225,13 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
                                 .addComponent(RegisterApplication_2_CoveredArea)))
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(58, 58, 58)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel12))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jLabel12)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1)
@@ -271,7 +271,6 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
                         .addComponent(RegisterApplication_2_FirstFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9)
                         .addComponent(RegisterApplication_2_GroundFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
@@ -281,7 +280,7 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel11)
                         .addComponent(RegisterApplication_2_UnderGroundFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -345,7 +344,7 @@ public class RegisterApplicationDetails_2 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegisterApplicationDetails_2_Next_3)
                     .addComponent(RegisterApplicationDetails_2_Back_1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

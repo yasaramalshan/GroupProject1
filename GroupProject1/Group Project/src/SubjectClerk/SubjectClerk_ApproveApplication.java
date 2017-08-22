@@ -58,7 +58,7 @@ public class SubjectClerk_ApproveApplication extends javax.swing.JFrame {
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Approval of the Panel ");
+        jLabel1.setText("Approval Of The Panel ");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Panel Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
@@ -173,7 +173,7 @@ public class SubjectClerk_ApproveApplication extends javax.swing.JFrame {
 
         jLabel5.setText("Applicant Name");
 
-        jLabel7.setText("Applicant NID");
+        jLabel7.setText("Applicant NIC");
 
         SubjectClerk_AppDetails_AplicantName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

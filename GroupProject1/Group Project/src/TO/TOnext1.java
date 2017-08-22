@@ -107,7 +107,7 @@ public class TOnext1 extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel11.setText("Satisfied with the rainwater drainage method ?");
+        jLabel11.setText("Satisfied With The Rainwater Drainage Method ?");
 
         buttonGroup1.add(jRadioButton7);
         jRadioButton7.setText("Yes");
@@ -115,7 +115,7 @@ public class TOnext1 extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton8);
         jRadioButton8.setText("No");
 
-        jLabel1.setText("Roads, Drains are physicaly existing in surveyor plan ?");
+        jLabel1.setText("Roads, Drains Are Physicaly Existing In Surveyor Plan ?");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -129,12 +129,12 @@ public class TOnext1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("If not..");
+        jLabel2.setText("If Not;");
 
         buttonGroup4.add(jRadioButton2);
         jRadioButton2.setText("No");
 
-        jLabel3.setText("Stisfied with the building boundry, ventilation, well, toilets & backside space ? ");
+        jLabel3.setText("Satisfied With The Building Boundry, Ventilation, Well, Toilets & Backside Space ? ");
 
         buttonGroup5.add(jRadioButton3);
         jRadioButton3.setText("Yes");
@@ -146,7 +146,7 @@ public class TOnext1 extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
-        jLabel4.setText("If not..");
+        jLabel4.setText("If Not;");
 
         jLabel5.setText("If this use as storage place, then what are the items used ?");
 
@@ -254,7 +254,11 @@ public class TOnext1 extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+<<<<<<< HEAD
         jLabel14.setText("Is this Store Room or Industry ?");
+=======
+        jLabel14.setText("Satisfied With The Rain Water Drainage Method ?");
+>>>>>>> 7ed402c6523c0dbaa7b3cfbd50f1df6a9230c302
 
         buttonGroup3.add(jRadioButton9);
         jRadioButton9.setText("Yes");
@@ -270,8 +274,12 @@ public class TOnext1 extends javax.swing.JFrame {
 
         jLabel6.setText("i) Is this reason for arise howsoever environmental pollution or social problem ?");
 
+<<<<<<< HEAD
         buttonGroup2.add(jRadioButton11);
         jRadioButton11.setText("Yes");
+=======
+        jLabel7.setText("If Not;");
+>>>>>>> 7ed402c6523c0dbaa7b3cfbd50f1df6a9230c302
 
         buttonGroup2.add(jRadioButton12);
         jRadioButton12.setText("No");
@@ -496,6 +504,7 @@ public class TOnext1 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
+<<<<<<< HEAD
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
@@ -506,6 +515,12 @@ public class TOnext1 extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
+=======
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+>>>>>>> 7ed402c6523c0dbaa7b3cfbd50f1df6a9230c302
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

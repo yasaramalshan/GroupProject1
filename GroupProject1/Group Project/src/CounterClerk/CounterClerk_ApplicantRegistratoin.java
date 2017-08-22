@@ -41,8 +41,6 @@ public class CounterClerk_ApplicantRegistratoin extends javax.swing.JFrame {
         ApplicantRegistration_Email = new javax.swing.JTextField();
         RegisterApplicantDetails_Submit = new javax.swing.JButton();
         RegisterApplicantDetails_Close = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        RegisterApplicantDetails_Initials = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         RegisterApplicantDetails_LastName = new javax.swing.JTextField();
 
@@ -58,27 +56,27 @@ public class CounterClerk_ApplicantRegistratoin extends javax.swing.JFrame {
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLABLE.setText("Name");
+        JLABLE.setText("Name With The Initials");
         jPanel2.add(JLABLE, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
-        jPanel2.add(RegisterApplicant_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 260, 30));
+        jPanel2.add(RegisterApplicant_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 220, 30));
 
         Address.setText("Address");
-        jPanel2.add(Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        jPanel2.add(Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         RegisterApplicant_Address.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterApplicant_AddressActionPerformed(evt);
             }
         });
-        jPanel2.add(RegisterApplicant_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 260, 30));
+        jPanel2.add(RegisterApplicant_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 220, 30));
 
-        jLabel2.setText("NID");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-        jPanel2.add(ApplicantRegistration_NID, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 260, 30));
+        jLabel2.setText("NIC");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        jPanel2.add(ApplicantRegistration_NID, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 260, 30));
 
         jLabel3.setText("Telephone Number");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
-        jPanel2.add(ApplicantRegistration_TPNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 260, 30));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        jPanel2.add(ApplicantRegistration_TPNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 260, 30));
 
         jLabel4.setText("Email");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
@@ -90,13 +88,9 @@ public class CounterClerk_ApplicantRegistratoin extends javax.swing.JFrame {
         RegisterApplicantDetails_Close.setText("Close");
         jPanel2.add(RegisterApplicantDetails_Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, -1, -1));
 
-        jLabel5.setText("Initials");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
-        jPanel2.add(RegisterApplicantDetails_Initials, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 260, 30));
-
         jLabel6.setText("Last Name");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-        jPanel2.add(RegisterApplicantDetails_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 260, 30));
+        jPanel2.add(RegisterApplicantDetails_LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 220, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 450, 330));
 
@@ -165,7 +159,6 @@ public class CounterClerk_ApplicantRegistratoin extends javax.swing.JFrame {
     private javax.swing.JTextField ApplicantRegistration_TPNum;
     private javax.swing.JLabel JLABLE;
     private javax.swing.JButton RegisterApplicantDetails_Close;
-    private javax.swing.JTextField RegisterApplicantDetails_Initials;
     private javax.swing.JTextField RegisterApplicantDetails_LastName;
     private javax.swing.JButton RegisterApplicantDetails_Submit;
     private javax.swing.JTextField RegisterApplicant_Address;
@@ -174,7 +167,6 @@ public class CounterClerk_ApplicantRegistratoin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

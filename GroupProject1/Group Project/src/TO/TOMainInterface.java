@@ -119,7 +119,7 @@ public class TOMainInterface extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Application Id", "Last Name", "NId", "Building Type"
+                "Application ID", "Last Name", "NIC", "Building Type"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

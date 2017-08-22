@@ -70,14 +70,14 @@ public class RegisterApplicationDetails_3 extends javax.swing.JFrame {
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("2. Praposed development details");
+        jLabel2.setText("2. Praposed Development Details");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel1.setText("g.) ");
+        jLabel1.setText("f.) ");
 
-        jLabel3.setText("(I)  Entrance Road width of the building ");
+        jLabel3.setText("(I)  Width Of The Entrance Road Of The Building ");
 
         RegisterApplicationDetails_3_RoadWidth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +88,12 @@ public class RegisterApplicationDetails_3 extends javax.swing.JFrame {
         jLabel4.setText("(II) Road Type");
 
         buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Privet Road");
+        jRadioButton1.setText("Private Road");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Public Road");
@@ -98,7 +103,7 @@ public class RegisterApplicationDetails_3 extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("h.) Development details");
+        jLabel5.setText("g.) Development Details");
 
         jLabel6.setText("Walls");
 
@@ -149,7 +154,7 @@ public class RegisterApplicationDetails_3 extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
@@ -165,23 +170,25 @@ public class RegisterApplicationDetails_3 extends javax.swing.JFrame {
                                             .addComponent(jLabel7)
                                             .addComponent(jLabel8))
                                         .addGap(55, 55, 55)))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(66, 66, 66)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jRadioButton3)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jRadioButton4))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jRadioButton5)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jRadioButton7))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jRadioButton8)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jRadioButton6)))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jRadioButton1)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton2))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jRadioButton3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton4))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jRadioButton5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton7))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jRadioButton8)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton6))))))
+                                        .addComponent(jRadioButton2))))))
                     .addComponent(jLabel5))
                 .addGap(22, 22, 22))
         );
@@ -219,7 +226,7 @@ public class RegisterApplicationDetails_3 extends javax.swing.JFrame {
         );
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setText("3. Number of Tempory huts required");
+        jLabel9.setText("3. Number of Tempory Huts Required");
 
         RegisterApplicationDetails_3_Back_2.setText("Back");
 
@@ -239,13 +246,13 @@ public class RegisterApplicationDetails_3 extends javax.swing.JFrame {
 
         jButton2.setText("View");
 
-        jLabel13.setText("c) If a chage or adding plan, ");
+        jLabel13.setText("c) If A Chage Or  Adding plan, ");
 
-        jLabel14.setText("i) Building plan of existing building");
+        jLabel14.setText("i) Building Plan Of Existing Building");
 
         jButton3.setText("View");
 
-        jLabel15.setText("ii) CoC report of existing building");
+        jLabel15.setText("ii) CoC Report Of Existing Building");
 
         jButton4.setText("View");
 
@@ -331,7 +338,7 @@ public class RegisterApplicationDetails_3 extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,6 +401,10 @@ public class RegisterApplicationDetails_3 extends javax.swing.JFrame {
     private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton6ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     /**
      * @param args the command line arguments

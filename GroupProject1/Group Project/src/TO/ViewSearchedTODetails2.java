@@ -86,11 +86,11 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("View Searched Details");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Details about the land which praposed development"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Details About The Land Which Proposed To Develop"));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel10.setText("If there is a building already?");
+        jLabel10.setText("If There Is A Building Already?");
 
         jRadioButton1.setText("Yes");
 
@@ -125,7 +125,7 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
 
         jLabel12.setText("Area Of The Building");
 
-        jLabel13.setText("CoC");
+        jLabel13.setText("Obtained CoC");
 
         jLabel14.setText("Plan Approvel");
 
@@ -178,7 +178,7 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
                                 .addComponent(jRadioButton5)
                                 .addGap(18, 18, 18)
                                 .addComponent(jRadioButton6)))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +231,7 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
 
         jLabel4.setText("b.) Praposed Used");
 
-        jLabel5.setText("c.) Effect on neigbour houses");
+        jLabel5.setText("c.) Effect on Neigbour Houses");
 
         jRadioButton8.setText("Yes");
 
@@ -242,7 +242,7 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("(I)   Area coverd for the building(hectare/acre)");
+        jLabel6.setText("(I)   Area Coverd For The Building(Hectare/Acre)");
 
         RegisterApplication_2_CoveredArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,15 +250,15 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("(II)  Area of flor(hectare/acre) :");
+        jLabel7.setText("(II)  Area of Floor(Hectare/Acre) :");
 
-        jLabel8.setText("First flor");
+        jLabel8.setText("First Floor");
 
-        jLabel9.setText("Ground flor");
+        jLabel9.setText("Ground Floor");
 
-        jLabel23.setText("Second flor");
+        jLabel23.setText("Second Floor");
 
-        jLabel24.setText("Under ground");
+        jLabel24.setText("Under Ground");
 
         RegisterApplication_2_GroundFlorArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,17 +272,17 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel25.setText("f.) Building Location(m/km)");
+        jLabel25.setText("e.) Building Location(m/km)");
 
-        jLabel26.setText("Distance from Road");
+        jLabel26.setText("Distance From Road");
 
         jLabel27.setText("d.)");
 
-        jLabel15.setText("Distance from right boader of the land");
+        jLabel15.setText("Distance From Right Boader Of The Land");
 
-        jLabel16.setText("Distance from back boader of the land");
+        jLabel16.setText("Distance From Back Boader Of The Land");
 
-        jLabel17.setText("Distance from left boader of the land");
+        jLabel17.setText("Distance From Left Boader Of The Land");
 
         RegisterApplicationDetails_2_DistanceRight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,7 +298,7 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel18.setText("If yes..");
+        jLabel18.setText("If Yes;");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -341,28 +341,25 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                                        .addGap(12, 12, 12)
-                                                        .addComponent(jLabel8)
-                                                        .addGap(31, 31, 31)
-                                                        .addComponent(RegisterApplication_2_FirstFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                                        .addComponent(jLabel23)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(RegisterApplication_2_SecondFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(12, 12, 12)
+                                                .addComponent(jLabel8)
+                                                .addGap(31, 31, 31)
+                                                .addComponent(RegisterApplication_2_FirstFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                                .addComponent(jLabel23)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(RegisterApplication_2_SecondFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                                .addComponent(jLabel24)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                                        .addComponent(jLabel24)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(RegisterApplication_2_UnderGroundFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                                        .addComponent(jLabel9)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(RegisterApplication_2_GroundFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addComponent(jLabel7))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addComponent(RegisterApplication_2_UnderGroundFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                                .addComponent(jLabel9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(RegisterApplication_2_GroundFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel7)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(18, 18, 18)
@@ -426,7 +423,7 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
                     .addComponent(RegisterApplication_2_UnderGroundFlorArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
                     .addComponent(RegisterApplicationDetails_2_DistanceRoad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -450,7 +447,7 @@ public class ViewSearchedTODetails2 extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(

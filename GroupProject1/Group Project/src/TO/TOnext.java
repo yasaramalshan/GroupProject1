@@ -87,6 +87,11 @@ public class TOnext extends javax.swing.JFrame {
 
         jLabel3.setText("Date Applied");
 
+<<<<<<< HEAD
+=======
+        jLabel4.setText("Applicant Number");
+
+>>>>>>> 7ed402c6523c0dbaa7b3cfbd50f1df6a9230c302
         jLabel5.setText("Applicant Details");
 
         jLabel6.setText("Details Of Proposed Development Land");
@@ -113,7 +118,7 @@ public class TOnext extends javax.swing.JFrame {
 
         jButton6.setText("Edit");
 
-        jLabel10.setText("If not..");
+        jLabel10.setText("If Not;");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -153,7 +158,7 @@ public class TOnext extends javax.swing.JFrame {
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(45, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(59, 59, 59)
@@ -203,13 +208,13 @@ public class TOnext extends javax.swing.JFrame {
 
         jLabel12.setText("Details Of Area Of the Building");
 
-        jLabel7.setText("Details about vehical Park & Avenue");
+        jLabel7.setText("Details About Vehical Park & Avenue");
 
-        jLabel15.setText("Cover Of Holding(Persentage Of)");
+        jLabel15.setText("Cover Of Holding(%)");
 
-        jLabel16.setText("Ratio Among the Area Of Flats");
+        jLabel16.setText("Ratio Among the Area Of Floors");
 
-        jLabel8.setText(" This place is appropriate according to Zonalization Plan ? ");
+        jLabel8.setText(" This Place Is Appropriate According To Zonalization Plan ");
 
         jLabel17.setText("Attachment Of Existing Building Marked ? ");
 
@@ -229,7 +234,7 @@ public class TOnext extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
-        jLabel11.setText("If not..");
+        jLabel11.setText("If Not;");
 
         jButton1.setText("View");
 
@@ -268,6 +273,7 @@ public class TOnext extends javax.swing.JFrame {
                                 .addContainerGap())))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -289,6 +295,15 @@ public class TOnext extends javax.swing.JFrame {
                                         .addComponent(jLabel15)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+=======
+                            .addComponent(jLabel17)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(50, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jRadioButton2)
+>>>>>>> 7ed402c6523c0dbaa7b3cfbd50f1df6a9230c302
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
