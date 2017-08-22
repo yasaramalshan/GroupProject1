@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package CounterClerk;
 
 import java.awt.event.ActionEvent;
@@ -246,7 +243,8 @@ public class CounterClerk_MainInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_CounterClerk_ChangePasswordActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new Login.Login().setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**

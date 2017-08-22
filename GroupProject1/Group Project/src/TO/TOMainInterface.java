@@ -58,7 +58,7 @@ public class TOMainInterface extends javax.swing.JFrame {
 
         jButton5.setText("Approve");
 
-        jButton6.setText("Regect");
+        jButton6.setText("Reject");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
