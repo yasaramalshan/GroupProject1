@@ -21,13 +21,13 @@ import javax.swing.UIManager;
  *
  * @author Yasara JLP
  */
-public class Register_User extends javax.swing.JFrame {
+public class Remove_User extends javax.swing.JFrame {
 
     Applicant applicant = new Applicant();
     private int xMouse, yMouse;
     JFrame parent;
 
-    public Register_User(JFrame parent) {
+    public Remove_User(JFrame parent) {
         initComponents();
         this.parent = parent;
     }
@@ -74,23 +74,23 @@ public class Register_User extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JTextField();
+        txtLastName1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        txtPasswrd = new javax.swing.JTextField();
+        txtNIC1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        txtConPasswrd = new javax.swing.JTextField();
+        txtTelNo1 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtEmail1 = new javax.swing.JTextField();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
-        rbtnIsMale = new javax.swing.JRadioButton();
-        rbtnIsFemale = new javax.swing.JRadioButton();
-        cmbWorkPos = new javax.swing.JComboBox<>();
-        btnPrev = new java.awt.Button();
-        btnRegUser = new java.awt.Button();
+        rbtnIsThereBuildingYes = new javax.swing.JRadioButton();
+        rbtnIsThereBuildingNo = new javax.swing.JRadioButton();
+        cmbCurBuildingPurpose = new javax.swing.JComboBox<>();
+        btnAddOwner = new java.awt.Button();
+        btnRegOwner = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -210,9 +210,9 @@ public class Register_User extends javax.swing.JFrame {
                 btnnext1MouseExited(evt);
             }
         });
-        btnnext1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                btnnext1PropertyChange(evt);
+        btnnext1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnext1ActionPerformed(evt);
             }
         });
         jPanel3.add(btnnext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 280, 78, -1));
@@ -277,7 +277,7 @@ public class Register_User extends javax.swing.JFrame {
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText(":");
         jPanel4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 63, 22, -1));
-        jPanel4.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 62, 325, -1));
+        jPanel4.add(txtLastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 62, 325, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -288,7 +288,7 @@ public class Register_User extends javax.swing.JFrame {
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText(":");
         jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 90, 23, -1));
-        jPanel4.add(txtPasswrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 90, 325, -1));
+        jPanel4.add(txtNIC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 90, 325, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -299,7 +299,7 @@ public class Register_User extends javax.swing.JFrame {
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText(":");
         jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 120, 20, -1));
-        jPanel4.add(txtConPasswrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 120, 325, -1));
+        jPanel4.add(txtTelNo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 120, 325, -1));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -322,60 +322,60 @@ public class Register_User extends javax.swing.JFrame {
         jLabel45.setText(":");
         jPanel4.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 180, 14, 20));
 
-        rbtnIsMale.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(rbtnIsMale);
-        rbtnIsMale.setText("Male");
-        jPanel4.add(rbtnIsMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
+        rbtnIsThereBuildingYes.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(rbtnIsThereBuildingYes);
+        rbtnIsThereBuildingYes.setText("Male");
+        jPanel4.add(rbtnIsThereBuildingYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
 
-        rbtnIsFemale.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(rbtnIsFemale);
-        rbtnIsFemale.setSelected(true);
-        rbtnIsFemale.setText("Female");
-        rbtnIsFemale.addActionListener(new java.awt.event.ActionListener() {
+        rbtnIsThereBuildingNo.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(rbtnIsThereBuildingNo);
+        rbtnIsThereBuildingNo.setSelected(true);
+        rbtnIsThereBuildingNo.setText("Female");
+        rbtnIsThereBuildingNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnIsFemaleActionPerformed(evt);
+                rbtnIsThereBuildingNoActionPerformed(evt);
             }
         });
-        jPanel4.add(rbtnIsFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
+        jPanel4.add(rbtnIsThereBuildingNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
 
-        cmbWorkPos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Counter Clerk", "Secretary", "Technical Officer", "Management Assistant", "Subject Clerk" }));
-        jPanel4.add(cmbWorkPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 30, 320, -1));
+        cmbCurBuildingPurpose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Counter Clerk", "Secretary", "Technical Officer", "Management Assistant", "Subject Clerk" }));
+        jPanel4.add(cmbCurBuildingPurpose, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 30, 320, -1));
 
-        btnPrev.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnPrev.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnPrev.setLabel("Prev");
-        btnPrev.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAddOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAddOwner.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnAddOwner.setLabel("Add");
+        btnAddOwner.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnPrevMouseEntered(evt);
+                btnAddOwnerMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnPrevMouseExited(evt);
+                btnAddOwnerMouseExited(evt);
             }
         });
-        btnPrev.addActionListener(new java.awt.event.ActionListener() {
+        btnAddOwner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrevActionPerformed(evt);
+                btnAddOwnerActionPerformed(evt);
             }
         });
-        jPanel4.add(btnPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 88, -1));
+        jPanel4.add(btnAddOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 88, -1));
 
-        btnRegUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnRegUser.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnRegUser.setLabel("Register");
-        btnRegUser.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRegOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRegOwner.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnRegOwner.setLabel("Register");
+        btnRegOwner.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnRegUserMouseEntered(evt);
+                btnRegOwnerMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnRegUserMouseExited(evt);
+                btnRegOwnerMouseExited(evt);
             }
         });
-        btnRegUser.addActionListener(new java.awt.event.ActionListener() {
+        btnRegOwner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegUserActionPerformed(evt);
+                btnRegOwnerActionPerformed(evt);
             }
         });
-        jPanel4.add(btnRegUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 88, -1));
+        jPanel4.add(btnRegOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 88, -1));
 
         jPanel1.add(jPanel4, "card3");
 
@@ -460,37 +460,41 @@ public class Register_User extends javax.swing.JFrame {
         resetButtonColour(btnnext1);
     }//GEN-LAST:event_btnnext1MouseExited
 
-    private void rbtnIsFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnIsFemaleActionPerformed
+    private void btnnext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnext1ActionPerformed
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            this.dispose();
+            parent.setState(0);
+        }
+    }//GEN-LAST:event_btnnext1ActionPerformed
+
+    private void rbtnIsThereBuildingNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnIsThereBuildingNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnIsFemaleActionPerformed
+    }//GEN-LAST:event_rbtnIsThereBuildingNoActionPerformed
 
-    private void btnPrevMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrevMouseEntered
-        setButtonColour(btnPrev);
-    }//GEN-LAST:event_btnPrevMouseEntered
+    private void btnAddOwnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddOwnerMouseEntered
+        setButtonColour(btnAddOwner);
+    }//GEN-LAST:event_btnAddOwnerMouseEntered
 
-    private void btnPrevMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrevMouseExited
-        resetButtonColour(btnPrev);
-    }//GEN-LAST:event_btnPrevMouseExited
+    private void btnAddOwnerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddOwnerMouseExited
+        resetButtonColour(btnAddOwner);
+    }//GEN-LAST:event_btnAddOwnerMouseExited
 
-    private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevActionPerformed
+    private void btnAddOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOwnerActionPerformed
 
-    }//GEN-LAST:event_btnPrevActionPerformed
+    }//GEN-LAST:event_btnAddOwnerActionPerformed
 
-    private void btnRegUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegUserMouseEntered
-        setButtonColour(btnRegUser);
-    }//GEN-LAST:event_btnRegUserMouseEntered
+    private void btnRegOwnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegOwnerMouseEntered
+        setButtonColour(btnRegOwner);
+    }//GEN-LAST:event_btnRegOwnerMouseEntered
 
-    private void btnRegUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegUserMouseExited
-        resetButtonColour(btnRegUser);
-    }//GEN-LAST:event_btnRegUserMouseExited
+    private void btnRegOwnerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegOwnerMouseExited
+        resetButtonColour(btnRegOwner);
+    }//GEN-LAST:event_btnRegOwnerMouseExited
 
-    private void btnRegUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegUserActionPerformed
+    private void btnRegOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegOwnerActionPerformed
         new Register_Applicant(this).setVisible(true);
-    }//GEN-LAST:event_btnRegUserActionPerformed
-
-    private void btnnext1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_btnnext1PropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnnext1PropertyChange
+    }//GEN-LAST:event_btnRegOwnerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -521,14 +525,18 @@ public class Register_User extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Register_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Remove_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Register_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Remove_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Register_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Remove_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Register_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Remove_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -544,17 +552,17 @@ public class Register_User extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new Register_User(null).setVisible(true);
+                new Remove_User(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button btnPrev;
-    private java.awt.Button btnRegUser;
+    private java.awt.Button btnAddOwner;
+    private java.awt.Button btnRegOwner;
     private java.awt.Button btnnext1;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cmbWorkPos;
+    private javax.swing.JComboBox<String> cmbCurBuildingPurpose;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -588,18 +596,18 @@ public class Register_User extends javax.swing.JFrame {
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblMinimize;
     private javax.swing.JPanel panMain;
-    private javax.swing.JRadioButton rbtnIsFemale;
-    private javax.swing.JRadioButton rbtnIsMale;
+    private javax.swing.JRadioButton rbtnIsThereBuildingNo;
+    private javax.swing.JRadioButton rbtnIsThereBuildingYes;
     private javax.swing.JTextArea txtAddress;
-    private javax.swing.JTextField txtConPasswrd;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEmail1;
     private javax.swing.JTextField txtInitName;
     private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtLastName1;
     private javax.swing.JTextField txtNIC;
-    private javax.swing.JTextField txtPasswrd;
+    private javax.swing.JTextField txtNIC1;
     private javax.swing.JTextField txtTelNo;
-    private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtTelNo1;
     // End of variables declaration//GEN-END:variables
 
 }
