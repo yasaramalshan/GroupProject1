@@ -189,7 +189,7 @@ public class TO_Main extends javax.swing.JFrame {
         tblRegisteredApplications.setSelectionBackground(new java.awt.Color(79, 142, 255));
         jScrollPane1.setViewportView(tblRegisteredApplications);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 620, 251));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 71, 620, 220));
 
         panMain.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 800, 300));
 
