@@ -10,5 +10,5 @@ package groupproject;
  * @author Yasara JLP
  */
 public class Application {
-    
+    private String ;
 }

@@ -372,10 +372,10 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel17.setText(":");
         pan1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 442, 14, -1));
 
-        cmbStreetName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbStreetName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Item 2", "Item 3", "Item 4" }));
         pan1.add(cmbStreetName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 313, 279, -1));
 
-        cmbWardNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbWardNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Item 2", "Item 3", "Item 4" }));
         pan1.add(cmbWardNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 345, 279, -1));
         pan1.add(txtSurvPlanNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 377, 279, -1));
         pan1.add(txtBlockNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 409, 170, -1));
