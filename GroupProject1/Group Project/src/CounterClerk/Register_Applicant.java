@@ -11,6 +11,7 @@ import groupproject.DBOperations;
 import java.awt.Button;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -23,9 +24,11 @@ public class Register_Applicant extends javax.swing.JFrame {
 
     Applicant applicant = new Applicant();
     private int xMouse, yMouse;
+    JFrame parent;
 
-    public Register_Applicant() {
+    public Register_Applicant(JFrame parent) {
         initComponents();
+        this.parent = parent;
     }
 
     /**
@@ -290,6 +293,7 @@ public class Register_Applicant extends javax.swing.JFrame {
         int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
+            parent.setState(0);
         }
         
     }//GEN-LAST:event_lblExitMouseClicked
@@ -321,6 +325,7 @@ public class Register_Applicant extends javax.swing.JFrame {
         int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
+            parent.setState(0);
         }
     }//GEN-LAST:event_btnCancelActionPerformed
 
@@ -424,7 +429,7 @@ public class Register_Applicant extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new Register_Applicant().setVisible(true);
+                new Register_Applicant(null).setVisible(true);
             }
         });
     }
