@@ -16,6 +16,7 @@ import java.awt.Button;
 import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -345,7 +346,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordFocusLost
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        System.exit(0);
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Exit...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            System.exit(0);
+            
+        }
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
