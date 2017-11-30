@@ -20,8 +20,10 @@ import javax.swing.UIManager;
  * @author Yasara JLP
  */
 public class Register_Applicant extends javax.swing.JFrame {
+
     Applicant applicant = new Applicant();
-    private int xMouse,yMouse;
+    private int xMouse, yMouse;
+
     public Register_Applicant() {
         initComponents();
     }
@@ -284,7 +286,12 @@ public class Register_Applicant extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        this.dispose();
+        
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            this.dispose();
+        }
+        
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
@@ -298,8 +305,8 @@ public class Register_Applicant extends javax.swing.JFrame {
     }//GEN-LAST:event_panMainMousePressed
 
     private void panMainMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMouseDragged
-        int x = evt.getXOnScreen() , y = evt.getYOnScreen();
-        this.setLocation(x-xMouse, y-yMouse);
+        int x = evt.getXOnScreen(), y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_panMainMouseDragged
 
     private void btnCancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseEntered
@@ -311,7 +318,10 @@ public class Register_Applicant extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelMouseExited
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        this.dispose();
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            this.dispose();
+        }
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseEntered
@@ -329,22 +339,22 @@ public class Register_Applicant extends javax.swing.JFrame {
         applicant.setNIC(txtNIC.getText());
         applicant.setPhone(txtTelNo.getText());
         applicant.setEmail(txtEmail.getText());
-        
+
         if (applicant.getFirstName().equals("")) {
             JOptionPane.showMessageDialog(this, "Initial Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (applicant.getLastName().equals("")) {
+        } else if (applicant.getLastName().equals("")) {
             JOptionPane.showMessageDialog(this, "Last Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (applicant.getAddress().equals("")) {
+        } else if (applicant.getAddress().equals("")) {
             JOptionPane.showMessageDialog(this, "Address can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (applicant.getNIC().equals("")) {
+        } else if (applicant.getNIC().equals("")) {
             JOptionPane.showMessageDialog(this, "NIC can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (!Extra.isValidNIC(applicant.getNIC())) {
+        } else if (!Extra.isValidNIC(applicant.getNIC())) {
             JOptionPane.showMessageDialog(this, "Invalid NIC..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (applicant.getPhone().equals("")) {
+        } else if (applicant.getPhone().equals("")) {
             JOptionPane.showMessageDialog(this, "Contact Number can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (!Extra.isValidPhoneNumber(applicant.getPhone())) {
+        } else if (!Extra.isValidPhoneNumber(applicant.getPhone())) {
             JOptionPane.showMessageDialog(this, "Invalid Contact Number..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (!applicant.getEmail().equals("") && !Extra.isValidEmail(applicant.getEmail())) {
+        } else if (!applicant.getEmail().equals("") && !Extra.isValidEmail(applicant.getEmail())) {
             JOptionPane.showMessageDialog(this, "Invalid Email..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
         } else {
             DBOperations dbops = new DBOperations();
@@ -352,7 +362,7 @@ public class Register_Applicant extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "The Applicant Already Exist..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
             } else {
                 if (dbops.addApplicant(applicant)) {
-                    JOptionPane.showMessageDialog(this, "Applicant Registration Successfull...!","Register Succeed",JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                    JOptionPane.showMessageDialog(this, "Applicant Registration Successfull...!", "Register Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
                 } else {
                     JOptionPane.showMessageDialog(this, "Insertion Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 }
@@ -367,19 +377,18 @@ public class Register_Applicant extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
-    private void setButtonColour(Button button){
-        button.setBackground(new Color(0,153,0));
+    private void setButtonColour(Button button) {
+        button.setBackground(new Color(0, 153, 0));
         button.setForeground(new Color(255, 255, 255));
-    
+
     }
-    
-    private void resetButtonColour(Button button){
-        button.setBackground(new Color(240,240,240));
+
+    private void resetButtonColour(Button button) {
+        button.setBackground(new Color(240, 240, 240));
         button.setForeground(new Color(0, 0, 0));
-    
+
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -450,5 +459,4 @@ public class Register_Applicant extends javax.swing.JFrame {
     private javax.swing.JTextField txtTelNo;
     // End of variables declaration//GEN-END:variables
 
-    
 }
