@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Image;
 import javax.imageio.ImageIO;
 import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
 import javax.swing.SwingUtilities;
@@ -1153,7 +1154,10 @@ public class Register_Application extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        this.dispose();
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            this.dispose();
+        }
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
@@ -1192,7 +1196,7 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegOwnerMouseExited
 
     private void btnRegOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegOwnerActionPerformed
-        // TODO add your handling code here:
+        new Register_Applicant(this).setVisible(true);
     }//GEN-LAST:event_btnRegOwnerActionPerformed
 
     private void btnNext1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext1MouseEntered

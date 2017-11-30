@@ -5,6 +5,7 @@
  */
 package Admin;
 
+import CounterClerk.Register_Applicant;
 import groupproject.DBOperations;
 import java.awt.Button;
 import java.awt.Color;
@@ -333,6 +334,9 @@ public class Admin_Main extends javax.swing.JFrame {
         btnApplicationReg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
         btnApplicationReg.setOpaque(true);
         btnApplicationReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnApplicationRegMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnApplicationRegMouseEntered(evt);
             }
@@ -757,6 +761,11 @@ public class Admin_Main extends javax.swing.JFrame {
     private void btnApplicantRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicantRegMouseClicked
         new CounterClerk.Register_Application().setVisible(true);
     }//GEN-LAST:event_btnApplicantRegMouseClicked
+
+    private void btnApplicationRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicationRegMouseClicked
+        new Register_Applicant(this).setVisible(true);
+        this.setState (1);
+    }//GEN-LAST:event_btnApplicationRegMouseClicked
 
     private void setBtnColour(JLabel label){
         label.setBackground(new Color(150, 150, 150));
