@@ -9,6 +9,7 @@ import Admin.Admin_Main;
 import CounterClerk.CounterClerk_Main;
 import ManagementAssistant.ManagementAssistant_Main;
 import Secretary.Secretary_Main;
+import TO.TO_Main;
 import groupproject.DBOperations;
 import groupproject.Log;
 import java.awt.Button;
@@ -16,6 +17,8 @@ import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 /**
  *
@@ -379,7 +382,7 @@ public class Login extends javax.swing.JFrame {
             new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    dbOps.setLogStatus(Integer.parseInt(userId), 1);
+                    dbOps.setLoginStatus(Integer.parseInt(userId), 1);
                     enter(Integer.parseInt(userId),res.getUserLevel());
                 }
             }, 2000);
@@ -405,7 +408,7 @@ public class Login extends javax.swing.JFrame {
                 new ManagementAssistant_Main().setVisible(true);
                 break;
             case 4://TO
-                
+                new TO_Main().setVisible(true);
                 break;
             case 5://subject clerke
                 
@@ -467,11 +470,19 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
             public void run() {
+                try {
+                    UIManager.setLookAndFeel(
+                            UIManager.getSystemLookAndFeelClassName());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 new Login().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

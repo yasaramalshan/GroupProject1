@@ -841,12 +841,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblUserId">
               <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="text" type="java.lang.String" value="User"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="580" y="10" width="40" height="10"/>
+                  <AbsoluteConstraints x="580" y="10" width="110" height="10"/>
                 </Constraint>
               </Constraints>
             </Component>

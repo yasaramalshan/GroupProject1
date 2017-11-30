@@ -30,6 +30,7 @@ public class DBOperations {
             int userStatus = rs.getInt("user_status");
 
             return (new Log(userPassword, userLevel, userStatus));
+            
         } catch (Exception e) {
             System.out.println("Exception in userLogin method\n" + e);
             return null;
@@ -50,7 +51,7 @@ public class DBOperations {
         }
     }
     
-    public void setLogStatus(int userId,int userStatus){
+    public void setLoginStatus(int userId,int userStatus){
         try {
             con = DriverManager.getConnection(url, userName,null);
             String query = "UPDATE login_detail SET user_status = "+userStatus+" WHERE user_id =" + userId;
@@ -95,6 +96,70 @@ public class DBOperations {
                 }
             } catch (Exception e) {
                 System.out.println("Exception in changeAdminPassword method\n" + e);
+            }
+        }
+    }
+    
+    public boolean addApplicant(Applicant applicant) {
+        try {
+            con = DriverManager.getConnection(url, userName, password);
+            String query = "INSERT INTO applicant VALUES (?,?,?,?,?,?,?)";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, 0);
+            pst.setString(2, applicant.getFirstName());
+            pst.setString(3, applicant.getLastName());
+            pst.setString(4, applicant.getAddress());
+            pst.setString(5, applicant.getNIC());
+            pst.setString(6, applicant.getPhone());
+            pst.setString(7, applicant.getEmail());
+
+            pst.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            System.out.println("exception in addPatient method\n" + e);
+            return false;
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
+    }
+    
+    public boolean getApplicant(String nic) {
+        try {
+            con = DriverManager.getConnection(url, userName, password);
+            String query = "SELECT * FROM applicant WHERE nic = ?";
+            pst = con.prepareStatement(query);
+            pst.setString(1,nic);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Exception in getAdminPassword method\n" + e);
+            return false;
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception ex) {
+                System.out.println(ex);
             }
         }
     }

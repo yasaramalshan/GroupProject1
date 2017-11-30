@@ -535,9 +535,9 @@ public class Admin_Main extends javax.swing.JFrame {
         });
         jPanel4.add(lblMinimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 5, 20, 20));
 
-        lblUserId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserId.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUserId.setText("User");
-        jPanel4.add(lblUserId, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 40, 10));
+        jPanel4.add(lblUserId, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 110, 10));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CounterClerk/Images/home_User_20px.png"))); // NOI18N
@@ -578,7 +578,7 @@ public class Admin_Main extends javax.swing.JFrame {
     }
 
     private void lblLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogOutMouseClicked
-        new DBOperations().setLogStatus(Integer.parseInt(lblUserId.getText()), 0);
+        new DBOperations().setLoginStatus(Integer.parseInt(lblUserId.getText()), 0);
         this.dispose();
         new Login.Login().setVisible(true);
     }//GEN-LAST:event_lblLogOutMouseClicked
