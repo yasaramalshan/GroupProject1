@@ -50,47 +50,12 @@ public class Remove_User extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         txtInitName = new javax.swing.JTextField();
-        txtLastName = new javax.swing.JTextField();
-        txtNIC = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        txtTelNo = new javax.swing.JTextField();
-        btnnext1 = new java.awt.Button();
+        btnSearch = new java.awt.Button();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtAddress = new javax.swing.JTextArea();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        txtLastName1 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        txtNIC1 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        txtTelNo1 = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        txtEmail1 = new javax.swing.JTextField();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        rbtnIsThereBuildingYes = new javax.swing.JRadioButton();
-        rbtnIsThereBuildingNo = new javax.swing.JRadioButton();
-        cmbCurBuildingPurpose = new javax.swing.JComboBox<>();
-        btnAddOwner = new java.awt.Button();
-        btnRegOwner = new java.awt.Button();
+        btnnext2 = new java.awt.Button();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -120,7 +85,7 @@ public class Remove_User extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("User Registration");
+        jLabel1.setText("User Remove");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -166,218 +131,106 @@ public class Remove_User extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Name With The Initials");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 32, 141, -1));
+        jLabel4.setText("User ID");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 80, 20));
+        jPanel3.add(txtInitName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 290, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("Last Name");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 63, 141, -1));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("Address");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 93, 130, -1));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("NIC");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 166, 141, -1));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel10.setText("Contact  Number");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 197, 141, -1));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel11.setText("E-mail");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 228, 141, -1));
-        jPanel3.add(txtInitName, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 31, 325, -1));
-        jPanel3.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 62, 325, -1));
-        jPanel3.add(txtNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 165, 325, -1));
-        jPanel3.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 227, 325, -1));
-        jPanel3.add(txtTelNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 196, 325, -1));
-
-        btnnext1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnnext1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnnext1.setLabel("Next");
-        btnnext1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSearch.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnSearch.setLabel("Search");
+        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnnext1MouseEntered(evt);
+                btnSearchMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnnext1MouseExited(evt);
+                btnSearchMouseExited(evt);
             }
         });
-        btnnext1.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnext1ActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
-        jPanel3.add(btnnext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 280, 78, -1));
+        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 78, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText(":");
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 32, 22, -1));
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 22, -1));
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText(":");
-        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 63, 22, -1));
+        btnnext2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnnext2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnnext2.setLabel("Remove");
+        btnnext2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnnext2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnnext2MouseExited(evt);
+            }
+        });
+        btnnext2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnext2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnnext2, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 280, 78, -1));
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText(":");
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 93, 22, -1));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "User Name", "NIC", "Contact No.", "E-mail"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText(":");
-        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 166, 23, -1));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText(":");
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 197, 14, -1));
-
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText(":");
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 228, 14, -1));
-
-        txtAddress.setColumns(20);
-        txtAddress.setRows(5);
-        jScrollPane2.setViewportView(txtAddress);
-
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 93, 325, 61));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 580, 200));
 
         jPanel1.add(jPanel3, "card2");
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Working Position");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 32, 141, -1));
-
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText(":");
-        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 32, 22, -1));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel12.setText("Username");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 63, 141, -1));
-
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setText(":");
-        jPanel4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 63, 22, -1));
-        jPanel4.add(txtLastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 62, 325, -1));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel13.setText("Passward");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 90, 141, -1));
-
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText(":");
-        jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 90, 23, -1));
-        jPanel4.add(txtNIC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 90, 325, -1));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel14.setText("Confirm Passward");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 120, 141, -1));
-
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText(":");
-        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 120, 20, -1));
-        jPanel4.add(txtTelNo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 120, 325, -1));
-
-        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel30.setText(":");
-        jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 150, 14, -1));
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel15.setText("E-mail");
-        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 150, 141, -1));
-        jPanel4.add(txtEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 150, 325, -1));
-
-        jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel44.setText("Gender");
-        jPanel4.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 180, 140, 20));
-
-        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel45.setText(":");
-        jPanel4.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 180, 14, 20));
-
-        rbtnIsThereBuildingYes.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(rbtnIsThereBuildingYes);
-        rbtnIsThereBuildingYes.setText("Male");
-        jPanel4.add(rbtnIsThereBuildingYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
-
-        rbtnIsThereBuildingNo.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(rbtnIsThereBuildingNo);
-        rbtnIsThereBuildingNo.setSelected(true);
-        rbtnIsThereBuildingNo.setText("Female");
-        rbtnIsThereBuildingNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnIsThereBuildingNoActionPerformed(evt);
-            }
-        });
-        jPanel4.add(rbtnIsThereBuildingNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
-
-        cmbCurBuildingPurpose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Counter Clerk", "Secretary", "Technical Officer", "Management Assistant", "Subject Clerk" }));
-        jPanel4.add(cmbCurBuildingPurpose, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 30, 320, -1));
-
-        btnAddOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAddOwner.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnAddOwner.setLabel("Add");
-        btnAddOwner.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAddOwnerMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAddOwnerMouseExited(evt);
-            }
-        });
-        btnAddOwner.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddOwnerActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnAddOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 88, -1));
-
-        btnRegOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnRegOwner.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnRegOwner.setLabel("Register");
-        btnRegOwner.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnRegOwnerMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnRegOwnerMouseExited(evt);
-            }
-        });
-        btnRegOwner.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegOwnerActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnRegOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 88, -1));
-
-        jPanel1.add(jPanel4, "card3");
 
         javax.swing.GroupLayout panMainLayout = new javax.swing.GroupLayout(panMain);
         panMain.setLayout(panMainLayout);
@@ -452,49 +305,33 @@ public class Remove_User extends javax.swing.JFrame {
         setOpacity((float) 1);
     }//GEN-LAST:event_panMainMouseReleased
 
-    private void btnnext1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnnext1MouseEntered
-        setButtonColour(btnnext1);
-    }//GEN-LAST:event_btnnext1MouseEntered
+    private void btnSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseEntered
+        setButtonColour(btnSearch);
+    }//GEN-LAST:event_btnSearchMouseEntered
 
-    private void btnnext1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnnext1MouseExited
-        resetButtonColour(btnnext1);
-    }//GEN-LAST:event_btnnext1MouseExited
+    private void btnSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseExited
+        resetButtonColour(btnSearch);
+    }//GEN-LAST:event_btnSearchMouseExited
 
-    private void btnnext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnext1ActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
             parent.setState(0);
         }
-    }//GEN-LAST:event_btnnext1ActionPerformed
+    }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void rbtnIsThereBuildingNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnIsThereBuildingNoActionPerformed
+    private void btnnext2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnnext2MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnIsThereBuildingNoActionPerformed
+    }//GEN-LAST:event_btnnext2MouseEntered
 
-    private void btnAddOwnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddOwnerMouseEntered
-        setButtonColour(btnAddOwner);
-    }//GEN-LAST:event_btnAddOwnerMouseEntered
+    private void btnnext2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnnext2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnnext2MouseExited
 
-    private void btnAddOwnerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddOwnerMouseExited
-        resetButtonColour(btnAddOwner);
-    }//GEN-LAST:event_btnAddOwnerMouseExited
-
-    private void btnAddOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOwnerActionPerformed
-
-    }//GEN-LAST:event_btnAddOwnerActionPerformed
-
-    private void btnRegOwnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegOwnerMouseEntered
-        setButtonColour(btnRegOwner);
-    }//GEN-LAST:event_btnRegOwnerMouseEntered
-
-    private void btnRegOwnerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegOwnerMouseExited
-        resetButtonColour(btnRegOwner);
-    }//GEN-LAST:event_btnRegOwnerMouseExited
-
-    private void btnRegOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegOwnerActionPerformed
-        new Register_Applicant(this).setVisible(true);
-    }//GEN-LAST:event_btnRegOwnerActionPerformed
+    private void btnnext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnext2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnnext2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -558,56 +395,21 @@ public class Remove_User extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button btnAddOwner;
-    private java.awt.Button btnRegOwner;
-    private java.awt.Button btnnext1;
+    private java.awt.Button btnSearch;
+    private java.awt.Button btnnext2;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cmbCurBuildingPurpose;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblMinimize;
     private javax.swing.JPanel panMain;
-    private javax.swing.JRadioButton rbtnIsThereBuildingNo;
-    private javax.swing.JRadioButton rbtnIsThereBuildingYes;
-    private javax.swing.JTextArea txtAddress;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEmail1;
     private javax.swing.JTextField txtInitName;
-    private javax.swing.JTextField txtLastName;
-    private javax.swing.JTextField txtLastName1;
-    private javax.swing.JTextField txtNIC;
-    private javax.swing.JTextField txtNIC1;
-    private javax.swing.JTextField txtTelNo;
-    private javax.swing.JTextField txtTelNo1;
     // End of variables declaration//GEN-END:variables
 
 }
