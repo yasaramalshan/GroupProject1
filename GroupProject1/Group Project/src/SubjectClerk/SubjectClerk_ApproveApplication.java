@@ -85,7 +85,9 @@ public class SubjectClerk_ApproveApplication extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(cmb1));
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(cmb1));
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
