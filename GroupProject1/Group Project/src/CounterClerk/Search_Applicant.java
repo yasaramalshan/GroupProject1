@@ -5,19 +5,17 @@ package CounterClerk;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-import CounterClerk.*;
 import Utility.Extra;
-import groupproject.Applicant;
-import groupproject.Applicant;
 import groupproject.DBOperations;
 import java.awt.Button;
 import java.awt.Color;
+import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,11 +23,18 @@ import javax.swing.UIManager;
  */
 public class Search_Applicant extends javax.swing.JFrame {
 
-    Applicant applicant = new Applicant();
+    ResultSet rs;
+    JTextField txtInitName,txtLastName,txtNIC,txtPhone;
+    DefaultTableModel table;
     private int xMouse, yMouse;
 
-    public Search_Applicant() {
+    public Search_Applicant(JTextField txtInitName,JTextField txtLastName,JTextField txtNIC,JTextField txtPhone) {
         initComponents();
+        this.txtInitName = txtInitName;
+        this.txtLastName = txtLastName;
+        this.txtNIC = txtNIC;
+        this.txtPhone = txtPhone;
+        table = (DefaultTableModel) tblResults.getModel();
     }
 
     /**
@@ -48,11 +53,15 @@ public class Search_Applicant extends javax.swing.JFrame {
         lblMinimize = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblResults = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        txtNIC = new javax.swing.JTextField();
+        txtField = new javax.swing.JTextField();
         btnSearch = new java.awt.Button();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        cmbSearchMethod = new javax.swing.JComboBox<>();
+        btnSelect = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -75,6 +84,7 @@ public class Search_Applicant extends javax.swing.JFrame {
                 panMainMouseReleased(evt);
             }
         });
+        panMain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(49, 58, 115));
 
@@ -98,6 +108,8 @@ public class Search_Applicant extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
         );
 
+        panMain.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 23, -1, -1));
+
         lblExit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblExit.setForeground(new java.awt.Color(255, 0, 0));
         lblExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -108,6 +120,7 @@ public class Search_Applicant extends javax.swing.JFrame {
                 lblExitMouseClicked(evt);
             }
         });
+        panMain.add(lblExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 2, 20, 20));
 
         lblMinimize.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblMinimize.setForeground(new java.awt.Color(54, 33, 89));
@@ -119,47 +132,14 @@ public class Search_Applicant extends javax.swing.JFrame {
                 lblMinimizeMouseClicked(evt);
             }
         });
+        panMain.add(lblMinimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 2, 20, 20));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblResults.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Initial Name", "Last Name", "NIC", "Contact No.", "E-mail"
@@ -168,25 +148,34 @@ public class Search_Applicant extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblResults);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 600, 230));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 600, 220));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("NIC");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 50, -1));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("By");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 20, 20));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText(":");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 23, -1));
-        jPanel1.add(txtNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 280, -1));
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 20, 20));
+
+        txtField.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jPanel1.add(txtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 180, -1));
 
         btnSearch.setActionCommand("Search");
         btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -205,36 +194,42 @@ public class Search_Applicant extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 78, 20));
+        jPanel1.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 78, -1));
 
-        javax.swing.GroupLayout panMainLayout = new javax.swing.GroupLayout(panMain);
-        panMain.setLayout(panMainLayout);
-        panMainLayout.setHorizontalGroup(
-            panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panMainLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panMainLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        panMainLayout.setVerticalGroup(
-            panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panMainLayout.createSequentialGroup()
-                .addGroup(panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setText("Applicant");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 20));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText(":");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 20, 20));
+
+        cmbSearchMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIC", "Initial Name", "Last Name" }));
+        jPanel1.add(cmbSearchMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 21, 140, 20));
+
+        panMain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 55, 616, 282));
+
+        btnSelect.setActionCommand("Search");
+        btnSelect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSelect.setEnabled(false);
+        btnSelect.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnSelect.setLabel("Select");
+        btnSelect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSelectMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSelectMouseExited(evt);
+            }
+        });
+        btnSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectActionPerformed(evt);
+            }
+        });
+        panMain.add(btnSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 343, 78, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -252,12 +247,12 @@ public class Search_Applicant extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        
-        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
         }
-        
+
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
@@ -288,11 +283,91 @@ public class Search_Applicant extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchMouseExited
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
-        if (dialogResult == JOptionPane.YES_OPTION) {
+        String text = txtField.getText().trim(); // trim() used for remove Leading & trailing spaces.
+        switch (cmbSearchMethod.getSelectedIndex()) {
+
+            case 0: // by nic
+                if (text.equals("")) {
+                    JOptionPane.showMessageDialog(this, "NIC can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else if (!Extra.isValidNIC(text)) {
+                    JOptionPane.showMessageDialog(this, "Invalid NIC..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else {
+                    generateTable(text, 0);
+                }
+                break;
+            case 1: // by initial name
+                if (text.equals("")) {
+                    JOptionPane.showMessageDialog(this, "Initial Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else {
+                    generateTable(text, 1);
+                }
+                break;
+            case 2: // by last name
+                if (text.equals("")) {
+                    JOptionPane.showMessageDialog(this, "Last Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else {
+                    generateTable(text, 2);
+                }
+                break;
+
+        }
+
+
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnSelectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSelectMouseEntered
+        setButtonColour(btnSelect);
+    }//GEN-LAST:event_btnSelectMouseEntered
+
+    private void btnSelectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSelectMouseExited
+        resetButtonColour(btnSelect);
+    }//GEN-LAST:event_btnSelectMouseExited
+
+    private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
+        try {
+            rs.absolute(tblResults.getSelectedRow() + 1);
+            txtInitName.setText(rs.getString("init_name"));
+            txtLastName.setText(rs.getString("last_name"));
+            txtNIC.setText(rs.getString("nic"));
+            txtPhone.setText(rs.getString("phone"));
+            
+        } catch (Exception e) {
+            System.out.println("Exeption in btnSelectActionPerformed method " + e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (Exception ex) {
+                System.out.println("final in btnSelectActionPerformed method " + ex);
+            }
+            
             this.dispose();
         }
-    }//GEN-LAST:event_btnSearchActionPerformed
+    }//GEN-LAST:event_btnSelectActionPerformed
+
+    private void generateTable(String text, int method) {
+        rs = new DBOperations().getApplicant(text, method);
+        System.out.println(rs);
+        try {
+            if (!rs.next()) {
+                btnSelect.setEnabled(false);
+                table.getDataVector().removeAllElements();
+                table.fireTableDataChanged(); // or table.setRowCount(0);
+                JOptionPane.showMessageDialog(this, "Applicant Not Found,Please Register The Applicant..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                rs.close();
+            } else {
+                btnSelect.setEnabled(true);
+                table.getDataVector().removeAllElements();
+                table.fireTableDataChanged();
+                do {
+                    table.addRow(new Object[]{rs.getString("init_name"), rs.getString("last_name"), rs.getString("nic"), rs.getString("phone"), rs.getString("email")});
+                } while (rs.next());
+            }
+        } catch (Exception e) {
+            System.out.println("Exeption in generateTable method " + e);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -346,24 +421,28 @@ public class Search_Applicant extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new Search_Applicant().setVisible(true);
+                new Search_Applicant(null,null,null,null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnSearch;
+    private java.awt.Button btnSelect;
+    private javax.swing.JComboBox<String> cmbSearchMethod;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblMinimize;
     private javax.swing.JPanel panMain;
-    private javax.swing.JTextField txtNIC;
+    private javax.swing.JTable tblResults;
+    private javax.swing.JTextField txtField;
     // End of variables declaration//GEN-END:variables
 
 }

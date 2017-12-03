@@ -26,7 +26,7 @@ public class Register_Applicant extends javax.swing.JFrame {
     private int xMouse, yMouse;
     JFrame parent;
 
-    public Register_Applicant(JFrame parent) {
+    public Register_Applicant(JFrame parent) { // JFrame parent
         initComponents();
         this.parent = parent;
     }
@@ -338,12 +338,16 @@ public class Register_Applicant extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegisterMouseExited
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        applicant.setFirstName(txtInitName.getText());
-        applicant.setLastName(txtLastName.getText());
-        applicant.setAddress(txtAddress.getText());
-        applicant.setNIC(txtNIC.getText());
-        applicant.setPhone(txtTelNo.getText());
-        applicant.setEmail(txtEmail.getText());
+        try {
+            applicant.setFirstName(Extra.capitalizer(txtInitName.getText())); // capitalizer method contains the trim().
+        applicant.setLastName(Extra.capitalizer(txtLastName.getText()));
+        applicant.setAddress(Extra.capitalizer(txtAddress.getText()));
+        applicant.setNIC(Extra.capitalizer(txtNIC.getText()));
+        applicant.setPhone(Extra.capitalizer(txtTelNo.getText()));
+        applicant.setEmail(Extra.capitalizer(txtEmail.getText()));
+        } catch (Exception e) {
+            System.out.println("xxxxx "+e);
+        }
 
         if (applicant.getFirstName().equals("")) {
             JOptionPane.showMessageDialog(this, "Initial Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));

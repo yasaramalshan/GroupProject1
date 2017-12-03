@@ -163,4 +163,26 @@ public class DBOperations {
             }
         }
     }
+    
+    public ResultSet getApplicant(String text,int method) {
+        try {
+            con = DriverManager.getConnection(url, userName, password);
+            String query;
+            if (method == 0) { // get details using nic
+                query = "SELECT * FROM applicant WHERE nic = ?";
+            }else if(method == 1){ // get details using initial name
+                query = "SELECT * FROM applicant WHERE init_name = ?";
+            }else{ // get details using last name
+                query = "SELECT * FROM applicant WHERE last_name = ?";
+            }
+            
+            pst = con.prepareStatement(query);
+            pst.setString(1,text);
+            rs = pst.executeQuery();
+             return rs;
+        } catch (Exception e) {
+            System.out.println("Exception in getApplicant method\n" + e);
+            return null;
+        } 
+    }
 }

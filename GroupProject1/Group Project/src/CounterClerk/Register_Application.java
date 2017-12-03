@@ -5,14 +5,16 @@
  */
 package CounterClerk;
 
+import Utility.Extra;
+import groupproject.Application;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Image;
-import javax.imageio.ImageIO;
 import java.io.File;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -22,10 +24,14 @@ import javax.swing.UIManager;
  */
 public class Register_Application extends javax.swing.JFrame {
 
-    int xMouse,yMouse;
+    Application application;
+    private int xMouse, yMouse;
+
     public Register_Application() {
         initComponents();
-        
+        initializer();
+        application = new Application();
+        txtApplicationID.setText(Extra.applicationIDGenerator());
     }
 
     /**
@@ -84,13 +90,14 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        txtFirstName = new javax.swing.JTextField();
+        txtInitName = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
-        txtSurname = new javax.swing.JTextField();
         txtNIC = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
         btnAddOwner = new java.awt.Button();
         btnRegOwner = new java.awt.Button();
         btnNext1 = new java.awt.Button();
+        btnClear = new java.awt.Button();
         pan2 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -127,9 +134,9 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel110 = new javax.swing.JLabel();
         jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
-        rbtnIsEffectToOthersYes = new javax.swing.JRadioButton();
-        rbtnIsEffectToOthersNo = new javax.swing.JRadioButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        rbtnIsEffectOnOthersYes = new javax.swing.JRadioButton();
+        rbtnIsEffectOnOthersNo = new javax.swing.JRadioButton();
+        scrAreaEffect = new javax.swing.JScrollPane();
         txtAreaEffects = new javax.swing.JTextArea();
         jSeparator1 = new javax.swing.JSeparator();
         pan3 = new javax.swing.JPanel();
@@ -181,7 +188,7 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel76 = new javax.swing.JLabel();
         txtSurveyorPlan = new javax.swing.JTextField();
         jLabel90 = new javax.swing.JLabel();
-        btnFinish4 = new java.awt.Button();
+        btnFinish = new java.awt.Button();
         jLabel89 = new javax.swing.JLabel();
         txtRoadWidth = new javax.swing.JTextField();
         jLabel130 = new javax.swing.JLabel();
@@ -309,6 +316,8 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText(":");
         pan1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 250, 14, -1));
+
+        txtApplicationID.setEditable(false);
         pan1.add(txtApplicationID, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 249, 279, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -393,7 +402,7 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel19.setText("First Name");
+        jLabel19.setText("Initial Name");
         pan1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 49, 182, 20));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -413,7 +422,7 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel23.setText("Surname ");
+        jLabel23.setText("NIC");
         pan1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 113, 182, 20));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -423,17 +432,25 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel25.setText("NIC");
+        jLabel25.setText("Contact Number");
         pan1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 145, 182, 20));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText(":");
         pan1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 147, 14, -1));
-        pan1.add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 279, -1));
+
+        txtInitName.setEditable(false);
+        pan1.add(txtInitName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 279, -1));
+
+        txtLastName.setEditable(false);
         pan1.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 82, 279, -1));
-        pan1.add(txtSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 114, 279, -1));
-        pan1.add(txtNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 146, 279, -1));
+
+        txtNIC.setEditable(false);
+        pan1.add(txtNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 114, 279, -1));
+
+        txtPhone.setEditable(false);
+        pan1.add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 146, 279, -1));
 
         btnAddOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAddOwner.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -451,7 +468,7 @@ public class Register_Application extends javax.swing.JFrame {
                 btnAddOwnerActionPerformed(evt);
             }
         });
-        pan1.add(btnAddOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(611, 177, 88, -1));
+        pan1.add(btnAddOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(611, 180, 70, -1));
 
         btnRegOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRegOwner.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -469,7 +486,7 @@ public class Register_Application extends javax.swing.JFrame {
                 btnRegOwnerActionPerformed(evt);
             }
         });
-        pan1.add(btnRegOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(709, 177, 88, -1));
+        pan1.add(btnRegOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 180, 70, -1));
 
         btnNext1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnNext1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -489,6 +506,24 @@ public class Register_Application extends javax.swing.JFrame {
         });
         pan1.add(btnNext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 471, 78, -1));
 
+        btnClear.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnClear.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnClear.setLabel("Clear");
+        btnClear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnClearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnClearMouseExited(evt);
+            }
+        });
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+        pan1.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(763, 180, 70, -1));
+
         panCard.add(pan1, "card5");
 
         pan2.setBackground(new java.awt.Color(255, 255, 255));
@@ -501,7 +536,7 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel28.setText("Type");
+        jLabel28.setText("Type Of The New Building");
         pan2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 247, 182, 20));
         pan2.add(txtType, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 247, 279, -1));
 
@@ -513,7 +548,7 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel32.setText("Effects On Neigbour Houses");
+        jLabel32.setText("Effects On Neighbour Houses");
         pan2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 310, 182, 20));
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -544,7 +579,7 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel69.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel69.setText("Current Purpose of The Buliding");
+        jLabel69.setText("Purpose of The Current Buliding");
         pan2.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 78, 182, 20));
 
         jLabel70.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -592,12 +627,22 @@ public class Register_Application extends javax.swing.JFrame {
         rbtnIsThereBuildingYes.setBackground(new java.awt.Color(255, 255, 255));
         btnGrpIsThereBuilding.add(rbtnIsThereBuildingYes);
         rbtnIsThereBuildingYes.setText("Yes");
+        rbtnIsThereBuildingYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnIsThereBuildingYesActionPerformed(evt);
+            }
+        });
         pan2.add(rbtnIsThereBuildingYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 25, -1, -1));
 
         rbtnIsThereBuildingNo.setBackground(new java.awt.Color(255, 255, 255));
         btnGrpIsThereBuilding.add(rbtnIsThereBuildingNo);
         rbtnIsThereBuildingNo.setSelected(true);
         rbtnIsThereBuildingNo.setText("No");
+        rbtnIsThereBuildingNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnIsThereBuildingNoActionPerformed(evt);
+            }
+        });
         pan2.add(rbtnIsThereBuildingNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 25, -1, -1));
 
         jLabel102.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -610,7 +655,7 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel103.setText(":");
         pan2.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 109, 14, 20));
 
-        cmbCurBuildingPurpose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCurBuildingPurpose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Select -", "Item 1", "Item 2", "Item 3", "Item 4" }));
         pan2.add(cmbCurBuildingPurpose, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 78, 279, -1));
 
         rbtnIsPlanApprovedNo.setBackground(new java.awt.Color(255, 255, 255));
@@ -622,6 +667,11 @@ public class Register_Application extends javax.swing.JFrame {
         rbtnIsPlanApprovedYes.setBackground(new java.awt.Color(255, 255, 255));
         btnGrpIsPlanApproved.add(rbtnIsPlanApprovedYes);
         rbtnIsPlanApprovedYes.setText("Yes");
+        rbtnIsPlanApprovedYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnIsPlanApprovedYesActionPerformed(evt);
+            }
+        });
         pan2.add(rbtnIsPlanApprovedYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 109, -1, -1));
 
         jLabel104.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -680,22 +730,32 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel112.setText(":");
         pan2.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 310, 14, 20));
 
-        rbtnIsEffectToOthersYes.setBackground(new java.awt.Color(255, 255, 255));
-        btnGrpIsEffectToOthers.add(rbtnIsEffectToOthersYes);
-        rbtnIsEffectToOthersYes.setText("Yes");
-        pan2.add(rbtnIsEffectToOthersYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
+        rbtnIsEffectOnOthersYes.setBackground(new java.awt.Color(255, 255, 255));
+        btnGrpIsEffectToOthers.add(rbtnIsEffectOnOthersYes);
+        rbtnIsEffectOnOthersYes.setText("Yes");
+        rbtnIsEffectOnOthersYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnIsEffectOnOthersYesActionPerformed(evt);
+            }
+        });
+        pan2.add(rbtnIsEffectOnOthersYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
 
-        rbtnIsEffectToOthersNo.setBackground(new java.awt.Color(255, 255, 255));
-        btnGrpIsEffectToOthers.add(rbtnIsEffectToOthersNo);
-        rbtnIsEffectToOthersNo.setSelected(true);
-        rbtnIsEffectToOthersNo.setText("No");
-        pan2.add(rbtnIsEffectToOthersNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, -1, -1));
+        rbtnIsEffectOnOthersNo.setBackground(new java.awt.Color(255, 255, 255));
+        btnGrpIsEffectToOthers.add(rbtnIsEffectOnOthersNo);
+        rbtnIsEffectOnOthersNo.setSelected(true);
+        rbtnIsEffectOnOthersNo.setText("No");
+        rbtnIsEffectOnOthersNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnIsEffectOnOthersNoActionPerformed(evt);
+            }
+        });
+        pan2.add(rbtnIsEffectOnOthersNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, -1, -1));
 
         txtAreaEffects.setColumns(20);
         txtAreaEffects.setRows(5);
-        jScrollPane1.setViewportView(txtAreaEffects);
+        scrAreaEffect.setViewportView(txtAreaEffects);
 
-        pan2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 336, 280, 90));
+        pan2.add(scrAreaEffect, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 336, 280, 90));
         pan2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 64, 485, 10));
 
         panCard.add(pan2, "card5");
@@ -921,23 +981,23 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel90.setText("Width Of The Entrance Road");
         pan4.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 25, 182, 20));
 
-        btnFinish4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnFinish4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnFinish4.setLabel("Finish");
-        btnFinish4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnFinish.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnFinish.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnFinish.setLabel("Finish");
+        btnFinish.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnFinish4MouseEntered(evt);
+                btnFinishMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnFinish4MouseExited(evt);
+                btnFinishMouseExited(evt);
             }
         });
-        btnFinish4.addActionListener(new java.awt.event.ActionListener() {
+        btnFinish.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinish4ActionPerformed(evt);
+                btnFinishActionPerformed(evt);
             }
         });
-        pan4.add(btnFinish4, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 471, 78, -1));
+        pan4.add(btnFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 471, 78, -1));
 
         jLabel89.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel89.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1154,7 +1214,7 @@ public class Register_Application extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
         }
@@ -1171,8 +1231,8 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_panMainMousePressed
 
     private void panMainMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMouseDragged
-        int x = evt.getXOnScreen() , y = evt.getYOnScreen();
-        this.setLocation(x-xMouse, y-yMouse);
+        int x = evt.getXOnScreen(), y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_panMainMouseDragged
 
     private void btnAddOwnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddOwnerMouseEntered
@@ -1184,7 +1244,10 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddOwnerMouseExited
 
     private void btnAddOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOwnerActionPerformed
-        
+
+        new Search_Applicant(txtInitName, txtLastName, txtNIC, txtPhone).setVisible(true);
+
+
     }//GEN-LAST:event_btnAddOwnerActionPerformed
 
     private void btnRegOwnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegOwnerMouseEntered
@@ -1208,8 +1271,34 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNext1MouseExited
 
     private void btnNext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext1ActionPerformed
-        hideAllPanels();
-        pan2.show();
+        if (txtNIC.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please Set The Owner's Details..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (txtRatePaymentReceiptNo.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Rate Payment Receipt Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (cmbStreetName.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Street Name Not Selected..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (cmbWardNo.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Ward Number Not Selected..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (txtSurvPlanNo.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Surveyor Plan Number Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (txtBlockNo.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Block Number Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (txtAreaOfTheLand.getText().trim().equals("") || txtAreaOfTheLand.getText().equals("0")) {
+            JOptionPane.showMessageDialog(this, "Area Of The Land Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (!Extra.isDouble(txtAreaOfTheLand.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Area Of The Land Must Be A Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else {
+            application.setApplicantNIC(txtNIC.getText()); // those all String setters have the trim() in application class.
+            application.setApplicationID(txtApplicationID.getText());
+            application.setRatePaymentReceiptNo(txtRatePaymentReceiptNo.getText());
+            application.setStreetName((String) cmbStreetName.getSelectedItem());
+            application.setWardNo((String) cmbWardNo.getSelectedItem());
+            application.setSurvayorPlanNo(txtSurvPlanNo.getText());
+            application.setBlockNo(txtBlockNo.getText());
+            application.setAreaOfTheLand(Double.parseDouble(txtAreaOfTheLand.getText()));
+            hideAllPanels();
+            pan2.show();
+        }
     }//GEN-LAST:event_btnNext1ActionPerformed
 
     private void btnNext2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext2MouseEntered
@@ -1221,21 +1310,81 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNext2MouseExited
 
     private void btnNext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext2ActionPerformed
-        hideAllPanels();
-        pan3.show();
+        boolean isCurBuildingOk = false;
+        if (rbtnIsThereBuildingYes.isSelected()) {
+            if (cmbCurBuildingPurpose.getSelectedIndex() == 0) {
+                JOptionPane.showMessageDialog(this, "Purpose of The Current Buliding Is Not Set..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (txtCurBuildingArea.getText().trim().equals("")) {
+                JOptionPane.showMessageDialog(this, "Area of The Current Buliding Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (!Extra.isDouble(txtCurBuildingArea.getText().trim())) {
+                JOptionPane.showMessageDialog(this, "Area of The Current Buliding Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else {
+                isCurBuildingOk = true;
+                application.setPurposeOfCurrentBuilding((String) cmbCurBuildingPurpose.getSelectedItem());
+                if (rbtnIsPlanApprovedYes.isSelected()) {
+                    application.setIsCurrentBuildingPlanApproved(true);
+                } else {
+                    application.setIsCurrentBuildingPlanApproved(false);
+                }
+                application.setAreaOfCurrentBuilding(Double.parseDouble(txtCurBuildingArea.getText().trim()));
+                if (rbtnIsObtainedCoCYes.isSelected()) {
+                    application.setIsCurrentBuildingHaveCOC(true);
+                } else {
+                    application.setIsCurrentBuildingHaveCOC(false);
+                }
+            }
+        } else {
+            isCurBuildingOk = true;
+        }
+
+        if (isCurBuildingOk) {
+            if (txtType.getText().trim().equals("")) {
+                JOptionPane.showMessageDialog(this, "Type Of The New Building Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (txtUse.getText().trim().equals("")) {
+                JOptionPane.showMessageDialog(this, "Proposed Use Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (txtType.getText().trim().equals("")) {
+                JOptionPane.showMessageDialog(this, "Type Of The New Building Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (rbtnIsEffectOnOthersYes.isSelected() && txtAreaEffects.getText().trim().equals("")) {
+                JOptionPane.showMessageDialog(this, "Effect Field Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (txtBuildingCoveredArea.getText().trim().equals("")) {
+                JOptionPane.showMessageDialog(this, "The Area Covered by The Building Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (!Extra.isDouble(txtBuildingCoveredArea.getText().trim())) {
+                JOptionPane.showMessageDialog(this, "The Area Covered by The Building Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else {
+                application.setTypeOfTheBuilding(txtType.getText());
+                application.setProposedUse(txtUse.getText());
+                if (rbtnIsEffectOnOthersYes.isSelected()) {
+                    application.setEffectOnNeighbour(txtAreaEffects.getText());
+                }
+                application.setAreaCoveredByBuilding(Double.parseDouble(txtBuildingCoveredArea.getText()));
+
+                hideAllPanels();
+                pan3.show();
+            }
+
+        }
     }//GEN-LAST:event_btnNext2ActionPerformed
 
-    private void btnFinish4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinish4MouseEntered
-        setButtonColour(btnFinish4);
-    }//GEN-LAST:event_btnFinish4MouseEntered
+    private void btnFinishMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinishMouseEntered
+        setButtonColour(btnFinish);
+    }//GEN-LAST:event_btnFinishMouseEntered
 
-    private void btnFinish4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinish4MouseExited
-        resetButtonColour(btnFinish4);
-    }//GEN-LAST:event_btnFinish4MouseExited
+    private void btnFinishMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinishMouseExited
+        resetButtonColour(btnFinish);
+    }//GEN-LAST:event_btnFinishMouseExited
 
-    private void btnFinish4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinish4ActionPerformed
+    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
+        if (txtRoadWidth.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "The Road Width Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(!Extra.isDouble(txtRoadWidth.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "The Road Width Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(txtSurveyorPlan.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(this, "Please Select The Survayor Plan..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(txtBuildingPlan.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(this, "Please Select The Building Plan..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }
         
-    }//GEN-LAST:event_btnFinish4ActionPerformed
+    }//GEN-LAST:event_btnFinishActionPerformed
 
     private void btnPrev2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrev2MouseEntered
         setButtonColour(btnPrev2);
@@ -1259,9 +1408,66 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNext3MouseExited
 
     private void btnNext3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext3ActionPerformed
-        hideAllPanels();
-        pan4.show();
+        // data validation for Area Scales
+        if (txtGroundFloor.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Ground Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(!Extra.isDouble(txtGroundFloor.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Ground Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if (txtFirstFloor.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "First Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(!Extra.isDouble(txtFirstFloor.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "First Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if (txtSecondFloor.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Second Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(!Extra.isDouble(txtSecondFloor.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Second Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if (txtThirdFloor.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Third Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(!Extra.isDouble(txtThirdFloor.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Third Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if (txtUnderGroundFloor.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Under Ground Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(!Extra.isDouble(txtUnderGroundFloor.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Under Ground Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }
+        // data validation for Distances
+        else if (txtRoad.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Distance From The Road Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(!Extra.isDouble(txtRoad.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Distance From The Road Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if (txtBackBoader.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Distance From The Back Boader Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(!Extra.isDouble(txtBackBoader.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Distance From The Back Boader Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if (txtRightBoader.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Distance From The Right Boader Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(!Extra.isDouble(txtRightBoader.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Distance From The Right Boader Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if (txtLeftBoader.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Distance From The Left Boader Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(!Extra.isDouble(txtLeftBoader.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "Distance From The Left Boader Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }
         
+        else {
+            double floorAreas[] = new double[5];
+            floorAreas[0] = Double.parseDouble(txtGroundFloor.getText().trim());
+            floorAreas[1] = Double.parseDouble(txtFirstFloor.getText().trim());
+            floorAreas[2] = Double.parseDouble(txtSecondFloor.getText().trim());
+            floorAreas[3] = Double.parseDouble(txtThirdFloor.getText().trim());
+            floorAreas[4] = Double.parseDouble(txtUnderGroundFloor.getText().trim());
+            double distances[] = new double[4];
+            distances[0] = Double.parseDouble(txtRoad.getText().trim());
+            distances[1] = Double.parseDouble(txtBackBoader.getText().trim());
+            distances[2] = Double.parseDouble(txtRightBoader.getText().trim());
+            distances[3] = Double.parseDouble(txtLeftBoader.getText().trim());
+            
+            application.setFloorAreas(floorAreas);
+            application.setDistances(distances);
+            hideAllPanels();
+            pan4.show();
+        }
+
     }//GEN-LAST:event_btnNext3ActionPerformed
 
     private void btnPrev3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrev3MouseEntered
@@ -1285,14 +1491,13 @@ public class Register_Application extends javax.swing.JFrame {
             File file = chooser.getSelectedFile();
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
-            if(img!=null){
-                //
+            if (img != null) {
                 txtSurveyorPlan.setText(path);
-            }else{
-                JOptionPane.showMessageDialog(this,  "Please Select An Image File...!", "Error",JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
             }
-        } catch (Exception ex) {
-            System.out.println("surveyor plan");
+        } catch (Exception e) {
+            System.out.println("surveyor plan " + e);
         }
 
     }//GEN-LAST:event_btnSurveyorPlanActionPerformed
@@ -1305,11 +1510,11 @@ public class Register_Application extends javax.swing.JFrame {
             File file = chooser.getSelectedFile();
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
-            if(img!=null){
+            if (img != null) {
                 //
                 txtSurveyorPlan.setText(path);
-            }else{
-                JOptionPane.showMessageDialog(this,  "Please Select An Image File...!", "Error",JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception ex) {
             System.out.println("surveyor plan");
@@ -1324,11 +1529,11 @@ public class Register_Application extends javax.swing.JFrame {
             File file = chooser.getSelectedFile();
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
-            if(img!=null){
+            if (img != null) {
                 //
                 txtExistingBuildingPlan.setText(path);
-            }else{
-                JOptionPane.showMessageDialog(this,  "Please Select An Image File...!", "Error",JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception ex) {
             System.out.println("existing building plan");
@@ -1343,11 +1548,11 @@ public class Register_Application extends javax.swing.JFrame {
             File file = chooser.getSelectedFile();
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
-            if(img!=null){
+            if (img != null) {
                 //
                 txtExistingCoC.setText(path);
-            }else{
-                JOptionPane.showMessageDialog(this,  "Please Select An Image File...!", "Error",JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception ex) {
             System.out.println("existing CoC plan");
@@ -1370,26 +1575,95 @@ public class Register_Application extends javax.swing.JFrame {
         hideAllPanels();
         pan3.show();
     }//GEN-LAST:event_btnPrev4ActionPerformed
-    
-    private void hideAllPanels(){
+
+    private void btnClearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearMouseEntered
+        setButtonColour(btnClear);
+    }//GEN-LAST:event_btnClearMouseEntered
+
+    private void btnClearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearMouseExited
+        resetButtonColour(btnClear);
+    }//GEN-LAST:event_btnClearMouseExited
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        txtInitName.setText("");
+        txtLastName.setText("");
+        txtNIC.setText("");
+        txtPhone.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void rbtnIsThereBuildingYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnIsThereBuildingYesActionPerformed
+        enableThereIsABuildingBody();
+    }//GEN-LAST:event_rbtnIsThereBuildingYesActionPerformed
+
+    private void rbtnIsThereBuildingNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnIsThereBuildingNoActionPerformed
+        disableThereIsABuildingBody();
+    }//GEN-LAST:event_rbtnIsThereBuildingNoActionPerformed
+
+    private void rbtnIsEffectOnOthersNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnIsEffectOnOthersNoActionPerformed
+        disableEffectOnNeighbourBoady();
+    }//GEN-LAST:event_rbtnIsEffectOnOthersNoActionPerformed
+
+    private void rbtnIsEffectOnOthersYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnIsEffectOnOthersYesActionPerformed
+        enableEffectOnNeighbourBoady();
+    }//GEN-LAST:event_rbtnIsEffectOnOthersYesActionPerformed
+
+    private void rbtnIsPlanApprovedYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnIsPlanApprovedYesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnIsPlanApprovedYesActionPerformed
+
+    private void hideAllPanels() {
         pan1.hide();
         pan2.hide();
         pan3.hide();
         pan4.hide();
-    
+
     }
-    private void setButtonColour(Button button){
-        button.setBackground(new Color(0,153,0));
+
+    private void setButtonColour(Button button) {
+        button.setBackground(new Color(0, 153, 0));
         button.setForeground(new Color(255, 255, 255));
-    
+
     }
-    
-    private void resetButtonColour(Button button){
-        button.setBackground(new Color(240,240,240));
+
+    private void resetButtonColour(Button button) {
+        button.setBackground(new Color(240, 240, 240));
         button.setForeground(new Color(0, 0, 0));
-    
+
     }
-    
+
+    private void initializer() {
+        disableThereIsABuildingBody();
+        disableEffectOnNeighbourBoady();
+    }
+
+    private void disableThereIsABuildingBody() {
+        cmbCurBuildingPurpose.setEnabled(false);
+        rbtnIsPlanApprovedYes.setEnabled(false);
+        rbtnIsPlanApprovedNo.setEnabled(false);
+        txtCurBuildingArea.setEnabled(false);
+        rbtnIsObtainedCoCYes.setEnabled(false);
+        rbtnIsObtainedCoCNo.setEnabled(false);
+    }
+
+    private void enableThereIsABuildingBody() {
+        cmbCurBuildingPurpose.setEnabled(true);
+        rbtnIsPlanApprovedYes.setEnabled(true);
+        rbtnIsPlanApprovedNo.setEnabled(true);
+        txtCurBuildingArea.setEnabled(true);
+        rbtnIsObtainedCoCYes.setEnabled(true);
+        rbtnIsObtainedCoCNo.setEnabled(true);
+    }
+
+    private void disableEffectOnNeighbourBoady() {
+        txtAreaEffects.setEnabled(false);
+        scrAreaEffect.setEnabled(false);
+    }
+
+    private void enableEffectOnNeighbourBoady() {
+        txtAreaEffects.setEnabled(true);
+        scrAreaEffect.setEnabled(true);
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -1430,15 +1704,16 @@ public class Register_Application extends javax.swing.JFrame {
                 new Register_Application().setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnAddOwner;
     private javax.swing.JButton btnBuildingPlan;
+    private java.awt.Button btnClear;
     private javax.swing.JButton btnExistingBuildingPlan;
     private javax.swing.JButton btnExistingCoC;
-    private java.awt.Button btnFinish4;
+    private java.awt.Button btnFinish;
     private javax.swing.ButtonGroup btnGrpEntranceRoad;
     private javax.swing.ButtonGroup btnGrpFloor;
     private javax.swing.ButtonGroup btnGrpIsEffectToOthers;
@@ -1558,7 +1833,6 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1577,8 +1851,8 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnEntranceRoadPublic;
     private javax.swing.JRadioButton rbtnFloorComplete;
     private javax.swing.JRadioButton rbtnFloorNotComplete;
-    private javax.swing.JRadioButton rbtnIsEffectToOthersNo;
-    private javax.swing.JRadioButton rbtnIsEffectToOthersYes;
+    private javax.swing.JRadioButton rbtnIsEffectOnOthersNo;
+    private javax.swing.JRadioButton rbtnIsEffectOnOthersYes;
     private javax.swing.JRadioButton rbtnIsObtainedCoCNo;
     private javax.swing.JRadioButton rbtnIsObtainedCoCYes;
     private javax.swing.JRadioButton rbtnIsPlanApprovedNo;
@@ -1589,6 +1863,7 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnRoofNotComplete;
     private javax.swing.JRadioButton rbtnWallsComplete;
     private javax.swing.JRadioButton rbtnWallsNotComplete;
+    private javax.swing.JScrollPane scrAreaEffect;
     private javax.swing.JTextField txtApplicationID;
     private javax.swing.JTextArea txtAreaEffects;
     private javax.swing.JTextField txtAreaOfTheLand;
@@ -1600,17 +1875,17 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JTextField txtExistingBuildingPlan;
     private javax.swing.JTextField txtExistingCoC;
     private javax.swing.JTextField txtFirstFloor;
-    private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtGroundFloor;
+    private javax.swing.JTextField txtInitName;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtLeftBoader;
     private javax.swing.JTextField txtNIC;
+    private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtRatePaymentReceiptNo;
     private javax.swing.JTextField txtRightBoader;
     private javax.swing.JTextField txtRoad;
     private javax.swing.JTextField txtRoadWidth;
     private javax.swing.JTextField txtSecondFloor;
-    private javax.swing.JTextField txtSurname;
     private javax.swing.JTextField txtSurvPlanNo;
     private javax.swing.JTextField txtSurveyorPlan;
     private javax.swing.JTextField txtThirdFloor;
@@ -1618,4 +1893,5 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JTextField txtUnderGroundFloor;
     private javax.swing.JTextField txtUse;
     // End of variables declaration//GEN-END:variables
+
 }
