@@ -71,8 +71,12 @@ public class TO_Main extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        btnSearch = new java.awt.Button();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRegisteredApplications = new javax.swing.JTable();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        txtAppID = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -162,6 +166,24 @@ public class TO_Main extends javax.swing.JFrame {
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 780, 20));
 
+        btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSearch.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnSearch.setLabel("Search");
+        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSearchMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSearchMouseExited(evt);
+            }
+        });
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 78, 20));
+
         jScrollPane1.setBorder(null);
 
         tblRegisteredApplications.setModel(new javax.swing.table.DefaultTableModel(
@@ -189,7 +211,26 @@ public class TO_Main extends javax.swing.JFrame {
         tblRegisteredApplications.setSelectionBackground(new java.awt.Color(79, 142, 255));
         jScrollPane1.setViewportView(tblRegisteredApplications);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 620, 251));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 71, 620, 220));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText(":");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 14, -1));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel19.setText("Application ID");
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 130, 20));
+
+        txtAppID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAppIDActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtAppID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 240, -1));
 
         panMain.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 800, 300));
 
@@ -335,6 +376,23 @@ public class TO_Main extends javax.swing.JFrame {
         setOpacity((float) 1);
     }//GEN-LAST:event_panMainMouseReleased
 
+    private void txtAppIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAppIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAppIDActionPerformed
+
+    private void btnSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseEntered
+        setButtonColour(btnSearch);
+    }//GEN-LAST:event_btnSearchMouseEntered
+
+    private void btnSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseExited
+        resetButtonColour(btnSearch);
+    }//GEN-LAST:event_btnSearchMouseExited
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        hideAllPanels();
+        pan2.show();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -374,9 +432,12 @@ public class TO_Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -396,5 +457,6 @@ public class TO_Main extends javax.swing.JFrame {
     private javax.swing.JLabel lblTime;
     private javax.swing.JPanel panMain;
     private javax.swing.JTable tblRegisteredApplications;
+    private javax.swing.JTextField txtAppID;
     // End of variables declaration//GEN-END:variables
 }
