@@ -14,10 +14,10 @@ import javax.swing.UIManager;
  *
  * @author Yasara JLP
  */
-public class ManagementAssistant extends javax.swing.JFrame {
+public class Requirement_Review_1 extends javax.swing.JFrame {
 
     int xMouse,yMouse;
-    public ManagementAssistant() {
+    public Requirement_Review_1() {
         initComponents();
         
     }
@@ -722,14 +722,16 @@ public class ManagementAssistant extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagementAssistant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Requirement_Review_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagementAssistant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Requirement_Review_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagementAssistant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Requirement_Review_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManagementAssistant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Requirement_Review_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -743,7 +745,7 @@ public class ManagementAssistant extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new ManagementAssistant().setVisible(true);
+                new Requirement_Review_1().setVisible(true);
             }
         });
         
