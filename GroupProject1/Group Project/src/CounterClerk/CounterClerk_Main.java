@@ -10,9 +10,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+<<<<<<< HEAD
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+=======
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
@@ -70,19 +76,43 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        btnViewForm = new java.awt.Button();
+        btnEditForm = new java.awt.Button();
+        btnApproveForm = new java.awt.Button();
+        btnRejectForm = new java.awt.Button();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRegisteredApplications = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        lblLogOut = new javax.swing.JLabel();
+        lblMinimize = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+=======
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRegisteredApplications = new javax.swing.JTable();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+<<<<<<< HEAD
+        jSeparator2 = new javax.swing.JSeparator();
+        btnApplicationRem = new javax.swing.JLabel();
+        btnApplicationReg = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JLabel();
+        btnEdit = new javax.swing.JLabel();
+        btnResetPass = new javax.swing.JLabel();
+        btnReport = new javax.swing.JLabel();
+=======
         jPanel4 = new javax.swing.JPanel();
         lblLogOut = new javax.swing.JLabel();
         lblMinimize = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -159,7 +189,83 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         jLabel5.setText("Registered Applications");
         jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 220, 20));
 
+<<<<<<< HEAD
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 780, 20));
+
+        btnViewForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnViewForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnViewForm.setLabel("View");
+        btnViewForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnViewFormMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnViewFormMouseExited(evt);
+            }
+        });
+        btnViewForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewFormActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnViewForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 100, -1));
+
+        btnEditForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEditForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnEditForm.setLabel("Edit");
+        btnEditForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEditFormMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEditFormMouseExited(evt);
+            }
+        });
+        btnEditForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditFormActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEditForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, 100, -1));
+
+        btnApproveForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnApproveForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnApproveForm.setLabel("Approve");
+        btnApproveForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnApproveFormMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnApproveFormMouseExited(evt);
+            }
+        });
+        btnApproveForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApproveFormActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnApproveForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 100, -1));
+
+        btnRejectForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRejectForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnRejectForm.setLabel("Reject");
+        btnRejectForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRejectFormMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRejectFormMouseExited(evt);
+            }
+        });
+        btnRejectForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectFormActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRejectForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, 100, -1));
+=======
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 780, 20));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jScrollPane1.setBorder(null);
 
@@ -175,9 +281,12 @@ public class CounterClerk_Main extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+<<<<<<< HEAD
+=======
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 {null, null, null, null}
             },
             new String [] {
@@ -188,6 +297,11 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         tblRegisteredApplications.setSelectionBackground(new java.awt.Color(79, 142, 255));
         jScrollPane1.setViewportView(tblRegisteredApplications);
 
+<<<<<<< HEAD
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 670, 188));
+
+        panMain.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 800, 290));
+=======
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 620, 251));
 
         panMain.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 800, 300));
@@ -217,6 +331,7 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 10, 150));
 
         panMain.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 800, 170));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -263,6 +378,144 @@ public class CounterClerk_Main extends javax.swing.JFrame {
 
         panMain.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 800, 30));
 
+<<<<<<< HEAD
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel1.setText("Counter Clerk");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CounterClerk/Images/home2.png"))); // NOI18N
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 130, 140));
+
+        lblTime.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTime.setText("time");
+        jPanel3.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 120, 30));
+
+        lblDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDate.setText("date");
+        jPanel3.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 94, -1, -1));
+
+        jSeparator1.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 280, 10));
+
+        jSeparator2.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator2.setForeground(new java.awt.Color(204, 204, 204));
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 10, 150));
+
+        btnApplicationRem.setBackground(new java.awt.Color(190, 190, 190));
+        btnApplicationRem.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btnApplicationRem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnApplicationRem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_rem_user.png"))); // NOI18N
+        btnApplicationRem.setText("  Applicant Remove   ");
+        btnApplicationRem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
+        btnApplicationRem.setOpaque(true);
+        btnApplicationRem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnApplicationRemMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnApplicationRemMouseExited(evt);
+            }
+        });
+        jPanel3.add(btnApplicationRem, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 190, 25));
+
+        btnApplicationReg.setBackground(new java.awt.Color(190, 190, 190));
+        btnApplicationReg.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btnApplicationReg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnApplicationReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_Add_User.png"))); // NOI18N
+        btnApplicationReg.setText(" Applicant Registration   ");
+        btnApplicationReg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
+        btnApplicationReg.setOpaque(true);
+        btnApplicationReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnApplicationRegMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnApplicationRegMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnApplicationRegMouseExited(evt);
+            }
+        });
+        jPanel3.add(btnApplicationReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 190, 25));
+
+        btnSearch.setBackground(new java.awt.Color(190, 190, 190));
+        btnSearch.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btnSearch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_Search.png"))); // NOI18N
+        btnSearch.setText(" Search Details                 ");
+        btnSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
+        btnSearch.setOpaque(true);
+        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSearchMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSearchMouseExited(evt);
+            }
+        });
+        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 190, 25));
+
+        btnEdit.setBackground(new java.awt.Color(190, 190, 190));
+        btnEdit.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btnEdit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_Edit.png"))); // NOI18N
+        btnEdit.setText("  Edit Details               ");
+        btnEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
+        btnEdit.setOpaque(true);
+        btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEditMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEditMouseExited(evt);
+            }
+        });
+        jPanel3.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 190, 25));
+
+        btnResetPass.setBackground(new java.awt.Color(190, 190, 190));
+        btnResetPass.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btnResetPass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnResetPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_Forgot_Password.png"))); // NOI18N
+        btnResetPass.setText("Reset Passwords             ");
+        btnResetPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
+        btnResetPass.setOpaque(true);
+        btnResetPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnResetPassMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnResetPassMouseExited(evt);
+            }
+        });
+        jPanel3.add(btnResetPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 190, 25));
+
+        btnReport.setBackground(new java.awt.Color(190, 190, 190));
+        btnReport.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btnReport.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_Report.png"))); // NOI18N
+        btnReport.setText(" Report Generation  ");
+        btnReport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
+        btnReport.setOpaque(true);
+        btnReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnReportMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnReportMouseExited(evt);
+            }
+        });
+        jPanel3.add(btnReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 190, 25));
+
+        panMain.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 800, 180));
+
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -334,6 +587,110 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         setOpacity((float) 1);
     }//GEN-LAST:event_panMainMouseReleased
 
+<<<<<<< HEAD
+    private void btnViewFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewFormMouseEntered
+        setButtonColour(btnViewForm);
+    }//GEN-LAST:event_btnViewFormMouseEntered
+
+    private void btnViewFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewFormMouseExited
+        resetButtonColour(btnViewForm);
+    }//GEN-LAST:event_btnViewFormMouseExited
+
+    private void btnViewFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewFormActionPerformed
+
+    }//GEN-LAST:event_btnViewFormActionPerformed
+
+    private void btnEditFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditFormMouseEntered
+        setButtonColour(btnEditForm);
+    }//GEN-LAST:event_btnEditFormMouseEntered
+
+    private void btnEditFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditFormMouseExited
+        resetButtonColour(btnEditForm);
+    }//GEN-LAST:event_btnEditFormMouseExited
+
+    private void btnEditFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditFormActionPerformed
+
+    }//GEN-LAST:event_btnEditFormActionPerformed
+
+    private void btnApproveFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApproveFormMouseEntered
+        setButtonColour(btnApproveForm);
+    }//GEN-LAST:event_btnApproveFormMouseEntered
+
+    private void btnApproveFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApproveFormMouseExited
+        resetButtonColour(btnApproveForm);
+    }//GEN-LAST:event_btnApproveFormMouseExited
+
+    private void btnApproveFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveFormActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnApproveFormActionPerformed
+
+    private void btnRejectFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRejectFormMouseEntered
+        setButtonColour(btnRejectForm);
+    }//GEN-LAST:event_btnRejectFormMouseEntered
+
+    private void btnRejectFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRejectFormMouseExited
+        resetButtonColour(btnRejectForm);
+    }//GEN-LAST:event_btnRejectFormMouseExited
+
+    private void btnRejectFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectFormActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRejectFormActionPerformed
+
+    private void btnApplicationRemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicationRemMouseEntered
+        setBtnColour(btnApplicationRem);
+    }//GEN-LAST:event_btnApplicationRemMouseEntered
+
+    private void btnApplicationRemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicationRemMouseExited
+        resetBtnColour(btnApplicationRem);
+    }//GEN-LAST:event_btnApplicationRemMouseExited
+
+    private void btnApplicationRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicationRegMouseClicked
+        new Register_Applicant(this).setVisible(true);
+        this.setState (1);
+    }//GEN-LAST:event_btnApplicationRegMouseClicked
+
+    private void btnApplicationRegMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicationRegMouseEntered
+        setBtnColour(btnApplicationReg);
+    }//GEN-LAST:event_btnApplicationRegMouseEntered
+
+    private void btnApplicationRegMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicationRegMouseExited
+        resetBtnColour(btnApplicationReg);
+    }//GEN-LAST:event_btnApplicationRegMouseExited
+
+    private void btnSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseEntered
+        setBtnColour(btnSearch);
+    }//GEN-LAST:event_btnSearchMouseEntered
+
+    private void btnSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseExited
+        resetBtnColour(btnSearch);
+    }//GEN-LAST:event_btnSearchMouseExited
+
+    private void btnEditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseEntered
+        setBtnColour(btnEdit);
+    }//GEN-LAST:event_btnEditMouseEntered
+
+    private void btnEditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseExited
+        resetBtnColour(btnEdit);
+    }//GEN-LAST:event_btnEditMouseExited
+
+    private void btnResetPassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetPassMouseEntered
+        setBtnColour(btnResetPass);
+    }//GEN-LAST:event_btnResetPassMouseEntered
+
+    private void btnResetPassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetPassMouseExited
+        resetBtnColour(btnResetPass);
+    }//GEN-LAST:event_btnResetPassMouseExited
+
+    private void btnReportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportMouseEntered
+        setBtnColour(btnReport);
+    }//GEN-LAST:event_btnReportMouseEntered
+
+    private void btnReportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportMouseExited
+        resetBtnColour(btnReport);
+    }//GEN-LAST:event_btnReportMouseExited
+
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     /**
      * @param args the command line arguments
      */
@@ -345,7 +702,11 @@ public class CounterClerk_Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+<<<<<<< HEAD
+                if ("Nimbus".equals(info.getName())) {
+=======
                 if ("Windows".equals(info.getName())) {
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -363,6 +724,10 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+<<<<<<< HEAD
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+=======
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -372,12 +737,26 @@ public class CounterClerk_Main extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 new CounterClerk_Main().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
+    private javax.swing.JLabel btnApplicationReg;
+    private javax.swing.JLabel btnApplicationRem;
+    private java.awt.Button btnApproveForm;
+    private javax.swing.JLabel btnEdit;
+    private java.awt.Button btnEditForm;
+    private java.awt.Button btnRejectForm;
+    private javax.swing.JLabel btnReport;
+    private javax.swing.JLabel btnResetPass;
+    private javax.swing.JLabel btnSearch;
+    private java.awt.Button btnViewForm;
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
@@ -394,6 +773,10 @@ public class CounterClerk_Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+<<<<<<< HEAD
+    private javax.swing.JSeparator jSeparator2;
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblLogOut;
     private javax.swing.JLabel lblMinimize;

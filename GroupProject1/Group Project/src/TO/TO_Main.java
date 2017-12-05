@@ -5,6 +5,11 @@
  */
 package TO;
 
+<<<<<<< HEAD
+=======
+import Admin.*;
+import CounterClerk.Register_Applicant;
+>>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
 import groupproject.DBOperations;
 import java.awt.Button;
 import java.awt.Color;
@@ -86,7 +91,11 @@ public class TO_Main extends javax.swing.JFrame {
         lblDate = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+<<<<<<< HEAD
         btnApplicantRemove = new javax.swing.JLabel();
+=======
+        btnApplicantRem = new javax.swing.JLabel();
+>>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
         btnSearch = new javax.swing.JLabel();
         btnEdit = new javax.swing.JLabel();
         btnResetPass = new javax.swing.JLabel();
@@ -199,6 +208,7 @@ public class TO_Main extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblRegisteredApplications);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 670, 188));
+<<<<<<< HEAD
 
         btnViewForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnViewForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
@@ -272,6 +282,81 @@ public class TO_Main extends javax.swing.JFrame {
         });
         jPanel2.add(btnRejectForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, 100, -1));
 
+=======
+
+        btnViewForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnViewForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnViewForm.setLabel("View");
+        btnViewForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnViewFormMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnViewFormMouseExited(evt);
+            }
+        });
+        btnViewForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewFormActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnViewForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 100, -1));
+
+        btnEditForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEditForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnEditForm.setLabel("Edit");
+        btnEditForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEditFormMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEditFormMouseExited(evt);
+            }
+        });
+        btnEditForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditFormActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEditForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, 100, -1));
+
+        btnApproveForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnApproveForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnApproveForm.setLabel("Approve");
+        btnApproveForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnApproveFormMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnApproveFormMouseExited(evt);
+            }
+        });
+        btnApproveForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApproveFormActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnApproveForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 100, -1));
+
+        btnRejectForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRejectForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnRejectForm.setLabel("Reject");
+        btnRejectForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRejectFormMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRejectFormMouseExited(evt);
+            }
+        });
+        btnRejectForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectFormActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRejectForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, 100, -1));
+
+>>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
         panMain.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 800, 290));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
@@ -302,6 +387,7 @@ public class TO_Main extends javax.swing.JFrame {
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 10, 150));
 
+<<<<<<< HEAD
         btnApplicantRemove.setBackground(new java.awt.Color(190, 190, 190));
         btnApplicantRemove.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         btnApplicantRemove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -318,6 +404,24 @@ public class TO_Main extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btnApplicantRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 190, 25));
+=======
+        btnApplicantRem.setBackground(new java.awt.Color(190, 190, 190));
+        btnApplicantRem.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btnApplicantRem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnApplicantRem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_app_rem.png"))); // NOI18N
+        btnApplicantRem.setText("  Application Remove");
+        btnApplicantRem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
+        btnApplicantRem.setOpaque(true);
+        btnApplicantRem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnApplicantRemMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnApplicantRemMouseExited(evt);
+            }
+        });
+        jPanel3.add(btnApplicantRem, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 190, 25));
+>>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
 
         btnSearch.setBackground(new java.awt.Color(190, 190, 190));
         btnSearch.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
@@ -542,6 +646,7 @@ public class TO_Main extends javax.swing.JFrame {
     private void btnViewFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewFormActionPerformed
 
     }//GEN-LAST:event_btnViewFormActionPerformed
+<<<<<<< HEAD
 
     private void btnViewFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewFormMouseExited
         resetButtonColour(btnViewForm);
@@ -551,6 +656,17 @@ public class TO_Main extends javax.swing.JFrame {
         setButtonColour(btnViewForm);
     }//GEN-LAST:event_btnViewFormMouseEntered
 
+=======
+
+    private void btnViewFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewFormMouseExited
+        resetButtonColour(btnViewForm);
+    }//GEN-LAST:event_btnViewFormMouseExited
+
+    private void btnViewFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewFormMouseEntered
+        setButtonColour(btnViewForm);
+    }//GEN-LAST:event_btnViewFormMouseEntered
+
+>>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
     private void btnEditFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditFormMouseEntered
         setButtonColour(btnEditForm);
     }//GEN-LAST:event_btnEditFormMouseEntered
@@ -587,6 +703,7 @@ public class TO_Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRejectFormActionPerformed
 
+<<<<<<< HEAD
     private void btnApplicantRemoveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicantRemoveMouseExited
         resetBtnColour(btnApplicantRemove);
     }//GEN-LAST:event_btnApplicantRemoveMouseExited
@@ -594,6 +711,15 @@ public class TO_Main extends javax.swing.JFrame {
     private void btnApplicantRemoveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicantRemoveMouseEntered
         setBtnColour(btnApplicantRemove);
     }//GEN-LAST:event_btnApplicantRemoveMouseEntered
+=======
+    private void btnApplicantRemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicantRemMouseExited
+        resetBtnColour(btnApplicantRem);
+    }//GEN-LAST:event_btnApplicantRemMouseExited
+
+    private void btnApplicantRemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicantRemMouseEntered
+        setBtnColour(btnApplicantRem);
+    }//GEN-LAST:event_btnApplicantRemMouseEntered
+>>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
 
     private void setBtnColour(JLabel label){
         label.setBackground(new Color(150, 150, 150));
@@ -626,21 +752,28 @@ public class TO_Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+<<<<<<< HEAD
                 if ("Nimbus".equals(info.getName())) {
+<<<<<<< HEAD
 
                 if ("Widows".equals(info.getName())) 
+=======
+=======
+                if ("Widows".equals(info.getName())) {
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
+>>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TO_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TO_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TO_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TO_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -666,10 +799,17 @@ public class TO_Main extends javax.swing.JFrame {
         });
         
     }
+<<<<<<< HEAD
     
                         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnApplicantRemove;
+=======
+
+    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnApplicantRem;
+>>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
     private java.awt.Button btnApproveForm;
     private javax.swing.JLabel btnEdit;
     private java.awt.Button btnEditForm;

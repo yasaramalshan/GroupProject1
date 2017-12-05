@@ -798,7 +798,11 @@ public class Admin_Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+<<<<<<< HEAD
+                if ("Nimbus".equals(info.getName())) {
+=======
                 if ("Widows".equals(info.getName())) {
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

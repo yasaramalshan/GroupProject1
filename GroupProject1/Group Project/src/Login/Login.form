@@ -30,7 +30,11 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+          <Component id="panelMain" alignment="0" max="32767" attributes="0"/>
+=======
           <Component id="panelMain" min="-2" max="-2" attributes="0"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
       </Group>
     </DimensionLayout>
   </Layout>
@@ -62,10 +66,14 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+              <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+=======
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel1" min="-2" pref="333" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
           </Group>
         </DimensionLayout>
       </Layout>
@@ -91,8 +99,93 @@
                 </Constraint>
               </Constraints>
 
+<<<<<<< HEAD
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="lblMinimize" min="-2" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="lblExit" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="318" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel4" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="jSeparator3" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="btnLogin" min="-2" pref="78" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel5" min="-2" pref="244" max="-2" attributes="0"/>
+                                          <EmptySpace pref="45" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="jLabel2" min="-2" pref="34" max="-2" attributes="0"/>
+                                              <Component id="jLabel3" min="-2" pref="34" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtUser" max="32767" attributes="0"/>
+                                              <Component id="jSeparator1" max="32767" attributes="0"/>
+                                              <Component id="txtPassword" alignment="0" min="-2" pref="283" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblMinimize" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="lblExit" min="-2" pref="20" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel2" max="32767" attributes="0"/>
+                                      <Component id="txtUser" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel3" max="32767" attributes="0"/>
+                                      <Component id="txtPassword" pref="30" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" min="-2" pref="206" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnLogin" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="63" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+=======
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
                 <Property name="useNullLayout" type="boolean" value="false"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JTextField" name="txtUser">
@@ -103,6 +196,10 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="73" green="3a" red="31" type="rgb"/>
                     </Property>
+<<<<<<< HEAD
+                    <Property name="text" type="java.lang.String" value="User"/>
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -111,11 +208,14 @@
                     <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtUserFocusGained"/>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtUserFocusLost"/>
                   </Events>
+<<<<<<< HEAD
+=======
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="389" y="98" width="283" height="30"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator1">
                   <Properties>
@@ -123,11 +223,14 @@
                       <Color blue="73" green="3a" red="31" type="rgb"/>
                     </Property>
                   </Properties>
+<<<<<<< HEAD
+=======
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="389" y="128" width="283" height="10"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator2">
                   <Properties>
@@ -135,11 +238,14 @@
                       <Color blue="73" green="3a" red="31" type="rgb"/>
                     </Property>
                   </Properties>
+<<<<<<< HEAD
+=======
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="389" y="219" width="283" height="10"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
@@ -148,11 +254,14 @@
                       <Image iconType="3" name="/Login/icons8_Contacts_25px_1.png"/>
                     </Property>
                   </Properties>
+<<<<<<< HEAD
+=======
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="337" y="98" width="34" height="30"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
@@ -161,11 +270,14 @@
                       <Image iconType="3" name="/Login/icons8_Key_25px.png"/>
                     </Property>
                   </Properties>
+<<<<<<< HEAD
+=======
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="337" y="189" width="34" height="30"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
@@ -177,11 +289,14 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Login"/>
                   </Properties>
+<<<<<<< HEAD
+=======
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="318" y="35" width="63" height="-1"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
                 <Component class="javax.swing.JPasswordField" name="txtPassword">
                   <Properties>
@@ -191,6 +306,10 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="73" green="3a" red="31" type="rgb"/>
                     </Property>
+<<<<<<< HEAD
+                    <Property name="text" type="java.lang.String" value="Password"/>
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -198,12 +317,17 @@
                   <Events>
                     <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPasswordFocusGained"/>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPasswordFocusLost"/>
+<<<<<<< HEAD
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPasswordActionPerformed"/>
+                  </Events>
+=======
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="389" y="189" width="283" height="30"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblExit">
                   <Properties>
@@ -222,11 +346,14 @@
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblExitMouseClicked"/>
                   </Events>
+<<<<<<< HEAD
+=======
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="717" y="0" width="20" height="20"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblMinimize">
                   <Properties>
@@ -245,11 +372,14 @@
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblMinimizeMouseClicked"/>
                   </Events>
+<<<<<<< HEAD
+=======
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="697" y="0" width="20" height="20"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
                 <Component class="java.awt.Button" name="btnLogin">
                   <Properties>
@@ -267,11 +397,14 @@
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnLoginMouseExited"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
                   </Events>
+<<<<<<< HEAD
+=======
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="639" y="300" width="78" height="-1"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator3">
                   <Properties>
@@ -279,6 +412,10 @@
                       <Color blue="73" green="3a" red="31" type="rgb"/>
                     </Property>
                   </Properties>
+<<<<<<< HEAD
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel5">
+=======
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="318" y="62" width="354" height="10"/>
@@ -297,6 +434,7 @@
                       <AbsoluteConstraints x="70" y="60" width="200" height="200"/>
                     </Constraint>
                   </Constraints>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 </Component>
               </SubComponents>
             </Container>
@@ -332,7 +470,11 @@
                           <Component id="lblLoad" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                          <EmptySpace pref="77" max="32767" attributes="0"/>
+=======
                           <EmptySpace pref="56" max="32767" attributes="0"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                       </Group>
                   </Group>
                 </DimensionLayout>

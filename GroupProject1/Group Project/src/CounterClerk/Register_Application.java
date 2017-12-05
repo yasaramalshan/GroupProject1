@@ -5,6 +5,15 @@
  */
 package CounterClerk;
 
+<<<<<<< HEAD
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Image;
+import javax.imageio.ImageIO;
+import java.io.File;
+import javax.swing.JOptionPane;
+import javax.swing.JFileChooser;
+=======
 import Utility.Extra;
 import groupproject.Application;
 import groupproject.DBOperations;
@@ -17,6 +26,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -25,7 +35,17 @@ import javax.swing.UIManager;
  * @author Yasara JLP
  */
 public class Register_Application extends javax.swing.JFrame {
+<<<<<<< HEAD
     FileInputStream  surveyorPlanNew,buildingPlanNew,buildingPlanOld,cocOld;
+=======
+
+<<<<<<< HEAD
+    int xMouse,yMouse;
+    public Register_Application() {
+        initComponents();
+        
+=======
+>>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
     Application application;
     private int xMouse, yMouse;
 
@@ -34,6 +54,7 @@ public class Register_Application extends javax.swing.JFrame {
         initializer();
         application = new Application();
         txtApplicationID.setText(Extra.applicationIDGenerator());
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }
 
     /**
@@ -77,8 +98,13 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        cmbStreetName = new javax.swing.JComboBox<String>();
+        cmbWardNo = new javax.swing.JComboBox<String>();
+=======
         cmbStreetName = new javax.swing.JComboBox<>();
         cmbWardNo = new javax.swing.JComboBox<>();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         txtSurvPlanNo = new javax.swing.JTextField();
         txtBlockNo = new javax.swing.JTextField();
         txtAreaOfTheLand = new javax.swing.JTextField();
@@ -92,6 +118,15 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        txtFirstName = new javax.swing.JTextField();
+        txtLastName = new javax.swing.JTextField();
+        txtSurname = new javax.swing.JTextField();
+        txtNIC = new javax.swing.JTextField();
+        btnAddOwner = new java.awt.Button();
+        btnRegOwner = new java.awt.Button();
+        btnNext1 = new java.awt.Button();
+=======
         txtInitName = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
         txtNIC = new javax.swing.JTextField();
@@ -100,6 +135,7 @@ public class Register_Application extends javax.swing.JFrame {
         btnRegOwner = new java.awt.Button();
         btnNext1 = new java.awt.Button();
         btnClear = new java.awt.Button();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan2 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -122,7 +158,11 @@ public class Register_Application extends javax.swing.JFrame {
         rbtnIsThereBuildingNo = new javax.swing.JRadioButton();
         jLabel102 = new javax.swing.JLabel();
         jLabel103 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        cmbCurBuildingPurpose = new javax.swing.JComboBox<String>();
+=======
         cmbCurBuildingPurpose = new javax.swing.JComboBox<>();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         rbtnIsPlanApprovedNo = new javax.swing.JRadioButton();
         rbtnIsPlanApprovedYes = new javax.swing.JRadioButton();
         jLabel104 = new javax.swing.JLabel();
@@ -136,9 +176,15 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel110 = new javax.swing.JLabel();
         jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        rbtnIsEffectToOthersYes = new javax.swing.JRadioButton();
+        rbtnIsEffectToOthersNo = new javax.swing.JRadioButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+=======
         rbtnIsEffectOnOthersYes = new javax.swing.JRadioButton();
         rbtnIsEffectOnOthersNo = new javax.swing.JRadioButton();
         scrAreaEffect = new javax.swing.JScrollPane();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         txtAreaEffects = new javax.swing.JTextArea();
         jSeparator1 = new javax.swing.JSeparator();
         pan3 = new javax.swing.JPanel();
@@ -190,7 +236,11 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel76 = new javax.swing.JLabel();
         txtSurveyorPlan = new javax.swing.JTextField();
         jLabel90 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        btnFinish4 = new java.awt.Button();
+=======
         btnFinish = new java.awt.Button();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         jLabel89 = new javax.swing.JLabel();
         txtRoadWidth = new javax.swing.JTextField();
         jLabel130 = new javax.swing.JLabel();
@@ -318,8 +368,11 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText(":");
         pan1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 250, 14, -1));
+<<<<<<< HEAD
+=======
 
         txtApplicationID.setEditable(false);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan1.add(txtApplicationID, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 249, 279, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -383,10 +436,21 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel17.setText(":");
         pan1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 442, 14, -1));
 
+<<<<<<< HEAD
+        cmbStreetName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pan1.add(cmbStreetName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 313, 279, -1));
+
+        cmbWardNo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+=======
         cmbStreetName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Item 2", "Item 3", "Item 4" }));
         pan1.add(cmbStreetName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 313, 279, -1));
 
+<<<<<<< HEAD
         cmbWardNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "12", "34" }));
+=======
+        cmbWardNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Item 2", "Item 3", "Item 4" }));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
+>>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
         pan1.add(cmbWardNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 345, 279, -1));
         pan1.add(txtSurvPlanNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 377, 279, -1));
         pan1.add(txtBlockNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 409, 170, -1));
@@ -404,7 +468,11 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+<<<<<<< HEAD
+        jLabel19.setText("First Name");
+=======
         jLabel19.setText("Initial Name");
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 49, 182, 20));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -424,7 +492,11 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+<<<<<<< HEAD
+        jLabel23.setText("Surname ");
+=======
         jLabel23.setText("NIC");
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 113, 182, 20));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -434,13 +506,23 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+<<<<<<< HEAD
+        jLabel25.setText("NIC");
+=======
         jLabel25.setText("Contact Number");
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 145, 182, 20));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText(":");
         pan1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 147, 14, -1));
+<<<<<<< HEAD
+        pan1.add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 279, -1));
+        pan1.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 82, 279, -1));
+        pan1.add(txtSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 114, 279, -1));
+        pan1.add(txtNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 146, 279, -1));
+=======
 
         txtInitName.setEditable(false);
         pan1.add(txtInitName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 279, -1));
@@ -453,6 +535,7 @@ public class Register_Application extends javax.swing.JFrame {
 
         txtPhone.setEditable(false);
         pan1.add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 146, 279, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         btnAddOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAddOwner.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -470,7 +553,11 @@ public class Register_Application extends javax.swing.JFrame {
                 btnAddOwnerActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
+        pan1.add(btnAddOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 180, 78, -1));
+=======
         pan1.add(btnAddOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(611, 180, 70, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         btnRegOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRegOwner.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -488,7 +575,11 @@ public class Register_Application extends javax.swing.JFrame {
                 btnRegOwnerActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
+        pan1.add(btnRegOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 180, 78, -1));
+=======
         pan1.add(btnRegOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 180, 70, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         btnNext1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnNext1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -506,6 +597,9 @@ public class Register_Application extends javax.swing.JFrame {
                 btnNext1ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
+        pan1.add(btnNext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 460, 78, -1));
+=======
         pan1.add(btnNext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 471, 78, -1));
 
         btnClear.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -525,6 +619,7 @@ public class Register_Application extends javax.swing.JFrame {
             }
         });
         pan1.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(763, 180, 70, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         panCard.add(pan1, "card5");
 
@@ -538,7 +633,11 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+<<<<<<< HEAD
+        jLabel28.setText("Type");
+=======
         jLabel28.setText("Type Of The New Building");
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 247, 182, 20));
         pan2.add(txtType, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 247, 279, -1));
 
@@ -550,7 +649,11 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+<<<<<<< HEAD
+        jLabel32.setText("Effects On Neigbour Houses");
+=======
         jLabel32.setText("Effects On Neighbour Houses");
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 310, 182, 20));
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -581,7 +684,11 @@ public class Register_Application extends javax.swing.JFrame {
 
         jLabel69.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+<<<<<<< HEAD
+        jLabel69.setText("Current Purpose of The Buliding");
+=======
         jLabel69.setText("Purpose of The Current Buliding");
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan2.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 78, 182, 20));
 
         jLabel70.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -629,22 +736,28 @@ public class Register_Application extends javax.swing.JFrame {
         rbtnIsThereBuildingYes.setBackground(new java.awt.Color(255, 255, 255));
         btnGrpIsThereBuilding.add(rbtnIsThereBuildingYes);
         rbtnIsThereBuildingYes.setText("Yes");
+<<<<<<< HEAD
+=======
         rbtnIsThereBuildingYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnIsThereBuildingYesActionPerformed(evt);
             }
         });
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan2.add(rbtnIsThereBuildingYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 25, -1, -1));
 
         rbtnIsThereBuildingNo.setBackground(new java.awt.Color(255, 255, 255));
         btnGrpIsThereBuilding.add(rbtnIsThereBuildingNo);
         rbtnIsThereBuildingNo.setSelected(true);
         rbtnIsThereBuildingNo.setText("No");
+<<<<<<< HEAD
+=======
         rbtnIsThereBuildingNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnIsThereBuildingNoActionPerformed(evt);
             }
         });
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan2.add(rbtnIsThereBuildingNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 25, -1, -1));
 
         jLabel102.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -657,7 +770,11 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel103.setText(":");
         pan2.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 109, 14, 20));
 
+<<<<<<< HEAD
+        cmbCurBuildingPurpose.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+=======
         cmbCurBuildingPurpose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Select -", "Item 1", "Item 2", "Item 3", "Item 4" }));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan2.add(cmbCurBuildingPurpose, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 78, 279, -1));
 
         rbtnIsPlanApprovedNo.setBackground(new java.awt.Color(255, 255, 255));
@@ -669,11 +786,14 @@ public class Register_Application extends javax.swing.JFrame {
         rbtnIsPlanApprovedYes.setBackground(new java.awt.Color(255, 255, 255));
         btnGrpIsPlanApproved.add(rbtnIsPlanApprovedYes);
         rbtnIsPlanApprovedYes.setText("Yes");
+<<<<<<< HEAD
+=======
         rbtnIsPlanApprovedYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnIsPlanApprovedYesActionPerformed(evt);
             }
         });
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan2.add(rbtnIsPlanApprovedYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 109, -1, -1));
 
         jLabel104.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -732,6 +852,24 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel112.setText(":");
         pan2.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 310, 14, 20));
 
+<<<<<<< HEAD
+        rbtnIsEffectToOthersYes.setBackground(new java.awt.Color(255, 255, 255));
+        btnGrpIsEffectToOthers.add(rbtnIsEffectToOthersYes);
+        rbtnIsEffectToOthersYes.setText("Yes");
+        pan2.add(rbtnIsEffectToOthersYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
+
+        rbtnIsEffectToOthersNo.setBackground(new java.awt.Color(255, 255, 255));
+        btnGrpIsEffectToOthers.add(rbtnIsEffectToOthersNo);
+        rbtnIsEffectToOthersNo.setSelected(true);
+        rbtnIsEffectToOthersNo.setText("No");
+        pan2.add(rbtnIsEffectToOthersNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, -1, -1));
+
+        txtAreaEffects.setColumns(20);
+        txtAreaEffects.setRows(5);
+        jScrollPane1.setViewportView(txtAreaEffects);
+
+        pan2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 336, 280, 90));
+=======
         rbtnIsEffectOnOthersYes.setBackground(new java.awt.Color(255, 255, 255));
         btnGrpIsEffectToOthers.add(rbtnIsEffectOnOthersYes);
         rbtnIsEffectOnOthersYes.setText("Yes");
@@ -758,6 +896,7 @@ public class Register_Application extends javax.swing.JFrame {
         scrAreaEffect.setViewportView(txtAreaEffects);
 
         pan2.add(scrAreaEffect, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 336, 280, 90));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 64, 485, 10));
 
         panCard.add(pan2, "card5");
@@ -983,6 +1122,25 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel90.setText("Width Of The Entrance Road");
         pan4.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 25, 182, 20));
 
+<<<<<<< HEAD
+        btnFinish4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnFinish4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnFinish4.setLabel("Finish");
+        btnFinish4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFinish4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFinish4MouseExited(evt);
+            }
+        });
+        btnFinish4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinish4ActionPerformed(evt);
+            }
+        });
+        pan4.add(btnFinish4, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 471, 78, -1));
+=======
         btnFinish.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnFinish.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         btnFinish.setLabel("Finish");
@@ -1000,6 +1158,7 @@ public class Register_Application extends javax.swing.JFrame {
             }
         });
         pan4.add(btnFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 471, 78, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel89.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel89.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1216,10 +1375,14 @@ public class Register_Application extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
+<<<<<<< HEAD
+        this.dispose();
+=======
         int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
         }
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
@@ -1233,8 +1396,13 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_panMainMousePressed
 
     private void panMainMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMouseDragged
+<<<<<<< HEAD
+        int x = evt.getXOnScreen() , y = evt.getYOnScreen();
+        this.setLocation(x-xMouse, y-yMouse);
+=======
         int x = evt.getXOnScreen(), y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }//GEN-LAST:event_panMainMouseDragged
 
     private void btnAddOwnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddOwnerMouseEntered
@@ -1246,10 +1414,14 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddOwnerMouseExited
 
     private void btnAddOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOwnerActionPerformed
+<<<<<<< HEAD
+        
+=======
 
         new Search_Applicant(txtInitName, txtLastName, txtNIC, txtPhone).setVisible(true);
 
 
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }//GEN-LAST:event_btnAddOwnerActionPerformed
 
     private void btnRegOwnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegOwnerMouseEntered
@@ -1261,7 +1433,11 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegOwnerMouseExited
 
     private void btnRegOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegOwnerActionPerformed
+<<<<<<< HEAD
+        
+=======
         new Register_Applicant(this).setVisible(true);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }//GEN-LAST:event_btnRegOwnerActionPerformed
 
     private void btnNext1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext1MouseEntered
@@ -1273,6 +1449,10 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNext1MouseExited
 
     private void btnNext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext1ActionPerformed
+<<<<<<< HEAD
+        hideAllPanels();
+        pan2.show();
+=======
         if (txtNIC.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Please Set The Owner's Details..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
         } else if (txtRatePaymentReceiptNo.getText().trim().equals("")) {
@@ -1301,6 +1481,7 @@ public class Register_Application extends javax.swing.JFrame {
             hideAllPanels();
             pan2.show();
         }
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }//GEN-LAST:event_btnNext1ActionPerformed
 
     private void btnNext2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext2MouseEntered
@@ -1312,6 +1493,23 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNext2MouseExited
 
     private void btnNext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext2ActionPerformed
+<<<<<<< HEAD
+        hideAllPanels();
+        pan3.show();
+    }//GEN-LAST:event_btnNext2ActionPerformed
+
+    private void btnFinish4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinish4MouseEntered
+        setButtonColour(btnFinish4);
+    }//GEN-LAST:event_btnFinish4MouseEntered
+
+    private void btnFinish4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinish4MouseExited
+        resetButtonColour(btnFinish4);
+    }//GEN-LAST:event_btnFinish4MouseExited
+
+    private void btnFinish4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinish4ActionPerformed
+        
+    }//GEN-LAST:event_btnFinish4ActionPerformed
+=======
         boolean isCurBuildingOk = false;
         if (rbtnIsThereBuildingYes.isSelected()) {
             if (cmbCurBuildingPurpose.getSelectedIndex() == 0) {
@@ -1427,6 +1625,7 @@ public class Register_Application extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnFinishActionPerformed
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
     private void btnPrev2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrev2MouseEntered
         setButtonColour(btnPrev2);
@@ -1450,6 +1649,11 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNext3MouseExited
 
     private void btnNext3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext3ActionPerformed
+<<<<<<< HEAD
+        hideAllPanels();
+        pan4.show();
+        
+=======
         // data validation for Area Scales
         if (txtGroundFloor.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Ground Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
@@ -1514,6 +1718,7 @@ public class Register_Application extends javax.swing.JFrame {
             pan4.show();
         }
 
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }//GEN-LAST:event_btnNext3ActionPerformed
 
     private void btnPrev3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrev3MouseEntered
@@ -1537,6 +1742,16 @@ public class Register_Application extends javax.swing.JFrame {
             File file = chooser.getSelectedFile();
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
+<<<<<<< HEAD
+            if(img!=null){
+                //
+                txtSurveyorPlan.setText(path);
+            }else{
+                JOptionPane.showMessageDialog(this,  "Please Select An Image File...!", "Error",JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception ex) {
+            System.out.println("surveyor plan");
+=======
             if (img != null) {
                 if ((file.length()/1024)>=2048) {
                     JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
@@ -1550,6 +1765,7 @@ public class Register_Application extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             System.out.println("surveyor plan " + e);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         }
 
     }//GEN-LAST:event_btnSurveyorPlanActionPerformed
@@ -1562,6 +1778,13 @@ public class Register_Application extends javax.swing.JFrame {
             File file = chooser.getSelectedFile();
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
+<<<<<<< HEAD
+            if(img!=null){
+                //
+                txtSurveyorPlan.setText(path);
+            }else{
+                JOptionPane.showMessageDialog(this,  "Please Select An Image File...!", "Error",JOptionPane.ERROR_MESSAGE);
+=======
             if (img != null) {
                 if ((file.length()/1024)>=2048) {
                     JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
@@ -1571,6 +1794,7 @@ public class Register_Application extends javax.swing.JFrame {
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
             }
         } catch (Exception ex) {
             System.out.println("surveyor plan");
@@ -1585,6 +1809,13 @@ public class Register_Application extends javax.swing.JFrame {
             File file = chooser.getSelectedFile();
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
+<<<<<<< HEAD
+            if(img!=null){
+                //
+                txtExistingBuildingPlan.setText(path);
+            }else{
+                JOptionPane.showMessageDialog(this,  "Please Select An Image File...!", "Error",JOptionPane.ERROR_MESSAGE);
+=======
             if (img != null) {
                 if ((file.length()/1024)>=2048) {
                     JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
@@ -1594,6 +1825,7 @@ public class Register_Application extends javax.swing.JFrame {
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
             }
         } catch (Exception ex) {
             System.out.println("existing building plan");
@@ -1608,6 +1840,13 @@ public class Register_Application extends javax.swing.JFrame {
             File file = chooser.getSelectedFile();
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
+<<<<<<< HEAD
+            if(img!=null){
+                //
+                txtExistingCoC.setText(path);
+            }else{
+                JOptionPane.showMessageDialog(this,  "Please Select An Image File...!", "Error",JOptionPane.ERROR_MESSAGE);
+=======
             if (img != null) {
                 if ((file.length()/1024)>=2048) {
                     JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
@@ -1617,6 +1856,7 @@ public class Register_Application extends javax.swing.JFrame {
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
             }
         } catch (Exception ex) {
             System.out.println("existing CoC plan");
@@ -1639,6 +1879,10 @@ public class Register_Application extends javax.swing.JFrame {
         hideAllPanels();
         pan3.show();
     }//GEN-LAST:event_btnPrev4ActionPerformed
+<<<<<<< HEAD
+    
+    private void hideAllPanels(){
+=======
 
     private void btnClearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearMouseEntered
         setButtonColour(btnClear);
@@ -1676,10 +1920,27 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_rbtnIsPlanApprovedYesActionPerformed
 
     private void hideAllPanels() {
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pan1.hide();
         pan2.hide();
         pan3.hide();
         pan4.hide();
+<<<<<<< HEAD
+    
+    }
+    private void setButtonColour(Button button){
+        button.setBackground(new Color(0,153,0));
+        button.setForeground(new Color(255, 255, 255));
+    
+    }
+    
+    private void resetButtonColour(Button button){
+        button.setBackground(new Color(240,240,240));
+        button.setForeground(new Color(0, 0, 0));
+    
+    }
+    
+=======
 
     }
 
@@ -1728,6 +1989,7 @@ public class Register_Application extends javax.swing.JFrame {
         scrAreaEffect.setEnabled(true);
     }
 
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     /**
      * @param args the command line arguments
      */
@@ -1768,16 +2030,26 @@ public class Register_Application extends javax.swing.JFrame {
                 new Register_Application().setVisible(true);
             }
         });
+<<<<<<< HEAD
+        
+=======
 
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnAddOwner;
     private javax.swing.JButton btnBuildingPlan;
+<<<<<<< HEAD
+    private javax.swing.JButton btnExistingBuildingPlan;
+    private javax.swing.JButton btnExistingCoC;
+    private java.awt.Button btnFinish4;
+=======
     private java.awt.Button btnClear;
     private javax.swing.JButton btnExistingBuildingPlan;
     private javax.swing.JButton btnExistingCoC;
     private java.awt.Button btnFinish;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.ButtonGroup btnGrpEntranceRoad;
     private javax.swing.ButtonGroup btnGrpFloor;
     private javax.swing.ButtonGroup btnGrpIsEffectToOthers;
@@ -1897,6 +2169,10 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
+<<<<<<< HEAD
+    private javax.swing.JScrollPane jScrollPane1;
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1915,8 +2191,13 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnEntranceRoadPublic;
     private javax.swing.JRadioButton rbtnFloorComplete;
     private javax.swing.JRadioButton rbtnFloorNotComplete;
+<<<<<<< HEAD
+    private javax.swing.JRadioButton rbtnIsEffectToOthersNo;
+    private javax.swing.JRadioButton rbtnIsEffectToOthersYes;
+=======
     private javax.swing.JRadioButton rbtnIsEffectOnOthersNo;
     private javax.swing.JRadioButton rbtnIsEffectOnOthersYes;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.JRadioButton rbtnIsObtainedCoCNo;
     private javax.swing.JRadioButton rbtnIsObtainedCoCYes;
     private javax.swing.JRadioButton rbtnIsPlanApprovedNo;
@@ -1927,7 +2208,10 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnRoofNotComplete;
     private javax.swing.JRadioButton rbtnWallsComplete;
     private javax.swing.JRadioButton rbtnWallsNotComplete;
+<<<<<<< HEAD
+=======
     private javax.swing.JScrollPane scrAreaEffect;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.JTextField txtApplicationID;
     private javax.swing.JTextArea txtAreaEffects;
     private javax.swing.JTextField txtAreaOfTheLand;
@@ -1939,17 +2223,29 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JTextField txtExistingBuildingPlan;
     private javax.swing.JTextField txtExistingCoC;
     private javax.swing.JTextField txtFirstFloor;
+<<<<<<< HEAD
+    private javax.swing.JTextField txtFirstName;
+    private javax.swing.JTextField txtGroundFloor;
+    private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtLeftBoader;
+    private javax.swing.JTextField txtNIC;
+=======
     private javax.swing.JTextField txtGroundFloor;
     private javax.swing.JTextField txtInitName;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtLeftBoader;
     private javax.swing.JTextField txtNIC;
     private javax.swing.JTextField txtPhone;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.JTextField txtRatePaymentReceiptNo;
     private javax.swing.JTextField txtRightBoader;
     private javax.swing.JTextField txtRoad;
     private javax.swing.JTextField txtRoadWidth;
     private javax.swing.JTextField txtSecondFloor;
+<<<<<<< HEAD
+    private javax.swing.JTextField txtSurname;
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.JTextField txtSurvPlanNo;
     private javax.swing.JTextField txtSurveyorPlan;
     private javax.swing.JTextField txtThirdFloor;
@@ -1957,5 +2253,8 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JTextField txtUnderGroundFloor;
     private javax.swing.JTextField txtUse;
     // End of variables declaration//GEN-END:variables
+<<<<<<< HEAD
+=======
 
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 }
