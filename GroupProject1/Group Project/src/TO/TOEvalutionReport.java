@@ -628,12 +628,12 @@ public class TOEvalutionReport extends javax.swing.JFrame {
                 btnFinish4ActionPerformed(evt);
             }
         });
-        pan4.add(btnFinish4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 490, 78, -1));
+        pan4.add(btnFinish4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 410, 78, -1));
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel39.setText("Recommendation Of Officer who Inspected / Technical Officer");
-        pan4.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 360, 20));
+        pan4.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 360, 20));
 
         jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -673,7 +673,7 @@ public class TOEvalutionReport extends javax.swing.JFrame {
                 rbtnOfficerWhoInspectedActionPerformed(evt);
             }
         });
-        pan4.add(rbtnOfficerWhoInspected, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 470, -1, -1));
+        pan4.add(rbtnOfficerWhoInspected, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, -1, -1));
 
         rbtnTechnicalOfficer.setBackground(new java.awt.Color(255, 255, 255));
         Recomendation.add(rbtnTechnicalOfficer);
@@ -684,7 +684,7 @@ public class TOEvalutionReport extends javax.swing.JFrame {
                 rbtnTechnicalOfficerActionPerformed(evt);
             }
         });
-        pan4.add(rbtnTechnicalOfficer, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, 120, -1));
+        pan4.add(rbtnTechnicalOfficer, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 120, -1));
 
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -721,17 +721,17 @@ public class TOEvalutionReport extends javax.swing.JFrame {
         txtAreaOtherDetails.setRows(5);
         jScrollPane12.setViewportView(txtAreaOtherDetails);
 
-        pan4.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 580, 80));
+        pan4.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 580, 30));
 
         jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel67.setText("Other Details");
-        pan4.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 430, 20));
+        pan4.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 430, 20));
 
         jLabel88.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel88.setText(":");
-        pan4.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 14, 20));
+        pan4.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 14, 20));
 
         jLabel99.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -743,40 +743,40 @@ public class TOEvalutionReport extends javax.swing.JFrame {
         txtAreaRelevantAuthuritiesApprovalNoWhy.setRows(5);
         jScrollPane14.setViewportView(txtAreaRelevantAuthuritiesApprovalNoWhy);
 
-        pan4.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 580, 80));
+        pan4.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 580, 30));
 
         txtAreaChartedEngCertifiedNotWhy1.setColumns(20);
         txtAreaChartedEngCertifiedNotWhy1.setRows(5);
         jScrollPane13.setViewportView(txtAreaChartedEngCertifiedNotWhy1);
 
-        pan4.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 580, 80));
+        pan4.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 580, 40));
 
         jLabel73.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel73.setText("Name");
-        pan4.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 110, 20));
+        pan4.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 110, 20));
 
         jLabel89.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel89.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel89.setText(":");
-        pan4.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, 14, 20));
+        pan4.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 14, 20));
 
         txtNameRecmnTO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameRecmnTOActionPerformed(evt);
             }
         });
-        pan4.add(txtNameRecmnTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 200, 20));
+        pan4.add(txtNameRecmnTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 200, 20));
 
         jLabel76.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel76.setText("Name");
-        pan4.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 480, 70, 20));
+        pan4.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 70, 20));
 
         jLabel90.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel90.setText(":");
-        pan4.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 480, 20, 20));
+        pan4.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 20, 20));
 
         panCard.add(pan4, "card5");
 
@@ -999,18 +999,18 @@ public class TOEvalutionReport extends javax.swing.JFrame {
 
         jLabel83.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel83.setText("If Store Room : ");
+        jLabel83.setText("If Yes : ");
         pan3.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 20));
         pan3.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 820, 10));
 
         rbtnStoreRoomYes.setBackground(new java.awt.Color(255, 255, 255));
         StoreOrIndustry.add(rbtnStoreRoomYes);
-        rbtnStoreRoomYes.setText("Store Room");
+        rbtnStoreRoomYes.setText("Yes");
         pan3.add(rbtnStoreRoomYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, 20));
 
         rbtnIndustryYes.setBackground(new java.awt.Color(255, 255, 255));
         StoreOrIndustry.add(rbtnIndustryYes);
-        rbtnIndustryYes.setText("Industry");
+        rbtnIndustryYes.setText("No");
         rbtnIndustryYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnIndustryYesActionPerformed(evt);
