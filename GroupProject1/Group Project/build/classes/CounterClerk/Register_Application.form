@@ -238,6 +238,12 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtApplicationID">
+<<<<<<< HEAD
+=======
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="330" y="249" width="279" height="-1"/>
@@ -423,7 +429,11 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
+<<<<<<< HEAD
                         <StringItem index="0" value="Item 1"/>
+=======
+                        <StringItem index="0" value="-Select-"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                         <StringItem index="1" value="Item 2"/>
                         <StringItem index="2" value="Item 3"/>
                         <StringItem index="3" value="Item 4"/>
@@ -443,7 +453,11 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
+<<<<<<< HEAD
                         <StringItem index="0" value="Item 1"/>
+=======
+                        <StringItem index="0" value="-Select-"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                         <StringItem index="1" value="Item 2"/>
                         <StringItem index="2" value="Item 3"/>
                         <StringItem index="3" value="Item 4"/>
@@ -516,7 +530,11 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
+<<<<<<< HEAD
                     <Property name="text" type="java.lang.String" value="First Name"/>
+=======
+                    <Property name="text" type="java.lang.String" value="Initial Name"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -572,7 +590,11 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
+<<<<<<< HEAD
                     <Property name="text" type="java.lang.String" value="Surname "/>
+=======
+                    <Property name="text" type="java.lang.String" value="NIC"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -600,7 +622,11 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
+<<<<<<< HEAD
                     <Property name="text" type="java.lang.String" value="NIC"/>
+=======
+                    <Property name="text" type="java.lang.String" value="Contact Number"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -622,7 +648,14 @@
                     </Constraint>
                   </Constraints>
                 </Component>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtFirstName">
+=======
+                <Component class="javax.swing.JTextField" name="txtInitName">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="330" y="50" width="279" height="-1"/>
@@ -630,20 +663,40 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtLastName">
+<<<<<<< HEAD
+=======
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="330" y="82" width="279" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtSurname">
+=======
+                <Component class="javax.swing.JTextField" name="txtNIC">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="330" y="114" width="279" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtNIC">
+=======
+                <Component class="javax.swing.JTextField" name="txtPhone">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="330" y="146" width="279" height="-1"/>
@@ -667,7 +720,11 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
                       <AbsoluteConstraints x="660" y="180" width="78" height="-1"/>
+=======
+                      <AbsoluteConstraints x="611" y="180" width="70" height="-1"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -688,7 +745,11 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
                       <AbsoluteConstraints x="750" y="180" width="78" height="-1"/>
+=======
+                      <AbsoluteConstraints x="687" y="180" width="70" height="-1"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -709,7 +770,32 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
                       <AbsoluteConstraints x="750" y="460" width="78" height="-1"/>
+=======
+                      <AbsoluteConstraints x="756" y="471" width="78" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="java.awt.Button" name="btnClear">
+                  <Properties>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Default Cursor"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="11" style="1"/>
+                    </Property>
+                    <Property name="label" type="java.lang.String" value="Clear"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnClearMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnClearMouseExited"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClearActionPerformed"/>
+                  </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="763" y="180" width="70" height="-1"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -753,7 +839,11 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
+<<<<<<< HEAD
                     <Property name="text" type="java.lang.String" value="Type"/>
+=======
+                    <Property name="text" type="java.lang.String" value="Type Of The New Building"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -795,7 +885,11 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
+<<<<<<< HEAD
                     <Property name="text" type="java.lang.String" value="Effects On Neigbour Houses"/>
+=======
+                    <Property name="text" type="java.lang.String" value="Effects On Neighbour Houses"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -886,7 +980,11 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
+<<<<<<< HEAD
                     <Property name="text" type="java.lang.String" value="Current Purpose of The Buliding"/>
+=======
+                    <Property name="text" type="java.lang.String" value="Purpose of The Current Buliding"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -967,6 +1065,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Yes"/>
                   </Properties>
+<<<<<<< HEAD
+=======
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnIsThereBuildingYesActionPerformed"/>
+                  </Events>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="330" y="25" width="-1" height="-1"/>
@@ -984,6 +1088,12 @@
                     <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="No"/>
                   </Properties>
+<<<<<<< HEAD
+=======
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnIsThereBuildingNoActionPerformed"/>
+                  </Events>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="440" y="25" width="-1" height="-1"/>
@@ -1021,11 +1131,20 @@
                 <Component class="javax.swing.JComboBox" name="cmbCurBuildingPurpose">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+<<<<<<< HEAD
                       <StringArray count="4">
                         <StringItem index="0" value="Item 1"/>
                         <StringItem index="1" value="Item 2"/>
                         <StringItem index="2" value="Item 3"/>
                         <StringItem index="3" value="Item 4"/>
+=======
+                      <StringArray count="5">
+                        <StringItem index="0" value="- Select -"/>
+                        <StringItem index="1" value="Item 1"/>
+                        <StringItem index="2" value="Item 2"/>
+                        <StringItem index="3" value="Item 3"/>
+                        <StringItem index="4" value="Item 4"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                       </StringArray>
                     </Property>
                   </Properties>
@@ -1065,6 +1184,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Yes"/>
                   </Properties>
+<<<<<<< HEAD
+=======
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnIsPlanApprovedYesActionPerformed"/>
+                  </Events>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="330" y="109" width="-1" height="-1"/>
@@ -1230,7 +1355,11 @@
                     </Constraint>
                   </Constraints>
                 </Component>
+<<<<<<< HEAD
                 <Component class="javax.swing.JRadioButton" name="rbtnIsEffectToOthersYes">
+=======
+                <Component class="javax.swing.JRadioButton" name="rbtnIsEffectOnOthersYes">
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1240,13 +1369,23 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Yes"/>
                   </Properties>
+<<<<<<< HEAD
+=======
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnIsEffectOnOthersYesActionPerformed"/>
+                  </Events>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="330" y="310" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
+<<<<<<< HEAD
                 <Component class="javax.swing.JRadioButton" name="rbtnIsEffectToOthersNo">
+=======
+                <Component class="javax.swing.JRadioButton" name="rbtnIsEffectOnOthersNo">
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1257,13 +1396,23 @@
                     <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="No"/>
                   </Properties>
+<<<<<<< HEAD
+=======
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnIsEffectOnOthersNoActionPerformed"/>
+                  </Events>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="440" y="310" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
+<<<<<<< HEAD
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+=======
+                <Container class="javax.swing.JScrollPane" name="scrAreaEffect">
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -1916,7 +2065,11 @@
                     </Constraint>
                   </Constraints>
                 </Component>
+<<<<<<< HEAD
                 <Component class="java.awt.Button" name="btnFinish4">
+=======
+                <Component class="java.awt.Button" name="btnFinish">
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   <Properties>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Default Cursor"/>
@@ -1927,9 +2080,15 @@
                     <Property name="label" type="java.lang.String" value="Finish"/>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnFinish4MouseEntered"/>
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnFinish4MouseExited"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFinish4ActionPerformed"/>
+=======
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnFinishMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnFinishMouseExited"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFinishActionPerformed"/>
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

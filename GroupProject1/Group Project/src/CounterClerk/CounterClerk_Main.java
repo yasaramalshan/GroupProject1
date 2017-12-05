@@ -10,9 +10,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+<<<<<<< HEAD
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+=======
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
@@ -70,6 +76,7 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+<<<<<<< HEAD
         btnViewForm = new java.awt.Button();
         btnEditForm = new java.awt.Button();
         btnApproveForm = new java.awt.Button();
@@ -81,12 +88,17 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         lblMinimize = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+=======
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRegisteredApplications = new javax.swing.JTable();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+<<<<<<< HEAD
         jSeparator2 = new javax.swing.JSeparator();
         btnApplicationRem = new javax.swing.JLabel();
         btnApplicationReg = new javax.swing.JLabel();
@@ -94,6 +106,13 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         btnEdit = new javax.swing.JLabel();
         btnResetPass = new javax.swing.JLabel();
         btnReport = new javax.swing.JLabel();
+=======
+        jPanel4 = new javax.swing.JPanel();
+        lblLogOut = new javax.swing.JLabel();
+        lblMinimize = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -170,6 +189,7 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         jLabel5.setText("Registered Applications");
         jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 220, 20));
 
+<<<<<<< HEAD
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 780, 20));
 
         btnViewForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -243,6 +263,9 @@ public class CounterClerk_Main extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnRejectForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, 100, -1));
+=======
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 780, 20));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jScrollPane1.setBorder(null);
 
@@ -258,6 +281,12 @@ public class CounterClerk_Main extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+<<<<<<< HEAD
+=======
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 {null, null, null, null}
             },
             new String [] {
@@ -268,9 +297,41 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         tblRegisteredApplications.setSelectionBackground(new java.awt.Color(79, 142, 255));
         jScrollPane1.setViewportView(tblRegisteredApplications);
 
+<<<<<<< HEAD
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 670, 188));
 
         panMain.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 800, 290));
+=======
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 620, 251));
+
+        panMain.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 800, 300));
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel1.setText("Counter Clerk");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CounterClerk/Images/home2.png"))); // NOI18N
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 130, 140));
+
+        lblTime.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTime.setText("time");
+        jPanel3.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 120, 30));
+
+        lblDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDate.setText("date");
+        jPanel3.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 94, -1, -1));
+
+        jSeparator1.setBackground(new java.awt.Color(153, 153, 153));
+        jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 10, 150));
+
+        panMain.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 800, 170));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -317,6 +378,7 @@ public class CounterClerk_Main extends javax.swing.JFrame {
 
         panMain.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 800, 30));
 
+<<<<<<< HEAD
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -452,6 +514,8 @@ public class CounterClerk_Main extends javax.swing.JFrame {
 
         panMain.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 800, 180));
 
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -523,6 +587,7 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         setOpacity((float) 1);
     }//GEN-LAST:event_panMainMouseReleased
 
+<<<<<<< HEAD
     private void btnViewFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewFormMouseEntered
         setButtonColour(btnViewForm);
     }//GEN-LAST:event_btnViewFormMouseEntered
@@ -624,6 +689,8 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         resetBtnColour(btnReport);
     }//GEN-LAST:event_btnReportMouseExited
 
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     /**
      * @param args the command line arguments
      */
@@ -635,7 +702,11 @@ public class CounterClerk_Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+<<<<<<< HEAD
                 if ("Nimbus".equals(info.getName())) {
+=======
+                if ("Windows".equals(info.getName())) {
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -653,14 +724,27 @@ public class CounterClerk_Main extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+<<<<<<< HEAD
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+=======
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    UIManager.setLookAndFeel(
+                            UIManager.getSystemLookAndFeelClassName());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 new CounterClerk_Main().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JLabel btnApplicationReg;
     private javax.swing.JLabel btnApplicationRem;
     private java.awt.Button btnApproveForm;
@@ -671,6 +755,8 @@ public class CounterClerk_Main extends javax.swing.JFrame {
     private javax.swing.JLabel btnResetPass;
     private javax.swing.JLabel btnSearch;
     private java.awt.Button btnViewForm;
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
@@ -687,7 +773,10 @@ public class CounterClerk_Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+<<<<<<< HEAD
     private javax.swing.JSeparator jSeparator2;
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblLogOut;
     private javax.swing.JLabel lblMinimize;

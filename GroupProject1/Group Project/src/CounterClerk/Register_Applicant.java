@@ -5,8 +5,21 @@
  */
 package CounterClerk;
 
+<<<<<<< HEAD
 import java.awt.Button;
 import java.awt.Color;
+=======
+import Utility.Extra;
+import groupproject.Applicant;
+import groupproject.DBOperations;
+import java.awt.Button;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
 /**
  *
@@ -14,9 +27,19 @@ import java.awt.Color;
  */
 public class Register_Applicant extends javax.swing.JFrame {
 
+<<<<<<< HEAD
     int xMouse,yMouse;
     public Register_Applicant() {
         initComponents();
+=======
+    Applicant applicant = new Applicant();
+    private int xMouse, yMouse;
+    JFrame parent;
+
+    public Register_Applicant(JFrame parent) { // JFrame parent
+        initComponents();
+        this.parent = parent;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }
 
     /**
@@ -40,6 +63,7 @@ public class Register_Applicant extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+<<<<<<< HEAD
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -47,6 +71,15 @@ public class Register_Applicant extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         btnCancel = new java.awt.Button();
         btnRegOwner = new java.awt.Button();
+=======
+        txtInitName = new javax.swing.JTextField();
+        txtLastName = new javax.swing.JTextField();
+        txtNIC = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtTelNo = new javax.swing.JTextField();
+        btnCancel = new java.awt.Button();
+        btnRegister = new java.awt.Button();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -54,14 +87,26 @@ public class Register_Applicant extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
+<<<<<<< HEAD
         jTextArea1 = new javax.swing.JTextArea();
+=======
+        txtAddress = new javax.swing.JTextArea();
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
+<<<<<<< HEAD
 
         panMain.setBackground(new java.awt.Color(255, 255, 255));
         panMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 58, 115), 2));
+=======
+        setResizable(false);
+
+        panMain.setBackground(new java.awt.Color(255, 255, 255));
+        panMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 58, 115), 2));
+        panMain.setPreferredSize(new java.awt.Dimension(640, 372));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         panMain.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 panMainMouseDragged(evt);
@@ -71,6 +116,12 @@ public class Register_Applicant extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panMainMousePressed(evt);
             }
+<<<<<<< HEAD
+=======
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                panMainMouseReleased(evt);
+            }
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         });
 
         jPanel2.setBackground(new java.awt.Color(49, 58, 115));
@@ -86,9 +137,15 @@ public class Register_Applicant extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(122, 122, 122))
+=======
+                .addGap(148, 148, 148)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(142, 142, 142))
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,30 +175,56 @@ public class Register_Applicant extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+<<<<<<< HEAD
+=======
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Name With The Initials");
+<<<<<<< HEAD
+=======
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 32, 141, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Last Name");
+<<<<<<< HEAD
+=======
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 63, 141, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Address");
+<<<<<<< HEAD
+=======
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 93, 130, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("NIC");
+<<<<<<< HEAD
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Telephone Number");
+=======
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 166, 141, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setText("Contact  Number");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 197, 141, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("E-mail");
+<<<<<<< HEAD
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +255,14 @@ public class Register_Applicant extends javax.swing.JFrame {
                 jTextField6ActionPerformed(evt);
             }
         });
+=======
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 228, 141, -1));
+        jPanel1.add(txtInitName, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 31, 325, -1));
+        jPanel1.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 62, 325, -1));
+        jPanel1.add(txtNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 165, 325, -1));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 227, 325, -1));
+        jPanel1.add(txtTelNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 196, 325, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnCancel.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -189,6 +280,7 @@ public class Register_Applicant extends javax.swing.JFrame {
                 btnCancelActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
 
         btnRegOwner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRegOwner.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -206,30 +298,72 @@ public class Register_Applicant extends javax.swing.JFrame {
                 btnRegOwnerActionPerformed(evt);
             }
         });
+=======
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 280, 78, -1));
+
+        btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRegister.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnRegister.setLabel("Register");
+        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegisterMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegisterMouseExited(evt);
+            }
+        });
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 78, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText(":");
+<<<<<<< HEAD
+=======
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 32, 22, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText(":");
+<<<<<<< HEAD
+=======
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 63, 22, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText(":");
+<<<<<<< HEAD
+=======
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 93, 22, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText(":");
+<<<<<<< HEAD
+=======
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 166, 23, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText(":");
+<<<<<<< HEAD
+=======
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 197, 14, -1));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText(":");
+<<<<<<< HEAD
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -325,6 +459,15 @@ public class Register_Applicant extends javax.swing.JFrame {
                     .addComponent(btnCancel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRegOwner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
+=======
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 228, 14, -1));
+
+        txtAddress.setColumns(20);
+        txtAddress.setRows(5);
+        jScrollPane2.setViewportView(txtAddress);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 93, 325, 61));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         javax.swing.GroupLayout panMainLayout = new javax.swing.GroupLayout(panMain);
         panMain.setLayout(panMainLayout);
@@ -338,8 +481,13 @@ public class Register_Applicant extends javax.swing.JFrame {
             .addGroup(panMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 .addContainerGap())
         );
         panMainLayout.setVerticalGroup(
@@ -351,7 +499,11 @@ public class Register_Applicant extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 .addContainerGap())
         );
 
@@ -367,10 +519,24 @@ public class Register_Applicant extends javax.swing.JFrame {
         );
 
         pack();
+<<<<<<< HEAD
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
         this.dispose();
+=======
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
+        
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            this.dispose();
+            parent.setState(0);
+        }
+        
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
@@ -378,11 +544,16 @@ public class Register_Applicant extends javax.swing.JFrame {
     }//GEN-LAST:event_lblMinimizeMouseClicked
 
     private void panMainMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMousePressed
+<<<<<<< HEAD
+=======
+        setOpacity((float) 0.8);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_panMainMousePressed
 
     private void panMainMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMouseDragged
+<<<<<<< HEAD
         int x = evt.getXOnScreen() , y = evt.getYOnScreen();
         this.setLocation(x-xMouse, y-yMouse);
     }//GEN-LAST:event_panMainMouseDragged
@@ -407,6 +578,12 @@ public class Register_Applicant extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
+=======
+        int x = evt.getXOnScreen(), y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_panMainMouseDragged
+
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private void btnCancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseEntered
         setButtonColour(btnCancel);
     }//GEN-LAST:event_btnCancelMouseEntered
@@ -416,6 +593,7 @@ public class Register_Applicant extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelMouseExited
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+<<<<<<< HEAD
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
@@ -430,10 +608,73 @@ public class Register_Applicant extends javax.swing.JFrame {
     private void btnRegOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegOwnerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegOwnerActionPerformed
+=======
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            this.dispose();
+            parent.setState(0);
+        }
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseEntered
+        setButtonColour(btnRegister);
+    }//GEN-LAST:event_btnRegisterMouseEntered
+
+    private void btnRegisterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseExited
+        resetButtonColour(btnRegister);
+    }//GEN-LAST:event_btnRegisterMouseExited
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        try {
+            applicant.setFirstName(Extra.capitalizer(txtInitName.getText())); // capitalizer method contains the trim().
+        applicant.setLastName(Extra.capitalizer(txtLastName.getText()));
+        applicant.setAddress(Extra.capitalizer(txtAddress.getText()));
+        applicant.setNIC(Extra.capitalizer(txtNIC.getText()));
+        applicant.setPhone(Extra.capitalizer(txtTelNo.getText()));
+        applicant.setEmail(Extra.capitalizer(txtEmail.getText()));
+        } catch (Exception e) {
+            System.out.println("xxxxx "+e);
+        }
+
+        if (applicant.getFirstName().equals("")) {
+            JOptionPane.showMessageDialog(this, "Initial Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (applicant.getLastName().equals("")) {
+            JOptionPane.showMessageDialog(this, "Last Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (applicant.getAddress().equals("")) {
+            JOptionPane.showMessageDialog(this, "Address can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (applicant.getNIC().equals("")) {
+            JOptionPane.showMessageDialog(this, "NIC can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (!Extra.isValidNIC(applicant.getNIC())) {
+            JOptionPane.showMessageDialog(this, "Invalid NIC..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (applicant.getPhone().equals("")) {
+            JOptionPane.showMessageDialog(this, "Contact Number can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (!Extra.isValidPhoneNumber(applicant.getPhone())) {
+            JOptionPane.showMessageDialog(this, "Invalid Contact Number..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (!applicant.getEmail().equals("") && !Extra.isValidEmail(applicant.getEmail())) {
+            JOptionPane.showMessageDialog(this, "Invalid Email..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else {
+            DBOperations dbops = new DBOperations();
+            if (dbops.getApplicant(applicant.getNIC())) {
+                JOptionPane.showMessageDialog(this, "The Applicant Already Exist..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else {
+                if (dbops.addApplicant(applicant)) {
+                    JOptionPane.showMessageDialog(this, "Applicant Registration Successfull...!", "Register Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                } else {
+                    JOptionPane.showMessageDialog(this, "Insertion Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                }
+            }
+        }
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void panMainMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMouseReleased
+        setOpacity((float) 1);
+    }//GEN-LAST:event_panMainMouseReleased
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
     /**
      * @param args the command line arguments
      */
+<<<<<<< HEAD
     
     private void setButtonColour(Button button){
         button.setBackground(new Color(0,153,0));
@@ -447,6 +688,20 @@ public class Register_Applicant extends javax.swing.JFrame {
     
     }
     
+=======
+    private void setButtonColour(Button button) {
+        button.setBackground(new Color(0, 153, 0));
+        button.setForeground(new Color(255, 255, 255));
+
+    }
+
+    private void resetButtonColour(Button button) {
+        button.setBackground(new Color(240, 240, 240));
+        button.setForeground(new Color(0, 0, 0));
+
+    }
+
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -473,16 +728,33 @@ public class Register_Applicant extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+<<<<<<< HEAD
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Register_Applicant().setVisible(true);
+=======
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    UIManager.setLookAndFeel(
+                            UIManager.getSystemLookAndFeelClassName());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                new Register_Applicant(null).setVisible(true);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnCancel;
+<<<<<<< HEAD
     private java.awt.Button btnRegOwner;
+=======
+    private java.awt.Button btnRegister;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -499,6 +771,7 @@ public class Register_Applicant extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+<<<<<<< HEAD
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -511,4 +784,17 @@ public class Register_Applicant extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
+=======
+    private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel lblMinimize;
+    private javax.swing.JPanel panMain;
+    private javax.swing.JTextArea txtAddress;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtInitName;
+    private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtNIC;
+    private javax.swing.JTextField txtTelNo;
+    // End of variables declaration//GEN-END:variables
+
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 }

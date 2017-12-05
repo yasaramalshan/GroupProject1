@@ -5,10 +5,27 @@
  */
 package Login;
 
+<<<<<<< HEAD
+=======
+import Admin.Admin_Main;
+import CounterClerk.CounterClerk_Main;
+import ManagementAssistant.ManagementAssistant_Main;
+import Secretary.Secretary_Main;
+import TO.TO_Main;
+import groupproject.DBOperations;
+import groupproject.Log;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 import java.awt.Button;
 import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
+<<<<<<< HEAD
+=======
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
 /**
  *
@@ -16,11 +33,21 @@ import java.util.TimerTask;
  */
 public class Login extends javax.swing.JFrame {
 
+<<<<<<< HEAD
     int xMouse,yMouse;
     
     public Login() {
         initComponents();
         txtPassword.setEchoChar((char)0); // to show the passwordfield's real characters
+=======
+    int xMouse, yMouse;
+
+    public Login() {
+        initComponents();
+        txtPassword.setEchoChar((char) 0); // to show the passwordfield's real characters
+        txtUser.setText("User ID");
+        txtPassword.setText("Password");
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }
 
     /**
@@ -54,6 +81,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
+<<<<<<< HEAD
 
         panelMain.setBackground(new java.awt.Color(255, 255, 255));
         panelMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 58, 115)));
@@ -106,6 +134,65 @@ public class Login extends javax.swing.JFrame {
         txtPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(49, 58, 115));
         txtPassword.setText("Password");
+=======
+
+        panelMain.setBackground(new java.awt.Color(255, 255, 255));
+        panelMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(49, 58, 115)));
+        panelMain.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panelMainMouseDragged(evt);
+            }
+        });
+        panelMain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelMainMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                panelMainMouseReleased(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.CardLayout());
+
+        pnlLogin.setBackground(new java.awt.Color(255, 255, 255));
+        pnlLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtUser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtUser.setForeground(new java.awt.Color(49, 58, 115));
+        txtUser.setBorder(null);
+        txtUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUserFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUserFocusLost(evt);
+            }
+        });
+        pnlLogin.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 98, 283, 30));
+
+        jSeparator1.setForeground(new java.awt.Color(49, 58, 115));
+        pnlLogin.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 128, 283, 10));
+
+        jSeparator2.setForeground(new java.awt.Color(49, 58, 115));
+        pnlLogin.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 219, 283, 10));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login/icons8_Contacts_25px_1.png"))); // NOI18N
+        pnlLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 98, 34, 30));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login/icons8_Key_25px.png"))); // NOI18N
+        pnlLogin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 189, 34, 30));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(49, 58, 115));
+        jLabel4.setText("Login");
+        pnlLogin.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 35, 63, -1));
+
+        txtPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(49, 58, 115));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         txtPassword.setBorder(null);
         txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -115,11 +202,15 @@ public class Login extends javax.swing.JFrame {
                 txtPasswordFocusLost(evt);
             }
         });
+<<<<<<< HEAD
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
             }
         });
+=======
+        pnlLogin.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 189, 283, 30));
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
         lblExit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblExit.setForeground(new java.awt.Color(255, 0, 0));
@@ -129,9 +220,26 @@ public class Login extends javax.swing.JFrame {
         lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblExitMouseClicked(evt);
+<<<<<<< HEAD
+=======
             }
         });
+        pnlLogin.add(lblExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 0, 20, 20));
 
+        lblMinimize.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblMinimize.setForeground(new java.awt.Color(54, 33, 89));
+        lblMinimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMinimize.setText("-");
+        lblMinimize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMinimizeMouseClicked(evt);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
+            }
+        });
+        pnlLogin.add(lblMinimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 0, 20, 20));
+
+<<<<<<< HEAD
         lblMinimize.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblMinimize.setForeground(new java.awt.Color(54, 33, 89));
         lblMinimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -143,6 +251,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+=======
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         btnLogin.setActionCommand("btnNext1");
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnLogin.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -160,7 +270,28 @@ public class Login extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
+        pnlLogin.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(639, 300, 78, -1));
 
+        jSeparator3.setForeground(new java.awt.Color(49, 58, 115));
+        pnlLogin.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 62, 354, 10));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login/maharagama.jpg"))); // NOI18N
+        pnlLogin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 200, 200));
+
+        jPanel1.add(pnlLogin, "card2");
+
+        pnlLoad.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblLoad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login/load_n.gif"))); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(130, 93, 177));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Loggin In...");
+
+<<<<<<< HEAD
         jSeparator3.setForeground(new java.awt.Color(49, 58, 115));
 
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
@@ -251,6 +382,19 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(lblLoad, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(288, Short.MAX_VALUE))
         );
+=======
+        javax.swing.GroupLayout pnlLoadLayout = new javax.swing.GroupLayout(pnlLoad);
+        pnlLoad.setLayout(pnlLoadLayout);
+        pnlLoadLayout.setHorizontalGroup(
+            pnlLoadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLoadLayout.createSequentialGroup()
+                .addGap(278, 278, 278)
+                .addGroup(pnlLoadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLoad, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(288, Short.MAX_VALUE))
+        );
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         pnlLoadLayout.setVerticalGroup(
             pnlLoadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLoadLayout.createSequentialGroup()
@@ -258,7 +402,11 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(lblLoad, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(jLabel1)
+<<<<<<< HEAD
                 .addContainerGap(77, Short.MAX_VALUE))
+=======
+                .addContainerGap(56, Short.MAX_VALUE))
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         );
 
         jPanel1.add(pnlLoad, "card3");
@@ -271,7 +419,13 @@ public class Login extends javax.swing.JFrame {
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+            .addGroup(panelMainLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,7 +436,11 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+            .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
         );
 
         pack();
@@ -290,6 +448,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusGained
+<<<<<<< HEAD
         if(txtUser.getText().equals("User"))
             txtUser.setText("");
     }//GEN-LAST:event_txtUserFocusGained
@@ -298,6 +457,17 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
     }
     
+=======
+        if (txtUser.getText().equals("User ID")) {
+            txtUser.setText("");
+        }
+    }//GEN-LAST:event_txtUserFocusGained
+
+    private void dsp() {
+        this.dispose();
+    }
+
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     private void panelMainMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMainMousePressed
         xMouse = evt.getX();
         yMouse = evt.getY();
@@ -307,8 +477,13 @@ public class Login extends javax.swing.JFrame {
     private void panelMainMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMainMouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
+<<<<<<< HEAD
         
         this.setLocation(x-xMouse, y-yMouse);
+=======
+
+        this.setLocation(x - xMouse, y - yMouse);
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
     }//GEN-LAST:event_panelMainMouseDragged
 
     private void panelMainMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMainMouseReleased
@@ -316,6 +491,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_panelMainMouseReleased
 
     private void txtUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusLost
+<<<<<<< HEAD
         if(txtUser.getText().equals(""))
             txtUser.setText("User");
     }//GEN-LAST:event_txtUserFocusLost
@@ -351,6 +527,131 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseEntered
         setButtonColour(btnLogin);
     }//GEN-LAST:event_btnLoginMouseEntered
+=======
+        if (txtUser.getText().equals("")) {
+            txtUser.setText("User ID");
+        }
+    }//GEN-LAST:event_txtUserFocusLost
+
+    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
+        txtPassword.setEchoChar('*');
+        if (txtPassword.getText().equals("Password")) {
+            txtPassword.setText("");
+        }
+
+    }//GEN-LAST:event_txtPasswordFocusGained
+
+    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
+        if (txtPassword.getText().equals("")) {
+            txtPassword.setEchoChar((char) 0);
+            txtPassword.setText("Password");
+        } else {
+            txtPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_txtPasswordFocusLost
+
+    private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Exit...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            System.exit(0);
+            
+        }
+    }//GEN-LAST:event_lblExitMouseClicked
+
+    private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
+        this.setState(1);
+    }//GEN-LAST:event_lblMinimizeMouseClicked
+
+    private void btnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseEntered
+        setButtonColour(btnLogin);
+    }//GEN-LAST:event_btnLoginMouseEntered
+
+    private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
+        resetButtonColour(btnLogin);
+    }//GEN-LAST:event_btnLoginMouseExited
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String userId,userPass;
+        userId = txtUser.getText();
+        userPass = txtPassword.getText();
+        Log res;
+        DBOperations dbOps = new DBOperations();
+        if (userId.equals("User ID") || userPass.equals("Password")) {
+            JOptionPane.showMessageDialog(this, "Fields Can't be Empty...!");
+        } else if (!isNumeric(userId)) {
+            JOptionPane.showMessageDialog(this, "The User ID Must be Numeric...!");
+        } else if ((res = dbOps.userLogin(Integer.parseInt(userId))) == null) {
+            JOptionPane.showMessageDialog(this, "Incorrect User ID...!");
+        } else {
+            if(res.getUserStatus()==1){
+                JOptionPane.showMessageDialog(this, "User is Already Logged in...!");
+            }else if(userPass.equals(res.getUserPassword())){
+            pnlLoad.show();
+            pnlLogin.hide();
+            
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    dbOps.setLoginStatus(Integer.parseInt(userId), 1);
+                    enter(Integer.parseInt(userId),res.getUserLevel());
+                }
+            }, 2000);
+            }else{
+                JOptionPane.showMessageDialog(this, "Incorrect Password...!");
+            }
+        }
+
+        //create a timer for waiting to login
+
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void enter(int userId,int userLevel) {
+        this.dispose();
+        switch(userLevel){
+            case 1: //admin
+                new Admin_Main(userId).setVisible(true);
+                break;
+            case 2://counter clerke
+                new CounterClerk_Main().setVisible(true);
+                break;
+            case 3://management assistant
+                new ManagementAssistant_Main().setVisible(true);
+                break;
+            case 4://TO
+                new TO_Main().setVisible(true);
+                break;
+            case 5://subject clerke
+                
+                break;
+            case 6://secretary
+                new Secretary_Main().setVisible(true);
+                break;
+                
+                
+        }
+        
+    }
+
+    public static boolean isNumeric(String str) {
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void setButtonColour(Button button) {
+        button.setBackground(new Color(49, 58, 115));
+        button.setForeground(new Color(255, 255, 255));
+
+    }
+
+    private void resetButtonColour(Button button) {
+        button.setBackground(new Color(240, 240, 240));
+        button.setForeground(new Color(0, 0, 0));
+    }
+>>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 
     private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
         resetButtonColour(btnLogin);
@@ -409,11 +710,19 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
             public void run() {
+                try {
+                    UIManager.setLookAndFeel(
+                            UIManager.getSystemLookAndFeelClassName());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 new Login().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
