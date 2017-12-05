@@ -7,10 +7,12 @@ package CounterClerk;
 
 import Utility.Extra;
 import groupproject.Application;
+import groupproject.DBOperations;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
+import java.io.FileInputStream;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -23,7 +25,7 @@ import javax.swing.UIManager;
  * @author Yasara JLP
  */
 public class Register_Application extends javax.swing.JFrame {
-
+    FileInputStream  surveyorPlanNew,buildingPlanNew,buildingPlanOld,cocOld;
     Application application;
     private int xMouse, yMouse;
 
@@ -384,7 +386,7 @@ public class Register_Application extends javax.swing.JFrame {
         cmbStreetName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Item 2", "Item 3", "Item 4" }));
         pan1.add(cmbStreetName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 313, 279, -1));
 
-        cmbWardNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Item 2", "Item 3", "Item 4" }));
+        cmbWardNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "12", "34" }));
         pan1.add(cmbWardNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 345, 279, -1));
         pan1.add(txtSurvPlanNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 377, 279, -1));
         pan1.add(txtBlockNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 409, 170, -1));
@@ -1379,9 +1381,49 @@ public class Register_Application extends javax.swing.JFrame {
         }else if(!Extra.isDouble(txtRoadWidth.getText().trim())) {
             JOptionPane.showMessageDialog(this, "The Road Width Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
         }else if(txtSurveyorPlan.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(this, "Please Select The Survayor Plan..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            JOptionPane.showMessageDialog(this, "Please Attach The Survayor Plan..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
         }else if(txtBuildingPlan.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(this, "Please Select The Building Plan..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            JOptionPane.showMessageDialog(this, "Please Attach The Building Plan..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if (rbtnIsThereBuildingYes.isSelected() && txtExistingBuildingPlan.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please Attach The Building Plan Of Existing Building..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if (rbtnIsThereBuildingYes.isSelected() && txtExistingCoC.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please Attach The CoC Report Of Existing Building..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else{
+            application.setWidthOfTheEntranceRoad(Float.parseFloat(txtRoadWidth.getText().trim()));
+            if (rbtnEntranceRoadPublic.isSelected()) {
+                application.setTypeOfTheRoad("Public");
+            } else {
+                application.setTypeOfTheRoad("Public");
+            }
+            if (rbtnWallsComplete.isSelected()) {
+                application.setWalls(true);
+            } else {
+                application.setWalls(false);
+            }
+            if (rbtnRoofComplete.isSelected()) {
+                application.setRoof(true);
+            } else {
+                application.setRoof(false);
+            }
+            if (rbtnFloorComplete.isSelected()) {
+                application.setFloor(true);
+            } else {
+                application.setFloor(false);
+            }
+            application.setSurvayorPlan(surveyorPlanNew);
+            application.setNewBuildingPlan(buildingPlanNew);
+            if(rbtnIsThereBuildingYes.isSelected()){
+                application.setExistingBuildingPlan(buildingPlanOld);
+                application.setExistingBuildingCoC(cocOld);
+            }
+            
+            if (new DBOperations().addApplication(application)) {
+                JOptionPane.showMessageDialog(this, "Application Registration Successfull...!", "Register Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Insertion Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            }
+            
         }
         
     }//GEN-LAST:event_btnFinishActionPerformed
@@ -1413,6 +1455,8 @@ public class Register_Application extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ground Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
         }else if(!Extra.isDouble(txtGroundFloor.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Ground Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(Double.parseDouble(txtGroundFloor.getText().trim())== 0f) {
+            JOptionPane.showMessageDialog(this, "Ground Floor Data Can't Be Zero..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
         }else if (txtFirstFloor.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "First Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
         }else if(!Extra.isDouble(txtFirstFloor.getText().trim())) {
@@ -1435,6 +1479,8 @@ public class Register_Application extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Distance From The Road Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
         }else if(!Extra.isDouble(txtRoad.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Distance From The Road Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        }else if(Double.parseDouble(txtRoad.getText().trim())==0f) {
+            JOptionPane.showMessageDialog(this, "Distance From The Road Data Can't Be Zero..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
         }else if (txtBackBoader.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Distance From The Back Boader Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
         }else if(!Extra.isDouble(txtBackBoader.getText().trim())) {
@@ -1492,7 +1538,13 @@ public class Register_Application extends javax.swing.JFrame {
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
             if (img != null) {
-                txtSurveyorPlan.setText(path);
+                if ((file.length()/1024)>=2048) {
+                    JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else {
+                    surveyorPlanNew = new FileInputStream(file);
+                    txtSurveyorPlan.setText(path);
+                }
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
             }
@@ -1511,8 +1563,12 @@ public class Register_Application extends javax.swing.JFrame {
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
             if (img != null) {
-                //
-                txtSurveyorPlan.setText(path);
+                if ((file.length()/1024)>=2048) {
+                    JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else {
+                    buildingPlanNew = new FileInputStream(file);
+                    txtBuildingPlan.setText(path);
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -1530,8 +1586,12 @@ public class Register_Application extends javax.swing.JFrame {
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
             if (img != null) {
-                //
-                txtExistingBuildingPlan.setText(path);
+                if ((file.length()/1024)>=2048) {
+                    JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else {
+                    buildingPlanOld  = new FileInputStream(file);
+                    txtExistingBuildingPlan.setText(path);
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -1549,8 +1609,12 @@ public class Register_Application extends javax.swing.JFrame {
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
             if (img != null) {
-                //
-                txtExistingCoC.setText(path);
+                if ((file.length()/1024)>=2048) {
+                    JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else {
+                    cocOld = new FileInputStream(file);
+                    txtExistingCoC.setText(path);
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE);
             }

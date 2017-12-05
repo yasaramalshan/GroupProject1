@@ -366,7 +366,7 @@ public class Login extends javax.swing.JFrame {
                 new ManagementAssistant_Main().setVisible(true);
                 break;
             case 4://TO
-                new TO_Main().setVisible(true);
+                new TO_Main(userId).setVisible(true);
                 break;
             case 5://subject clerke
                 

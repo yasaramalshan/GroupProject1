@@ -6,6 +6,7 @@
 package groupproject;
 
 import java.awt.Image;
+import java.io.FileInputStream;
 
 /**
  *
@@ -34,13 +35,13 @@ public class Application {
     private String typeOfTheRoad;
     
     // plans
-    private Image survayorPlan;
+    private FileInputStream survayorPlan;
     // plans
-    private Image newBuildingPlan;
+    private FileInputStream newBuildingPlan;
     // plans
-    private Image existingBuildingPlan;
+    private FileInputStream existingBuildingPlan;
     // plans
-    private Image existingBuildingCoC;
+    private FileInputStream existingBuildingCoC;
 
     public String getApplicantNIC() {
         return applicantNIC;
@@ -122,7 +123,7 @@ public class Application {
         this.purposeOfCurrentBuilding = purposeOfCurrentBuilding.trim();
     }
 
-    public boolean isIsCurrentBuildingPlanApproved() {
+    public boolean getIsCurrentBuildingPlanApproved() {
         return isCurrentBuildingPlanApproved;
     }
 
@@ -130,7 +131,7 @@ public class Application {
         this.isCurrentBuildingPlanApproved = isCurrentBuildingPlanApproved;
     }
 
-    public boolean isIsCurrentBuildingHaveCOC() {
+    public boolean getIsCurrentBuildingHaveCOC() {
         return isCurrentBuildingHaveCOC;
     }
 
@@ -218,35 +219,35 @@ public class Application {
         this.typeOfTheRoad = typeOfTheRoad.trim();
     }
 
-    public Image getSurvayorPlan() {
+    public FileInputStream getSurvayorPlan() {
         return survayorPlan;
     }
 
-    public void setSurvayorPlan(Image survayorPlan) {
+    public void setSurvayorPlan(FileInputStream survayorPlan) {
         this.survayorPlan = survayorPlan;
     }
 
-    public Image getNewBuildingPlan() {
+    public FileInputStream getNewBuildingPlan() {
         return newBuildingPlan;
     }
 
-    public void setNewBuildingPlan(Image newBuildingPlan) {
+    public void setNewBuildingPlan(FileInputStream newBuildingPlan) {
         this.newBuildingPlan = newBuildingPlan;
     }
 
-    public Image getExistingBuildingPlan() {
+    public FileInputStream getExistingBuildingPlan() {
         return existingBuildingPlan;
     }
 
-    public void setExistingBuildingPlan(Image existingBuildingPlan) {
+    public void setExistingBuildingPlan(FileInputStream existingBuildingPlan) {
         this.existingBuildingPlan = existingBuildingPlan;
     }
 
-    public Image getExistingBuildingCoC() {
+    public FileInputStream getExistingBuildingCoC() {
         return existingBuildingCoC;
     }
 
-    public void setExistingBuildingCoC(Image existingBuildingCoC) {
+    public void setExistingBuildingCoC(FileInputStream existingBuildingCoC) {
         this.existingBuildingCoC = existingBuildingCoC;
     }
 

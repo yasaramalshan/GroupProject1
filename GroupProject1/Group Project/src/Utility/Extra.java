@@ -63,6 +63,16 @@ public class Extra {
         }
 
     }
+    
+    public static boolean isValidApplcationID(String applicationID) {
+        applicationID = applicationID.toLowerCase();
+        if (applicationID.matches("\\d{12}")) { // \\d{} mans 12 number of digits..\\d{minimum_number_of_digits,maximum_number_of_digits}
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 
     public static String applicationIDGenerator() {
         Date date = new Date();
