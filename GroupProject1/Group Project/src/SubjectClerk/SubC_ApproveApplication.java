@@ -5,23 +5,10 @@
  */
 package SubjectClerk;
 
-<<<<<<< HEAD
-import CounterClerk.*;
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.Image;
-import javax.imageio.ImageIO;
-import java.io.File;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
-import javax.swing.JFileChooser;
-=======
 import java.awt.Button;
 import java.awt.Color;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
->>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 

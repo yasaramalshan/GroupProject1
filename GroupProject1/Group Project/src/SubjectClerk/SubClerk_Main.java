@@ -5,24 +5,14 @@
  */
 package SubjectClerk;
 
-<<<<<<< HEAD
-import CounterClerk.*;
-=======
->>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-<<<<<<< HEAD
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-=======
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
->>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
@@ -355,11 +345,7 @@ public class SubClerk_Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-<<<<<<< HEAD
-                if ("Nimbus".equals(info.getName())) {
-=======
                 if ("Windows".equals(info.getName())) {
->>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -375,14 +361,6 @@ public class SubClerk_Main extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-<<<<<<< HEAD
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-=======
 
         /* Create and display the form */
         SwingUtilities.invokeLater(new Runnable() {
@@ -394,7 +372,6 @@ public class SubClerk_Main extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
->>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
                 new SubClerk_Main().setVisible(true);
             }
         });

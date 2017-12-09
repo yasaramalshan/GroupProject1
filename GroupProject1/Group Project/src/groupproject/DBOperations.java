@@ -99,16 +99,7 @@ public class DBOperations {
             }
         }
     }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-    public void setLoginStatus(int parseInt, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-=======
-    
->>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
     public boolean addApplicant(Applicant applicant) {
         try {
             con = DriverManager.getConnection(url, userName, password);
@@ -192,7 +183,6 @@ public class DBOperations {
         } catch (Exception e) {
             System.out.println("Exception in getApplicant method\n" + e);
             return null;
-<<<<<<< HEAD
         }
     }
 
@@ -284,9 +274,5 @@ public class DBOperations {
                 System.out.println(ex);
             }
         }
-=======
-        } 
->>>>>>> 24fefa6fd49226feef3e03ef79208ea03d92ac8a
->>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
     }
 }

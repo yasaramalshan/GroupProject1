@@ -5,14 +5,8 @@
  */
 package ManagementAssistant;
 
-import CounterClerk.*;
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Image;
-import javax.imageio.ImageIO;
-import java.io.File;
-import javax.swing.JOptionPane;
-import javax.swing.JFileChooser;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 

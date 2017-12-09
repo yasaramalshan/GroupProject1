@@ -426,11 +426,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-<<<<<<< HEAD
             <Component class="javax.swing.JLabel" name="btnApplicantRemove">
-=======
-            <Component class="javax.swing.JLabel" name="btnApplicantRem">
->>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="be" green="be" red="be" type="rgb"/>
@@ -453,13 +449,8 @@
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>
-<<<<<<< HEAD
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnApplicantRemoveMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnApplicantRemoveMouseExited"/>
-=======
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnApplicantRemMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnApplicantRemMouseExited"/>
->>>>>>> 498a1f70b1f97636af587a3c979b6ef5982d5810
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
