@@ -11,10 +11,13 @@ import java.awt.Button;
 import java.awt.Color;
 import java.sql.ResultSet;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,18 +26,34 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Applicant_Remove extends javax.swing.JFrame {
 
+    JFrame parent;
     ResultSet rs;
-    JTextField txtInitName,txtLastName,txtNIC,txtPhone;
     DefaultTableModel table;
     private int xMouse, yMouse;
 
-    public Applicant_Remove(JTextField txtInitName,JTextField txtLastName,JTextField txtNIC,JTextField txtPhone) {
+    public Applicant_Remove(JFrame parent) {
         initComponents();
-        this.txtInitName = txtInitName;
-        this.txtLastName = txtLastName;
-        this.txtNIC = txtNIC;
-        this.txtPhone = txtPhone;
+        this.parent = parent;
         table = (DefaultTableModel) tblResults.getModel();
+        
+        // for set table header background
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+        headerRenderer.setBackground(new Color(240, 240, 240)); // change background colour
+        headerRenderer.setHorizontalAlignment(JLabel.CENTER); // change alignment of column captions
+
+        for (int i = 0; i < tblResults.getModel().getColumnCount(); i++) {
+            tblResults.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+
+        }
+        tblResults.getTableHeader().setBorder(new BevelBorder(0, Color.WHITE, Color.lightGray));
+
+        // to set column allignments to center
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER); // change alignment of column values
+        tblResults.setDefaultRenderer(String.class, centerRenderer);
+
+        tblResults.setShowGrid(true);//to show gri in table
+        tblResults.setShowHorizontalLines(false);//hide horizontal lines from grid
     }
 
     /**
@@ -207,6 +226,11 @@ public class Applicant_Remove extends javax.swing.JFrame {
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 20, 20));
 
         cmbSearchMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIC", "Initial Name", "Last Name" }));
+        cmbSearchMethod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSearchMethodActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmbSearchMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 21, 140, 20));
 
         panMain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 55, 616, 282));
@@ -251,6 +275,7 @@ public class Applicant_Remove extends javax.swing.JFrame {
         int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
+            parent.setState(0);
         }
 
     }//GEN-LAST:event_lblExitMouseClicked
@@ -284,6 +309,8 @@ public class Applicant_Remove extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String text = txtField.getText().trim(); // trim() used for remove Leading & trailing spaces.
+        table.getDataVector().removeAllElements();
+        table.fireTableDataChanged();
         switch (cmbSearchMethod.getSelectedIndex()) {
 
             case 0: // by nic
@@ -327,17 +354,26 @@ public class Applicant_Remove extends javax.swing.JFrame {
         try {
             rs.absolute(tblResults.getSelectedRow() + 1);
             String applicantNIC = rs.getString("nic");
-            if(new DBOperations().removeApplicant(applicantNIC)){
-                JOptionPane.showMessageDialog(this, "Applicant Removal Successfull...!", "Removal Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
-                this.dispose();
-            }else { 
-                JOptionPane.showMessageDialog(this, "Removal Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            int dialogResult = JOptionPane.showConfirmDialog(this, "Are You Sure...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                if (new DBOperations().removeApplicant(applicantNIC)) {
+                    JOptionPane.showMessageDialog(this, "Applicant Removal Successfull...!", "Removal Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                    this.dispose();
+                    parent.setState(0);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Removal Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                }
             }
-            
+
         } catch (Exception e) {
             System.out.println("Exeption in btnSelectActionPerformed method " + e);
-        } 
+        }
     }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void cmbSearchMethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSearchMethodActionPerformed
+        table.getDataVector().removeAllElements();
+        table.fireTableDataChanged();
+    }//GEN-LAST:event_cmbSearchMethodActionPerformed
 
     private void generateTable(String text, int method) {
         rs = new DBOperations().getApplicant(text, method);
@@ -401,20 +437,7 @@ public class Applicant_Remove extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         SwingUtilities.invokeLater(new Runnable() {
@@ -426,7 +449,7 @@ public class Applicant_Remove extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new Applicant_Remove(null,null,null,null).setVisible(true);
+                new Applicant_Remove(null).setVisible(true);
             }
         });
     }

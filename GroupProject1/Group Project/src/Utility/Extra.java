@@ -5,11 +5,13 @@
  */
 package Utility;
 
+import groupproject.DBOperations;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 import java.util.regex.Pattern;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,19 +21,19 @@ public class Extra {
 
     public static String capitalizer(String str) { // to capitalize First letter in each word of a String eg:- Yasara Jayaweera
         str = str.toLowerCase().trim();
-        if(str.equals("")){
+        if (str.equals("")) {
             return "";
-        }else{
+        } else {
             String[] words = str.split(" ");
-        StringBuffer sb = new StringBuffer();
+            StringBuffer sb = new StringBuffer();
 
-        for (int i = 0; i < words.length; i++) {
-            sb.append(Character.toUpperCase(words[i].charAt(0)))
-                    .append(words[i].substring(1)).append(" ");
-        }
+            for (int i = 0; i < words.length; i++) {
+                sb.append(Character.toUpperCase(words[i].charAt(0)))
+                        .append(words[i].substring(1)).append(" ");
+            }
             return sb.toString().trim();
         }
-        
+
     }
 
     public static boolean isValidEmail(String email) {
@@ -63,7 +65,7 @@ public class Extra {
         }
 
     }
-    
+
     public static boolean isValidApplcationID(String applicationID) {
         applicationID = applicationID.toLowerCase();
         if (applicationID.matches("\\d{12}")) { // \\d{} mans 12 number of digits..\\d{minimum_number_of_digits,maximum_number_of_digits}
@@ -74,7 +76,7 @@ public class Extra {
 
     }
 
-    public static String applicationIDGenerator() {
+    public static String applicationIDGenerator(JFrame parent) {
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -83,10 +85,15 @@ public class Extra {
         int day = cal.get(Calendar.DAY_OF_MONTH);
         int hour = cal.get(Calendar.HOUR_OF_DAY);
         int minute = cal.get(Calendar.MINUTE);
-        int rand = new Random().nextInt(100);
+        int rand = new Random().nextInt(50);
 
-        return Integer.toString(year).substring(2) + String.format("%02d", month) + String.format("%02d", day)
-                + String.format("%02d", hour) + String.format("%02d", minute) + Integer.toString(rand);
+        if (parent instanceof CounterClerk.CounterClerk_Main) {
+            return Integer.toString(year).substring(2) + String.format("%02d", month) + String.format("%02d", day)
+                    + String.format("%02d", hour) + String.format("%02d", minute) + String.format("%02d", rand);
+        } else {
+            return Integer.toString(year).substring(2) + String.format("%02d", month) + String.format("%02d", day)
+                    + String.format("%02d", hour) + String.format("%02d", minute) + String.format("%02d", rand + 50);
+        }
 
     }
 
@@ -96,6 +103,114 @@ public class Extra {
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    public static boolean isName_Spaces(String name) {
+        if (name.matches("[a-zA-Z ]+")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean isInitName(String name) {
+        if (name.matches("[a-zA-Z .]+")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void smoothExitWindow(JFrame window) {
+        float i = 1.0f;
+        while (i > 0.0) {
+            window.setOpacity(i);
+            i -= .01;
+            for (int j = 0; j < 1000; j++) {
+                for (int k = 0; k < 1000; k++) {
+                    for (int l = 0; l < 100; l++) {
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    public static void smoothExitLoginWindow(JFrame window) {
+        float i = 0.0f;
+        while (i > 0.0) {
+            window.setOpacity(i);
+            i += .01;
+            for (int j = 0; j < 10000; j++) {
+                for (int k = 0; k < 1000; k++) {
+                    for (int l = 0; l < 100; l++) {
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    public static String employeeIDGenerator() {
+        String empId;
+        DBOperations dbops = new DBOperations();
+        do {
+            empId = "10" + String.format("%04d", new Random().nextInt(10000));
+        } while (dbops.checkUserID(empId));
+        return empId;
+
+    }
+
+    public static String isCorrectWards(String input) {
+        String wards[] = input.split("/");
+        String newString = "";
+        int num;
+        for (String wardNo : wards) {
+            try {
+                num = Integer.parseInt(wardNo);
+                if (num > 0 && num < 26) {
+                    newString += Integer.toString(num) + "/";
+
+                } else {
+                    return null;
+                }
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return newString;
+    }
+
+    public static String isProperPassword(String userID, String password) {
+        /*
+         * Password should be less than 15 and more than 8 characters in length.
+         * Password should contain at least one upper case and one lower case alphabet.    
+         * Password should contain at least one number. 
+         * Password should contain at least one special character.
+         */
+        String upperCaseChars = "(.*[A-Z].*)";
+        String lowerCaseChars = "(.*[a-z].*)";
+        String numbers = "(.*[0-9].*)";
+        String specialChars = "(.*[,~,!,@,#,$,%,^,&,*,(,),-,_,=,+,[,{,],},|,;,:,<,>,/,?].*$)";
+
+        if (password.length() > 16 || password.length() < 5) {
+            return "Password should be less than 16 and more than 5 characters in length..!";
+        } else if (password.indexOf(userID) > -1) {
+            return "Password Should not be same as user name..!";
+        } else if (!password.matches(upperCaseChars)) {
+            return "Password should contain atleast one upper case alphabet..!";
+        }
+        if (!password.matches(lowerCaseChars)) {
+            return "Password should contain atleast one lower case alphabet..!";
+        } else if (!password.matches(numbers)) {
+            return "Password should contain atleast one number..!";
+        } else if (!password.matches(specialChars)) {
+            return "Password should contain atleast one special character..!";
+        } else {
+            return "";
         }
     }
 

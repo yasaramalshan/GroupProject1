@@ -5,15 +5,14 @@ package groupproject;
  *
  * @author Yasara JLP
  */
-public class Applicant {
-    private String firstName,lastName,address,NIC,phone,email;
+public class Applicant extends Person{
 
     public String getFirstName() {
-        return firstName;
+        return initName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.initName = firstName;
     }
 
     public String getLastName() {

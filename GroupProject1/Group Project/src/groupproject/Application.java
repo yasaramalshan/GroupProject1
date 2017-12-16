@@ -5,8 +5,8 @@
  */
 package groupproject;
 
-import java.awt.Image;
 import java.io.FileInputStream;
+import java.io.InputStream;
 
 /**
  *
@@ -23,7 +23,7 @@ public class Application {
     private String purposeOfCurrentBuilding = null;
     private boolean isCurrentBuildingPlanApproved,isCurrentBuildingHaveCOC;
     // development details
-    private String typeOfTheBuilding,proposedUse,effectOnNeighbour = null;
+    private String typeOfTheBuilding,proposedUse,effectOnNeighbour = null,address;
     private double areaCoveredByBuilding;
     private double floorAreas[] = new double[5],distances[] = new double[4]; /* {floorAreas : ground,first,second,third,under ground}
                                                                                 {distances from : road,back boader,right boader,left boader}     */
@@ -35,13 +35,13 @@ public class Application {
     private String typeOfTheRoad;
     
     // plans
-    private FileInputStream survayorPlan;
+    private InputStream survayorPlan;
     // plans
-    private FileInputStream newBuildingPlan;
+    private InputStream newBuildingPlan;
     // plans
-    private FileInputStream existingBuildingPlan;
+    private InputStream existingBuildingPlan;
     // plans
-    private FileInputStream existingBuildingCoC;
+    private InputStream existingBuildingCoC;
 
     public String getApplicantNIC() {
         return applicantNIC;
@@ -219,35 +219,35 @@ public class Application {
         this.typeOfTheRoad = typeOfTheRoad.trim();
     }
 
-    public FileInputStream getSurvayorPlan() {
+    public InputStream getSurvayorPlan() {
         return survayorPlan;
     }
 
-    public void setSurvayorPlan(FileInputStream survayorPlan) {
+    public void setSurvayorPlan(InputStream survayorPlan) {
         this.survayorPlan = survayorPlan;
     }
 
-    public FileInputStream getNewBuildingPlan() {
+    public InputStream getNewBuildingPlan() {
         return newBuildingPlan;
     }
 
-    public void setNewBuildingPlan(FileInputStream newBuildingPlan) {
+    public void setNewBuildingPlan(InputStream newBuildingPlan) {
         this.newBuildingPlan = newBuildingPlan;
     }
 
-    public FileInputStream getExistingBuildingPlan() {
+    public InputStream getExistingBuildingPlan() {
         return existingBuildingPlan;
     }
 
-    public void setExistingBuildingPlan(FileInputStream existingBuildingPlan) {
+    public void setExistingBuildingPlan(InputStream existingBuildingPlan) {
         this.existingBuildingPlan = existingBuildingPlan;
     }
 
-    public FileInputStream getExistingBuildingCoC() {
+    public InputStream getExistingBuildingCoC() {
         return existingBuildingCoC;
     }
 
-    public void setExistingBuildingCoC(FileInputStream existingBuildingCoC) {
+    public void setExistingBuildingCoC(InputStream existingBuildingCoC) {
         this.existingBuildingCoC = existingBuildingCoC;
     }
 
@@ -257,6 +257,14 @@ public class Application {
 
     public void setEffectOnNeighbour(String effectOnNeighbour) {
         this.effectOnNeighbour = effectOnNeighbour.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
     
 }

@@ -5,17 +5,19 @@ package Admin;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import CounterClerk.*;
 import Utility.Extra;
 import groupproject.DBOperations;
 import java.awt.Button;
 import java.awt.Color;
 import java.sql.ResultSet;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,17 +27,33 @@ import javax.swing.table.DefaultTableModel;
 public class Employee_Remove extends javax.swing.JFrame {
 
     ResultSet rs;
-    JTextField txtInitName,txtLastName,txtNIC,txtPhone;
     DefaultTableModel table;
+    JFrame parent;
     private int xMouse, yMouse;
 
-    public Employee_Remove(JTextField txtInitName,JTextField txtLastName,JTextField txtNIC,JTextField txtPhone) {
+    public Employee_Remove(JFrame parent) {
         initComponents();
-        this.txtInitName = txtInitName;
-        this.txtLastName = txtLastName;
-        this.txtNIC = txtNIC;
-        this.txtPhone = txtPhone;
         table = (DefaultTableModel) tblResults.getModel();
+        this.parent = parent;
+        
+        // for set table header background
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+        headerRenderer.setBackground(new Color(240, 240, 240)); // change background colour
+        headerRenderer.setHorizontalAlignment(JLabel.CENTER); // change alignment of column captions
+
+        for (int i = 0; i < tblResults.getModel().getColumnCount(); i++) {
+            tblResults.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+
+        }
+        tblResults.getTableHeader().setBorder(new BevelBorder(0, Color.WHITE, Color.lightGray));
+
+        // to set column allignments to center
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER); // change alignment of column values
+        tblResults.setDefaultRenderer(String.class, centerRenderer);
+
+        tblResults.setShowGrid(true);//to show gri in table
+        tblResults.setShowHorizontalLines(false);//hide horizontal lines from grid
     }
 
     /**
@@ -62,7 +80,7 @@ public class Employee_Remove extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         cmbSearchMethod = new javax.swing.JComboBox<>();
-        btnSelect = new java.awt.Button();
+        btnRemove = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -143,7 +161,7 @@ public class Employee_Remove extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Initial Name", "Last Name", "NIC", "Contact No.", "E-mail"
+                "UserID", "Initial Name", "Last Name", "NIC", "Designation"
             }
         ) {
             Class[] types = new Class [] {
@@ -208,29 +226,34 @@ public class Employee_Remove extends javax.swing.JFrame {
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 20, 20));
 
         cmbSearchMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIC", "Initial Name", "Last Name", "UserID" }));
+        cmbSearchMethod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSearchMethodActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmbSearchMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 21, 140, 20));
 
         panMain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 55, 616, 282));
 
-        btnSelect.setActionCommand("Search");
-        btnSelect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnSelect.setEnabled(false);
-        btnSelect.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnSelect.setLabel("Remove");
-        btnSelect.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRemove.setActionCommand("Search");
+        btnRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRemove.setEnabled(false);
+        btnRemove.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnRemove.setLabel("Remove");
+        btnRemove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSelectMouseEntered(evt);
+                btnRemoveMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSelectMouseExited(evt);
+                btnRemoveMouseExited(evt);
             }
         });
-        btnSelect.addActionListener(new java.awt.event.ActionListener() {
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelectActionPerformed(evt);
+                btnRemoveActionPerformed(evt);
             }
         });
-        panMain.add(btnSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 343, 78, -1));
+        panMain.add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 343, 78, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -252,6 +275,7 @@ public class Employee_Remove extends javax.swing.JFrame {
         int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
+            parent.setState(0);
         }
 
     }//GEN-LAST:event_lblExitMouseClicked
@@ -285,6 +309,8 @@ public class Employee_Remove extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String text = txtField.getText().trim(); // trim() used for remove Leading & trailing spaces.
+        table.getDataVector().removeAllElements();
+        table.fireTableDataChanged();
         switch (cmbSearchMethod.getSelectedIndex()) {
 
             case 0: // by nic
@@ -310,28 +336,41 @@ public class Employee_Remove extends javax.swing.JFrame {
                     generateTable(text, 2);
                 }
                 break;
+                
+                case 3: // by user ID
+                if (text.equals("")) {
+                    JOptionPane.showMessageDialog(this, "User ID can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else {
+                    generateTable(text, 3);
+                }
+                break;
 
         }
 
 
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void btnSelectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSelectMouseEntered
-        setButtonColour(btnSelect);
-    }//GEN-LAST:event_btnSelectMouseEntered
+    private void btnRemoveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveMouseEntered
+        setButtonColour(btnRemove);
+    }//GEN-LAST:event_btnRemoveMouseEntered
 
-    private void btnSelectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSelectMouseExited
-        resetButtonColour(btnSelect);
-    }//GEN-LAST:event_btnSelectMouseExited
+    private void btnRemoveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveMouseExited
+        resetButtonColour(btnRemove);
+    }//GEN-LAST:event_btnRemoveMouseExited
 
-    private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         try {
-            rs.absolute(tblResults.getSelectedRow() + 1);
-            txtInitName.setText(rs.getString("init_name"));
-            txtLastName.setText(rs.getString("last_name"));
-            txtNIC.setText(rs.getString("nic"));
-            txtPhone.setText(rs.getString("phone"));
-            
+            String userID = tblResults.getModel().getValueAt(tblResults.getSelectedRow(), 0).toString();
+            int dialogResult = JOptionPane.showConfirmDialog(this, "Are You Sure...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                if (new DBOperations().removeEmployee(userID)) {
+                    JOptionPane.showMessageDialog(this, "Employee Removal Successfull...!", "Removal Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                    this.dispose();
+                    parent.setState(0);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Removal Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                }
+            }
         } catch (Exception e) {
             System.out.println("Exeption in btnSelectActionPerformed method " + e);
         } finally {
@@ -345,24 +384,29 @@ public class Employee_Remove extends javax.swing.JFrame {
             
             this.dispose();
         }
-    }//GEN-LAST:event_btnSelectActionPerformed
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void cmbSearchMethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSearchMethodActionPerformed
+        table.getDataVector().removeAllElements();
+        table.fireTableDataChanged();
+    }//GEN-LAST:event_cmbSearchMethodActionPerformed
 
     private void generateTable(String text, int method) {
-        rs = new DBOperations().getApplicant(text, method);
+        rs = new DBOperations().getEmployee(text, method);
         System.out.println(rs);
         try {
             if (!rs.next()) {
-                btnSelect.setEnabled(false);
+                btnRemove.setEnabled(false);
                 table.getDataVector().removeAllElements();
                 table.fireTableDataChanged(); // or table.setRowCount(0);
-                JOptionPane.showMessageDialog(this, "Applicant Not Found,Please Register The Applicant..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                JOptionPane.showMessageDialog(this, "Employee Not Found..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 rs.close();
             } else {
-                btnSelect.setEnabled(true);
+                btnRemove.setEnabled(true);
                 table.getDataVector().removeAllElements();
                 table.fireTableDataChanged();
                 do {
-                    table.addRow(new Object[]{rs.getString("init_name"), rs.getString("last_name"), rs.getString("nic"), rs.getString("phone"), rs.getString("email")});
+                    table.addRow(new Object[]{ rs.getString("employee_id"),rs.getString("init_name"), rs.getString("last_name"), rs.getString("nic"), rs.getString("designation")});
                 } while (rs.next());
             }
         } catch (Exception e) {
@@ -409,12 +453,7 @@ public class Employee_Remove extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         SwingUtilities.invokeLater(new Runnable() {
@@ -426,14 +465,14 @@ public class Employee_Remove extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new Employee_Remove(null,null,null,null).setVisible(true);
+                new Employee_Remove(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button btnRemove;
     private java.awt.Button btnSearch;
-    private java.awt.Button btnSelect;
     private javax.swing.JComboBox<String> cmbSearchMethod;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

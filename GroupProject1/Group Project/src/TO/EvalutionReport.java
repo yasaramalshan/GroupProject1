@@ -5,14 +5,15 @@
  */
 package TO;
 
-import CounterClerk.*;
+import Admin.View_Applicant;
+import Admin.View_Application;
+import groupproject.DBOperations;
+import groupproject.Evolution_Report;
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Image;
-import javax.imageio.ImageIO;
-import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JFileChooser;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -22,10 +23,19 @@ import javax.swing.UIManager;
  */
 public class EvalutionReport extends javax.swing.JFrame {
 
-    int xMouse,yMouse;
-    public EvalutionReport() {
+    Evolution_Report report = new Evolution_Report();
+    int xMouse, yMouse;
+    String ownerNIC;
+    JFrame parent;
+
+    public EvalutionReport(JFrame parent, String applicationID, String ownerNIC) {
         initComponents();
-        
+        initializer();
+        report.setApplicationID(applicationID);
+        txtAppID.setText(report.getApplicationID());
+        this.ownerNIC = ownerNIC;
+        this.parent = parent;
+
     }
 
     /**
@@ -40,6 +50,11 @@ public class EvalutionReport extends javax.swing.JFrame {
         surveyorReport = new javax.swing.ButtonGroup();
         existingBuilding = new javax.swing.ButtonGroup();
         zonalizationPlan = new javax.swing.ButtonGroup();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
         panMain = new javax.swing.JPanel();
         panHeader = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -54,30 +69,16 @@ public class EvalutionReport extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         txtDetaisVehicalPark = new javax.swing.JTextField();
         txtRatio = new javax.swing.JTextField();
-        txtAreaOfTheLand = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         txtAppID = new javax.swing.JTextField();
-        txtAppliedDate = new javax.swing.JTextField();
         btnDetailsArea = new java.awt.Button();
-        jLabel29 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        btnApplicationDetails = new java.awt.Button();
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtAreaWhySuvReport = new javax.swing.JTextArea();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         txtSurveyorName = new javax.swing.JTextField();
@@ -94,23 +95,16 @@ public class EvalutionReport extends javax.swing.JFrame {
         jLabel56 = new javax.swing.JLabel();
         rbtnZonalizationPlanYes = new javax.swing.JRadioButton();
         rbtnZonalizationPlanNo = new javax.swing.JRadioButton();
-        jLabel57 = new javax.swing.JLabel();
-        jSeparator7 = new javax.swing.JSeparator();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtAreaAccordingToZonalizationPlan = new javax.swing.JTextArea();
-        pan2 = new javax.swing.JPanel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
         rbtnRainWaterYes = new javax.swing.JRadioButton();
         rbtnRainWaterNo = new javax.swing.JRadioButton();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         txtAreaNotSatisfiedRainWaterDrain = new javax.swing.JTextArea();
-        jSeparator10 = new javax.swing.JSeparator();
         jLabel68 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        rbtnIsRoadDrainsExistingYes = new javax.swing.JRadioButton();
-        jLabel112 = new javax.swing.JLabel();
-        rbtnIsRoadDrainsExistingNo = new javax.swing.JRadioButton();
+        jSeparator10 = new javax.swing.JSeparator();
+        jLabel34 = new javax.swing.JLabel();
+        pan2 = new javax.swing.JPanel();
         rbtnSatisfiedBuildingBoundryNo = new javax.swing.JRadioButton();
         rbtnSatisfiedBuildingBoundryYes = new javax.swing.JRadioButton();
         jLabel59 = new javax.swing.JLabel();
@@ -127,82 +121,11 @@ public class EvalutionReport extends javax.swing.JFrame {
         jLabel63 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         txtAreaWhatStorage = new javax.swing.JTextArea();
-        btnPrev1 = new java.awt.Button();
         btnNext2 = new java.awt.Button();
-        pan3 = new javax.swing.JPanel();
-        jLabel46 = new javax.swing.JLabel();
-        jSeparator13 = new javax.swing.JSeparator();
-        jLabel70 = new javax.swing.JLabel();
-        jLabel74 = new javax.swing.JLabel();
-        rbtnSocialProblemYes = new javax.swing.JRadioButton();
-        jLabel75 = new javax.swing.JLabel();
-        jSeparator11 = new javax.swing.JSeparator();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        txtAreaThereIsSocialOrEnvProblem = new javax.swing.JTextArea();
-        jLabel71 = new javax.swing.JLabel();
-        jLabel80 = new javax.swing.JLabel();
-        rbtnReasonForTrafficYes = new javax.swing.JRadioButton();
-        rbtnReasonForTrafficNo = new javax.swing.JRadioButton();
-        jLabel81 = new javax.swing.JLabel();
-        jSeparator12 = new javax.swing.JSeparator();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        txtAreaTrafficJam = new javax.swing.JTextArea();
-        jLabel82 = new javax.swing.JLabel();
-        rbtnReasonForFireYes = new javax.swing.JRadioButton();
-        rbtnReasonForFireNot = new javax.swing.JRadioButton();
-        jLabel72 = new javax.swing.JLabel();
-        jLabel84 = new javax.swing.JLabel();
-        jSeparator14 = new javax.swing.JSeparator();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        txtAreaReasonFOrFire = new javax.swing.JTextArea();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel136 = new javax.swing.JLabel();
-        txtNoOfMachines = new javax.swing.JTextField();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel137 = new javax.swing.JLabel();
-        txtNoOfHorsePow = new javax.swing.JTextField();
-        jLabel85 = new javax.swing.JLabel();
-        jLabel86 = new javax.swing.JLabel();
-        rbtnMachinEnviromentalPollutionYes = new javax.swing.JRadioButton();
-        rbtnMachinEnviromentalPollutionNo = new javax.swing.JRadioButton();
-        jLabel87 = new javax.swing.JLabel();
-        jSeparator15 = new javax.swing.JSeparator();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        txtAreaMachinEnviromentalPollution = new javax.swing.JTextArea();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        btnPrev3 = new java.awt.Button();
-        btnNext3 = new java.awt.Button();
-        pan4 = new javax.swing.JPanel();
-        jLabel47 = new javax.swing.JLabel();
-        rbtnRelevantAuthuritiesApprovalYes = new javax.swing.JRadioButton();
-        jLabel49 = new javax.swing.JLabel();
-        rbtnRelevantAuthuritiesApprovalNo = new javax.swing.JRadioButton();
-        jLabel99 = new javax.swing.JLabel();
-        jSeparator18 = new javax.swing.JSeparator();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        txtAreaRelevantAuthuritiesApprovalNoWhy = new javax.swing.JTextArea();
         jLabel64 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        rbtnChartedEngCertifiedYes = new javax.swing.JRadioButton();
-        rbtnChartedEngCertifiedNo = new javax.swing.JRadioButton();
-        jLabel66 = new javax.swing.JLabel();
-        jSeparator16 = new javax.swing.JSeparator();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        txtAreaChartedEngCertifiedNotWhy1 = new javax.swing.JTextArea();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel88 = new javax.swing.JLabel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        txtAreaOtherDetails = new javax.swing.JTextArea();
-        jLabel39 = new javax.swing.JLabel();
-        txtNameRecmnTO = new javax.swing.JTextField();
-        jLabel73 = new javax.swing.JLabel();
-        jLabel89 = new javax.swing.JLabel();
-        jLabel76 = new javax.swing.JLabel();
-        jLabel90 = new javax.swing.JLabel();
-        rbtnOfficerWhoInspected = new javax.swing.JRadioButton();
-        rbtnTechnicalOfficer = new javax.swing.JRadioButton();
-        btnFinish = new java.awt.Button();
-        jLabel113 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaTO = new javax.swing.JTextArea();
+        btnPrev1 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -280,56 +203,40 @@ public class EvalutionReport extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("Details Of Area Of the Building");
-        pan1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, 20));
+        jLabel8.setText("Details Of the Building");
+        pan1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 160, 20));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText(":");
-        pan1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 20, 20));
+        pan1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 20, 20));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Details about vehical Park");
-        pan1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 160, 20));
+        pan1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 160, 20));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText(":");
-        pan1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 10, -1));
+        pan1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 10, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Cover Of Holding(%)");
-        pan1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 160, 20));
+        pan1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 160, 20));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText(":");
-        pan1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 10, -1));
+        pan1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 10, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Ratio Among the Area Of Flats");
-        pan1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, -1, 20));
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText(":");
-        pan1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 14, 20));
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel16.setText("Area Of The Land(perch)");
-        pan1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 180, -1));
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText(":");
-        pan1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 14, -1));
-        pan1.add(txtDetaisVehicalPark, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 220, -1));
-        pan1.add(txtRatio, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, 220, -1));
-        pan1.add(txtAreaOfTheLand, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 220, -1));
+        pan1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, 20));
+        pan1.add(txtDetaisVehicalPark, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 600, -1));
+        pan1.add(txtRatio, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 190, -1));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -341,23 +248,13 @@ public class EvalutionReport extends javax.swing.JFrame {
         jLabel20.setText(":");
         pan1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 14, -1));
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel21.setText("Date Applied");
-        pan1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 110, 20));
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText(":");
-        pan1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, 20, -1));
-
+        txtAppID.setEditable(false);
         txtAppID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAppIDActionPerformed(evt);
             }
         });
         pan1.add(txtAppID, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 220, -1));
-        pan1.add(txtAppliedDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 220, -1));
 
         btnDetailsArea.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnDetailsArea.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -375,45 +272,17 @@ public class EvalutionReport extends javax.swing.JFrame {
                 btnDetailsAreaActionPerformed(evt);
             }
         });
-        pan1.add(btnDetailsArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 220, -1));
-
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel29.setText("Application Details");
-        pan1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 110, 20));
+        pan1.add(btnDetailsArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 220, -1));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel31.setText("Applicant Details");
-        pan1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 130, 20));
+        pan1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 130, 20));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel33.setText(":");
-        pan1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 14, -1));
-
-        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel34.setText(":");
-        pan1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 20, -1));
-
-        btnApplicationDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnApplicationDetails.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnApplicationDetails.setLabel("View");
-        btnApplicationDetails.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnApplicationDetailsMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnApplicationDetailsMouseExited(evt);
-            }
-        });
-        btnApplicationDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnApplicationDetailsActionPerformed(evt);
-            }
-        });
-        pan1.add(btnApplicationDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 220, -1));
+        pan1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 162, 20, -1));
 
         jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -425,18 +294,6 @@ public class EvalutionReport extends javax.swing.JFrame {
         jLabel53.setText(":");
         pan1.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 14, 20));
 
-        jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel54.setText("If Not : ");
-        pan1.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 130, 20));
-        pan1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 630, 10));
-
-        txtAreaWhySuvReport.setColumns(20);
-        txtAreaWhySuvReport.setRows(5);
-        jScrollPane2.setViewportView(txtAreaWhySuvReport);
-
-        pan1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 630, 40));
-
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel35.setText("Name Of Surveyor");
@@ -446,14 +303,8 @@ public class EvalutionReport extends javax.swing.JFrame {
         jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel36.setText(":");
         pan1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 14, 20));
-
-        txtSurveyorName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSurveyorNameActionPerformed(evt);
-            }
-        });
         pan1.add(txtSurveyorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 220, -1));
-        pan1.add(txtCoverHolding, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 220, -1));
+        pan1.add(txtCoverHolding, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 220, -1));
 
         btnApplicantDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnApplicantDetails.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -471,20 +322,21 @@ public class EvalutionReport extends javax.swing.JFrame {
                 btnApplicantDetailsActionPerformed(evt);
             }
         });
-        pan1.add(btnApplicantDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 220, -1));
+        pan1.add(btnApplicantDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 220, -1));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel23.setText("Attachment Of Existing Building Marked ? ");
-        pan1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 310, 20));
+        pan1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 310, 20));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText(":");
-        pan1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 10, 20));
+        pan1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 10, 20));
 
         rbtnApprovedSvyrRpt.setBackground(new java.awt.Color(255, 255, 255));
         surveyorReport.add(rbtnApprovedSvyrRpt);
+        rbtnApprovedSvyrRpt.setSelected(true);
         rbtnApprovedSvyrRpt.setText("Approved");
         pan1.add(rbtnApprovedSvyrRpt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
 
@@ -495,13 +347,14 @@ public class EvalutionReport extends javax.swing.JFrame {
 
         rbtnAtchmntMarked.setBackground(new java.awt.Color(255, 255, 255));
         existingBuilding.add(rbtnAtchmntMarked);
+        rbtnAtchmntMarked.setSelected(true);
         rbtnAtchmntMarked.setText("Yes");
-        pan1.add(rbtnAtchmntMarked, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, 20));
+        pan1.add(rbtnAtchmntMarked, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, 20));
 
         rbtnAtchmntNotMarked.setBackground(new java.awt.Color(255, 255, 255));
         existingBuilding.add(rbtnAtchmntNotMarked);
         rbtnAtchmntNotMarked.setText("No");
-        pan1.add(rbtnAtchmntNotMarked, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, -1, -1));
+        pan1.add(rbtnAtchmntNotMarked, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
 
         btnNext1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnNext1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -519,139 +372,200 @@ public class EvalutionReport extends javax.swing.JFrame {
                 btnNext1ActionPerformed(evt);
             }
         });
-        pan1.add(btnNext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 460, 78, -1));
+        pan1.add(btnNext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, 78, -1));
 
         jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel55.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel55.setText(" This place is appropriate according to Zonalization Plan ? ");
-        pan1.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 310, 20));
+        jLabel55.setText(" This place is appropriate according to Zonalization ? ");
+        pan1.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 310, 20));
 
         jLabel56.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel56.setText(":");
-        pan1.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 10, 20));
+        pan1.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 10, 20));
 
         rbtnZonalizationPlanYes.setBackground(new java.awt.Color(255, 255, 255));
         zonalizationPlan.add(rbtnZonalizationPlanYes);
+        rbtnZonalizationPlanYes.setSelected(true);
         rbtnZonalizationPlanYes.setText("Yes");
-        pan1.add(rbtnZonalizationPlanYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, -1));
+        pan1.add(rbtnZonalizationPlanYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
 
         rbtnZonalizationPlanNo.setBackground(new java.awt.Color(255, 255, 255));
         zonalizationPlan.add(rbtnZonalizationPlanNo);
         rbtnZonalizationPlanNo.setText("No");
-        pan1.add(rbtnZonalizationPlanNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, -1, -1));
-
-        jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jLabel57.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel57.setText("If Not : ");
-        pan1.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 130, 20));
-        pan1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 630, 10));
-
-        txtAreaAccordingToZonalizationPlan.setColumns(20);
-        txtAreaAccordingToZonalizationPlan.setRows(5);
-        jScrollPane3.setViewportView(txtAreaAccordingToZonalizationPlan);
-
-        pan1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 630, 40));
-
-        panCard.add(pan1, "card5");
-
-        pan2.setBackground(new java.awt.Color(255, 255, 255));
-        pan2.setPreferredSize(new java.awt.Dimension(838, 493));
-
-        jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel44.setText("Satisfied with the rainwater drainage method ?");
-
-        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel45.setText(":");
+        pan1.add(rbtnZonalizationPlanNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, -1, -1));
 
         rbtnRainWaterYes.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(rbtnRainWaterYes);
+        rbtnRainWaterYes.setSelected(true);
         rbtnRainWaterYes.setText("Yes");
+        rbtnRainWaterYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnRainWaterYesActionPerformed(evt);
+            }
+        });
+        pan1.add(rbtnRainWaterYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
 
         rbtnRainWaterNo.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(rbtnRainWaterNo);
         rbtnRainWaterNo.setText("No");
         rbtnRainWaterNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnRainWaterNoActionPerformed(evt);
             }
         });
+        pan1.add(rbtnRainWaterNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
 
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel45.setText(":");
+        pan1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 14, 20));
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel44.setText("Satisfied with the rainwater drainage method ?");
+        pan1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 270, 20));
+
+        txtAreaNotSatisfiedRainWaterDrain.setEditable(false);
         txtAreaNotSatisfiedRainWaterDrain.setColumns(20);
         txtAreaNotSatisfiedRainWaterDrain.setRows(5);
         jScrollPane7.setViewportView(txtAreaNotSatisfiedRainWaterDrain);
 
+        pan1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 383, 656, 90));
+
         jLabel68.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel68.setText("If Not : ");
+        pan1.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 40, 20));
+        pan1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 639, 10));
 
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel32.setText("Roads, Drains are physicaly existing in surveyor plan ?");
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText(":");
+        pan1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 14, -1));
 
-        rbtnIsRoadDrainsExistingYes.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnIsRoadDrainsExistingYes.setText("Yes");
+        panCard.add(pan1, "card5");
 
-        jLabel112.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel112.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel112.setText(":");
-
-        rbtnIsRoadDrainsExistingNo.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnIsRoadDrainsExistingNo.setText("No");
+        pan2.setBackground(new java.awt.Color(255, 255, 255));
+        pan2.setPreferredSize(new java.awt.Dimension(838, 493));
+        pan2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rbtnSatisfiedBuildingBoundryNo.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup2.add(rbtnSatisfiedBuildingBoundryNo);
         rbtnSatisfiedBuildingBoundryNo.setText("No");
         rbtnSatisfiedBuildingBoundryNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnSatisfiedBuildingBoundryNoActionPerformed(evt);
             }
         });
+        pan2.add(rbtnSatisfiedBuildingBoundryNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, -1, -1));
 
         rbtnSatisfiedBuildingBoundryYes.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup2.add(rbtnSatisfiedBuildingBoundryYes);
+        rbtnSatisfiedBuildingBoundryYes.setSelected(true);
         rbtnSatisfiedBuildingBoundryYes.setText("Yes");
+        rbtnSatisfiedBuildingBoundryYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnSatisfiedBuildingBoundryYesActionPerformed(evt);
+            }
+        });
+        pan2.add(rbtnSatisfiedBuildingBoundryYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, -1, -1));
 
         jLabel59.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel59.setText(":");
+        pan2.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 14, 20));
 
         jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel58.setText("Satisfied with the building boundary, ventilation, well, toilets & backside space ? ");
+        pan2.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 430, 20));
 
         jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel60.setText("If Not : ");
+        pan2.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 40, 20));
+        pan2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 60, 550, 10));
 
+        txtAreaNotSatisfiedBuildingBoundry.setEditable(false);
         txtAreaNotSatisfiedBuildingBoundry.setColumns(20);
         txtAreaNotSatisfiedBuildingBoundry.setRows(5);
         jScrollPane5.setViewportView(txtAreaNotSatisfiedBuildingBoundry);
 
+        pan2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 550, 60));
+
         jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel61.setText("If this use as storage place, then what are the items used ?");
+        jLabel61.setText("TO's Summary  : ");
+        pan2.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 100, 20));
 
         jLabel62.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel62.setText(":");
+        pan2.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, 20));
 
         rbtnStoragePlaceYes.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup3.add(rbtnStoragePlaceYes);
         rbtnStoragePlaceYes.setText("Yes");
+        rbtnStoragePlaceYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnStoragePlaceYesActionPerformed(evt);
+            }
+        });
+        pan2.add(rbtnStoragePlaceYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
 
         rbtnStoragePlaceNo.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup3.add(rbtnStoragePlaceNo);
+        rbtnStoragePlaceNo.setSelected(true);
         rbtnStoragePlaceNo.setText("No");
         rbtnStoragePlaceNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnStoragePlaceNoActionPerformed(evt);
             }
         });
+        pan2.add(rbtnStoragePlaceNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, -1, -1));
+        pan2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 200, 550, 10));
 
         jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel63.setText("If Yes : ");
+        jLabel63.setText("If Yes,Details : ");
+        pan2.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 90, 20));
 
+        txtAreaWhatStorage.setEditable(false);
         txtAreaWhatStorage.setColumns(20);
         txtAreaWhatStorage.setRows(5);
         jScrollPane6.setViewportView(txtAreaWhatStorage);
+
+        pan2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 213, 550, 70));
+
+        btnNext2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnNext2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnNext2.setLabel("Submit");
+        btnNext2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnNext2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnNext2MouseExited(evt);
+            }
+        });
+        btnNext2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNext2ActionPerformed(evt);
+            }
+        });
+        pan2.add(btnNext2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, 78, -1));
+
+        jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel64.setText("If this use as storage place or Industry ?");
+        pan2.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 430, 20));
+
+        txtAreaTO.setColumns(20);
+        txtAreaTO.setRows(5);
+        jScrollPane1.setViewportView(txtAreaTO);
+
+        pan2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 550, 150));
 
         btnPrev1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnPrev1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -669,764 +583,9 @@ public class EvalutionReport extends javax.swing.JFrame {
                 btnPrev1ActionPerformed(evt);
             }
         });
-
-        btnNext2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnNext2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnNext2.setLabel("Next");
-        btnNext2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnNext2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnNext2MouseExited(evt);
-            }
-        });
-        btnNext2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNext2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pan2Layout = new javax.swing.GroupLayout(pan2);
-        pan2.setLayout(pan2Layout);
-        pan2Layout.setHorizontalGroup(
-            pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pan2Layout.createSequentialGroup()
-                .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pan2Layout.createSequentialGroup()
-                        .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pan2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pan2Layout.createSequentialGroup()
-                                        .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan2Layout.createSequentialGroup()
-                                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel112, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(rbtnIsRoadDrainsExistingYes))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan2Layout.createSequentialGroup()
-                                                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(rbtnSatisfiedBuildingBoundryYes)))
-                                        .addGap(38, 38, 38)
-                                        .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(rbtnSatisfiedBuildingBoundryNo)
-                                            .addComponent(rbtnIsRoadDrainsExistingNo)))
-                                    .addGroup(pan2Layout.createSequentialGroup()
-                                        .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(rbtnStoragePlaceYes)
-                                        .addGap(39, 39, 39)
-                                        .addComponent(rbtnStoragePlaceNo))))
-                            .addGroup(pan2Layout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pan2Layout.createSequentialGroup()
-                                                .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(40, 40, 40)
-                                                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(rbtnRainWaterYes)
-                                                .addGap(47, 47, 47)
-                                                .addComponent(rbtnRainWaterNo))
-                                            .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jSeparator8)
-                                            .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 72, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnPrev1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNext2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        pan2Layout.setVerticalGroup(
-            pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pan2Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pan2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbtnRainWaterYes)
-                        .addComponent(rbtnRainWaterNo)))
-                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pan2Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel112, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbtnIsRoadDrainsExistingYes)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rbtnIsRoadDrainsExistingNo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbtnSatisfiedBuildingBoundryYes)
-                        .addComponent(rbtnSatisfiedBuildingBoundryNo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pan2Layout.createSequentialGroup()
-                        .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(rbtnStoragePlaceYes)
-                                .addComponent(rbtnStoragePlaceNo)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addComponent(btnPrev1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pan2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnNext2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        pan2.add(btnPrev1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 470, 78, -1));
 
         panCard.add(pan2, "card3");
-
-        pan3.setBackground(new java.awt.Color(255, 255, 255));
-        pan3.setPreferredSize(new java.awt.Dimension(838, 493));
-
-        jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel46.setText("If Store Room or Industry :");
-
-        jLabel70.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel70.setText("i) Is this reason for arise howsoever environmental pollution or social problem ?");
-
-        jLabel74.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel74.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel74.setText(":");
-
-        rbtnSocialProblemYes.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnSocialProblemYes.setText("Yes");
-
-        jLabel75.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel75.setText("If Yes : ");
-
-        txtAreaThereIsSocialOrEnvProblem.setColumns(20);
-        txtAreaThereIsSocialOrEnvProblem.setRows(5);
-        jScrollPane8.setViewportView(txtAreaThereIsSocialOrEnvProblem);
-
-        jLabel71.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel71.setText("ii) Is this reason for traffic jam ? ");
-
-        jLabel80.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel80.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel80.setText(":");
-
-        rbtnReasonForTrafficYes.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnReasonForTrafficYes.setText("Yes");
-
-        rbtnReasonForTrafficNo.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnReasonForTrafficNo.setText("No");
-        rbtnReasonForTrafficNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnReasonForTrafficNoActionPerformed(evt);
-            }
-        });
-
-        jLabel81.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jLabel81.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel81.setText("If Yes : ");
-
-        txtAreaTrafficJam.setColumns(20);
-        txtAreaTrafficJam.setRows(5);
-        jScrollPane9.setViewportView(txtAreaTrafficJam);
-
-        jLabel82.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel82.setText(":");
-
-        rbtnReasonForFireYes.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnReasonForFireYes.setText("Yes");
-
-        rbtnReasonForFireNot.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnReasonForFireNot.setText("No");
-        rbtnReasonForFireNot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnReasonForFireNotActionPerformed(evt);
-            }
-        });
-
-        jLabel72.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel72.setText("iii) Is this reson for fire ? ");
-
-        jLabel84.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel84.setText("If Yes : ");
-
-        txtAreaReasonFOrFire.setColumns(20);
-        txtAreaReasonFOrFire.setRows(5);
-        jScrollPane10.setViewportView(txtAreaReasonFOrFire);
-
-        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel37.setText("iv) Number of machines used");
-
-        jLabel136.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel136.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel136.setText(":");
-
-        jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel38.setText("v) Quantity of horse power  ");
-
-        jLabel137.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel137.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel137.setText(":");
-
-        jLabel85.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel85.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel85.setText("vi) Is this procedure to prevent enviromental pollution ?  ");
-
-        jLabel86.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel86.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel86.setText(":");
-
-        rbtnMachinEnviromentalPollutionYes.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnMachinEnviromentalPollutionYes.setText("Yes");
-
-        rbtnMachinEnviromentalPollutionNo.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnMachinEnviromentalPollutionNo.setText("No");
-        rbtnMachinEnviromentalPollutionNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnMachinEnviromentalPollutionNoActionPerformed(evt);
-            }
-        });
-
-        jLabel87.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jLabel87.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel87.setText("If Yes : ");
-
-        txtAreaMachinEnviromentalPollution.setColumns(20);
-        txtAreaMachinEnviromentalPollution.setRows(5);
-        jScrollPane11.setViewportView(txtAreaMachinEnviromentalPollution);
-
-        jRadioButton1.setText("No");
-
-        btnPrev3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnPrev3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnPrev3.setLabel("Prev");
-        btnPrev3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnPrev3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnPrev3MouseExited(evt);
-            }
-        });
-        btnPrev3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrev3ActionPerformed(evt);
-            }
-        });
-
-        btnNext3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnNext3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnNext3.setLabel("Next");
-        btnNext3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnNext3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnNext3MouseExited(evt);
-            }
-        });
-        btnNext3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNext3ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pan3Layout = new javax.swing.GroupLayout(pan3);
-        pan3.setLayout(pan3Layout);
-        pan3Layout.setHorizontalGroup(
-            pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pan3Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pan3Layout.createSequentialGroup()
-                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator12, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pan3Layout.createSequentialGroup()
-                                .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(pan3Layout.createSequentialGroup()
-                                        .addGap(80, 80, 80)
-                                        .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(pan3Layout.createSequentialGroup()
-                                        .addGap(80, 80, 80)
-                                        .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel46)
-                                    .addGroup(pan3Layout.createSequentialGroup()
-                                        .addGap(80, 80, 80)
-                                        .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(pan3Layout.createSequentialGroup()
-                                        .addGap(80, 80, 80)
-                                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(pan3Layout.createSequentialGroup()
-                                        .addGap(67, 67, 67)
-                                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pan3Layout.createSequentialGroup()
-                                                .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(53, 53, 53)
-                                                .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(16, 16, 16)
-                                                .addComponent(rbtnReasonForFireYes)
-                                                .addGap(67, 67, 67)
-                                                .addComponent(rbtnReasonForFireNot))
-                                            .addGroup(pan3Layout.createSequentialGroup()
-                                                .addComponent(jLabel85)
-                                                .addGap(133, 133, 133)
-                                                .addComponent(jLabel86, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(16, 16, 16)
-                                                .addComponent(rbtnMachinEnviromentalPollutionYes)
-                                                .addGap(53, 53, 53)
-                                                .addComponent(rbtnMachinEnviromentalPollutionNo))))
-                                    .addGroup(pan3Layout.createSequentialGroup()
-                                        .addGap(73, 73, 73)
-                                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pan3Layout.createSequentialGroup()
-                                                .addComponent(jLabel71)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel80, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(16, 16, 16)
-                                                .addComponent(rbtnReasonForTrafficYes)
-                                                .addGap(67, 67, 67)
-                                                .addComponent(rbtnReasonForTrafficNo))
-                                            .addGroup(pan3Layout.createSequentialGroup()
-                                                .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(16, 16, 16)
-                                                .addComponent(rbtnSocialProblemYes))))
-                                    .addGroup(pan3Layout.createSequentialGroup()
-                                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pan3Layout.createSequentialGroup()
-                                                .addGap(67, 67, 67)
-                                                .addComponent(jLabel38))
-                                            .addGroup(pan3Layout.createSequentialGroup()
-                                                .addGap(66, 66, 66)
-                                                .addComponent(jLabel37)))
-                                        .addGap(37, 37, 37)
-                                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pan3Layout.createSequentialGroup()
-                                                .addComponent(jLabel137, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(16, 16, 16)
-                                                .addComponent(txtNoOfHorsePow, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan3Layout.createSequentialGroup()
-                                                .addComponent(jLabel136, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(16, 16, 16)
-                                                .addComponent(txtNoOfMachines, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(pan3Layout.createSequentialGroup()
-                                .addGap(80, 80, 80)
-                                .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan3Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnPrev3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnNext3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)))
-                        .addContainerGap())
-                    .addGroup(pan3Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pan3Layout.createSequentialGroup()
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(pan3Layout.createSequentialGroup()
-                                .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jRadioButton1)
-                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
-                                    .addComponent(jSeparator11, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
-        );
-        pan3Layout.setVerticalGroup(
-            pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan3Layout.createSequentialGroup()
-                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbtnSocialProblemYes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jRadioButton1)))
-                .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel80, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rbtnReasonForTrafficYes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rbtnReasonForTrafficNo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pan3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(rbtnReasonForFireYes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(rbtnReasonForFireNot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel72))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel136, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNoOfMachines, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel137, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNoOfHorsePow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel85, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel86, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbtnMachinEnviromentalPollutionYes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbtnMachinEnviromentalPollutionNo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPrev3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pan3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnNext3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        panCard.add(pan3, "card4");
-
-        pan4.setPreferredSize(new java.awt.Dimension(838, 493));
-
-        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel47.setText("Inline with the approvals and certifications from the relevant authorities ?");
-
-        rbtnRelevantAuthuritiesApprovalYes.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnRelevantAuthuritiesApprovalYes.setText("Yes");
-
-        jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel49.setText(":");
-
-        rbtnRelevantAuthuritiesApprovalNo.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnRelevantAuthuritiesApprovalNo.setText("No");
-        rbtnRelevantAuthuritiesApprovalNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnRelevantAuthuritiesApprovalNoActionPerformed(evt);
-            }
-        });
-
-        jLabel99.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel99.setText("If Not : ");
-
-        txtAreaRelevantAuthuritiesApprovalNoWhy.setColumns(20);
-        txtAreaRelevantAuthuritiesApprovalNoWhy.setRows(5);
-        jScrollPane14.setViewportView(txtAreaRelevantAuthuritiesApprovalNoWhy);
-
-        jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel64.setText("Is the chartered engineer certified about the proposed construction do not inflict to the adjoining properties ?");
-
-        jLabel65.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel65.setText(":");
-
-        rbtnChartedEngCertifiedYes.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnChartedEngCertifiedYes.setText("Yes");
-
-        rbtnChartedEngCertifiedNo.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnChartedEngCertifiedNo.setText("No");
-        rbtnChartedEngCertifiedNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnChartedEngCertifiedNoActionPerformed(evt);
-            }
-        });
-
-        jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel66.setText("If Not : ");
-
-        txtAreaChartedEngCertifiedNotWhy1.setColumns(20);
-        txtAreaChartedEngCertifiedNotWhy1.setRows(5);
-        jScrollPane13.setViewportView(txtAreaChartedEngCertifiedNotWhy1);
-
-        jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel67.setText("Other Details");
-
-        jLabel88.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel88.setText(":");
-
-        txtAreaOtherDetails.setColumns(20);
-        txtAreaOtherDetails.setRows(5);
-        jScrollPane12.setViewportView(txtAreaOtherDetails);
-
-        jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel39.setText("Recommendation Of Officer who Inspected / Technical Officer");
-
-        txtNameRecmnTO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameRecmnTOActionPerformed(evt);
-            }
-        });
-
-        jLabel73.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel73.setText("Name");
-
-        jLabel89.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel89.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel89.setText(":");
-
-        jLabel76.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel76.setText("Name");
-
-        jLabel90.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel90.setText(":");
-
-        rbtnOfficerWhoInspected.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnOfficerWhoInspected.setText("Officer who Inspected");
-        rbtnOfficerWhoInspected.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnOfficerWhoInspectedActionPerformed(evt);
-            }
-        });
-
-        rbtnTechnicalOfficer.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnTechnicalOfficer.setSelected(true);
-        rbtnTechnicalOfficer.setText("Technical Officer");
-        rbtnTechnicalOfficer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnTechnicalOfficerActionPerformed(evt);
-            }
-        });
-
-        btnFinish.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnFinish.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnFinish.setLabel("Finish");
-        btnFinish.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnFinishMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnFinishMouseExited(evt);
-            }
-        });
-        btnFinish.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinishActionPerformed(evt);
-            }
-        });
-
-        jLabel113.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel113.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel113.setText(":");
-
-        javax.swing.GroupLayout pan4Layout = new javax.swing.GroupLayout(pan4);
-        pan4.setLayout(pan4Layout);
-        pan4Layout.setHorizontalGroup(
-            pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pan4Layout.createSequentialGroup()
-                .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pan4Layout.createSequentialGroup()
-                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(rbtnRelevantAuthuritiesApprovalYes)
-                        .addGap(67, 67, 67)
-                        .addComponent(rbtnRelevantAuthuritiesApprovalNo))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan4Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pan4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pan4Layout.createSequentialGroup()
-                        .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel88, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan4Layout.createSequentialGroup()
-                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel113, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(379, 379, 379))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan4Layout.createSequentialGroup()
-                .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pan4Layout.createSequentialGroup()
-                        .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(rbtnChartedEngCertifiedYes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rbtnChartedEngCertifiedNo))
-                    .addGroup(pan4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel99, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane14)
-                                    .addComponent(jSeparator18))))))
-                .addGap(91, 91, 91))
-            .addGroup(pan4Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtNameRecmnTO, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel90, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbtnTechnicalOfficer, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rbtnOfficerWhoInspected))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnFinish, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
-        );
-        pan4Layout.setVerticalGroup(
-            pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pan4Layout.createSequentialGroup()
-                .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pan4Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbtnRelevantAuthuritiesApprovalYes)
-                            .addComponent(rbtnRelevantAuthuritiesApprovalNo))
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel99, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbtnChartedEngCertifiedYes)
-                        .addComponent(rbtnChartedEngCertifiedNo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel88, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel113, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNameRecmnTO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel90, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pan4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(rbtnTechnicalOfficer))
-                    .addComponent(rbtnOfficerWhoInspected))
-                .addGap(20, 20, 20)
-                .addComponent(btnFinish, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        panCard.add(pan4, "card5");
 
         panMain.add(panCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 55, 844, 500));
 
@@ -1446,7 +605,11 @@ public class EvalutionReport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        this.dispose();
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            this.dispose();
+            parent.setState(0);
+        }
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
@@ -1460,8 +623,8 @@ public class EvalutionReport extends javax.swing.JFrame {
     }//GEN-LAST:event_panMainMousePressed
 
     private void panMainMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMouseDragged
-        int x = evt.getXOnScreen() , y = evt.getYOnScreen();
-        this.setLocation(x-xMouse, y-yMouse);
+        int x = evt.getXOnScreen(), y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_panMainMouseDragged
 
     private void panMainMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMouseReleased
@@ -1481,24 +644,9 @@ public class EvalutionReport extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDetailsAreaMouseExited
 
     private void btnDetailsAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailsAreaActionPerformed
-
+        new View_Application(this, report.getApplicationID()).setVisible(true);
+        this.setState(1);
     }//GEN-LAST:event_btnDetailsAreaActionPerformed
-
-    private void btnApplicationDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicationDetailsMouseEntered
-        setButtonColour(btnApplicationDetails);
-    }//GEN-LAST:event_btnApplicationDetailsMouseEntered
-
-    private void btnApplicationDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicationDetailsMouseExited
-        resetButtonColour(btnApplicationDetails);
-    }//GEN-LAST:event_btnApplicationDetailsMouseExited
-
-    private void btnApplicationDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApplicationDetailsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnApplicationDetailsActionPerformed
-
-    private void txtSurveyorNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSurveyorNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSurveyorNameActionPerformed
 
     private void btnApplicantDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicantDetailsMouseEntered
         setButtonColour(btnApplicantDetails);
@@ -1509,7 +657,8 @@ public class EvalutionReport extends javax.swing.JFrame {
     }//GEN-LAST:event_btnApplicantDetailsMouseExited
 
     private void btnApplicantDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApplicantDetailsActionPerformed
-        // TODO add your handling code here:
+        new View_Applicant(this, ownerNIC).setVisible(true);
+        this.setState(1);
     }//GEN-LAST:event_btnApplicantDetailsActionPerformed
 
     private void btnNext1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext1MouseEntered
@@ -1521,21 +670,87 @@ public class EvalutionReport extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNext1MouseExited
 
     private void btnNext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext1ActionPerformed
-        hideAllPanels();
-        pan2.show();
+        if (txtCoverHolding.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Cover Of Holding Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else {
+            report.setNameOfTheSurvayor(txtSurveyorName.getText());
+            if (rbtnApprovedSvyrRpt.isSelected()) {
+                report.setIsSurvayorApprved(true);
+            } else {
+                report.setIsSurvayorApprved(false);
+            }
+            report.setAreaRatios(txtRatio.getText());
+            report.setPark(txtDetaisVehicalPark.getText());
+            report.setCovesOfHolding(txtCoverHolding.getText());
+            if (rbtnAtchmntMarked.isSelected()) {
+                report.setExisting_attachments(true);
+            } else {
+                report.setExisting_attachments(false);
+            }
+            if (rbtnZonalizationPlanYes.isSelected()) {
+                report.setZonalization_accept(true);
+            } else {
+                report.setZonalization_accept(false);
+            }
+            report.setDrainwater(txtAreaNotSatisfiedRainWaterDrain.getText());
+            hideAllPanels();
+            pan2.show();
+        }
     }//GEN-LAST:event_btnNext1ActionPerformed
 
     private void rbtnRainWaterNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnRainWaterNoActionPerformed
-        // TODO add your handling code here:
+        txtAreaNotSatisfiedRainWaterDrain.setEditable(true);
     }//GEN-LAST:event_rbtnRainWaterNoActionPerformed
 
     private void rbtnSatisfiedBuildingBoundryNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnSatisfiedBuildingBoundryNoActionPerformed
-        // TODO add your handling code here:
+        txtAreaNotSatisfiedBuildingBoundry.setEditable(true);
     }//GEN-LAST:event_rbtnSatisfiedBuildingBoundryNoActionPerformed
 
     private void rbtnStoragePlaceNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnStoragePlaceNoActionPerformed
-        // TODO add your handling code here:
+        txtAreaWhatStorage.setEditable(false);
     }//GEN-LAST:event_rbtnStoragePlaceNoActionPerformed
+
+    private void btnNext2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext2MouseEntered
+        setButtonColour(btnNext2);
+    }//GEN-LAST:event_btnNext2MouseEntered
+
+    private void btnNext2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext2MouseExited
+        resetButtonColour(btnNext2);
+    }//GEN-LAST:event_btnNext2MouseExited
+
+    private void btnNext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext2ActionPerformed
+        if (txtAreaTO.getText().trim().equals("") || txtAreaTO.getText().trim().length() < 25) {
+            JOptionPane.showMessageDialog(this, "TO's Summary Not Sufficient..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else {
+            report.setBuildingBasics(txtAreaNotSatisfiedBuildingBoundry.getText());
+            report.setIsCommercial(txtAreaWhatStorage.getText());
+            report.setToSummary(txtAreaTO.getText());
+            DBOperations dbops = new DBOperations();
+            if (dbops.addEvolutionReport(report) && dbops.updateApplicationStatus(report.getApplicationID(), "Subject Clerk")) {
+                JOptionPane.showMessageDialog(this, "Application Pass Successfull...!", "Pass Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+
+                this.dispose();
+                parent.setState(0);
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            }
+
+        }
+
+    }//GEN-LAST:event_btnNext2ActionPerformed
+
+    private void rbtnRainWaterYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnRainWaterYesActionPerformed
+        txtAreaNotSatisfiedRainWaterDrain.setEditable(false);
+    }//GEN-LAST:event_rbtnRainWaterYesActionPerformed
+
+    private void rbtnSatisfiedBuildingBoundryYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnSatisfiedBuildingBoundryYesActionPerformed
+        txtAreaNotSatisfiedBuildingBoundry.setEditable(false);
+    }//GEN-LAST:event_rbtnSatisfiedBuildingBoundryYesActionPerformed
+
+    private void rbtnStoragePlaceYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnStoragePlaceYesActionPerformed
+        txtAreaWhatStorage.setEditable(true);
+    }//GEN-LAST:event_rbtnStoragePlaceYesActionPerformed
 
     private void btnPrev1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrev1MouseEntered
         setButtonColour(btnPrev1);
@@ -1550,108 +765,28 @@ public class EvalutionReport extends javax.swing.JFrame {
         pan1.show();
     }//GEN-LAST:event_btnPrev1ActionPerformed
 
-    private void btnNext2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext2MouseEntered
-        setButtonColour(btnNext2);
-    }//GEN-LAST:event_btnNext2MouseEntered
+    public void initializer() {
 
-    private void btnNext2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext2MouseExited
-        resetButtonColour(btnNext2);
-    }//GEN-LAST:event_btnNext2MouseExited
+    }
 
-    private void btnNext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext2ActionPerformed
-        hideAllPanels();
-        pan3.show();
-    }//GEN-LAST:event_btnNext2ActionPerformed
-
-    private void rbtnRelevantAuthuritiesApprovalNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnRelevantAuthuritiesApprovalNoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnRelevantAuthuritiesApprovalNoActionPerformed
-
-    private void rbtnChartedEngCertifiedNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnChartedEngCertifiedNoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnChartedEngCertifiedNoActionPerformed
-
-    private void txtNameRecmnTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameRecmnTOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameRecmnTOActionPerformed
-
-    private void rbtnOfficerWhoInspectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnOfficerWhoInspectedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnOfficerWhoInspectedActionPerformed
-
-    private void rbtnTechnicalOfficerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnTechnicalOfficerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnTechnicalOfficerActionPerformed
-
-    private void btnFinishMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinishMouseEntered
-        setButtonColour(btnFinish);
-    }//GEN-LAST:event_btnFinishMouseEntered
-
-    private void btnFinishMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinishMouseExited
-        resetButtonColour(btnFinish);
-    }//GEN-LAST:event_btnFinishMouseExited
-
-    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
-
-    }//GEN-LAST:event_btnFinishActionPerformed
-
-    private void btnNext3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext3ActionPerformed
-        hideAllPanels();
-        pan4.show();
-    }//GEN-LAST:event_btnNext3ActionPerformed
-
-    private void btnNext3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext3MouseExited
-        resetButtonColour(btnNext3);
-    }//GEN-LAST:event_btnNext3MouseExited
-
-    private void btnNext3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNext3MouseEntered
-        setButtonColour(btnNext3);
-    }//GEN-LAST:event_btnNext3MouseEntered
-
-    private void btnPrev3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrev3ActionPerformed
-        hideAllPanels();
-        pan2.show();
-    }//GEN-LAST:event_btnPrev3ActionPerformed
-
-    private void btnPrev3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrev3MouseExited
-        resetButtonColour(btnPrev3);
-    }//GEN-LAST:event_btnPrev3MouseExited
-
-    private void btnPrev3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrev3MouseEntered
-        setButtonColour(btnPrev3);
-    }//GEN-LAST:event_btnPrev3MouseEntered
-
-    private void rbtnMachinEnviromentalPollutionNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnMachinEnviromentalPollutionNoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnMachinEnviromentalPollutionNoActionPerformed
-
-    private void rbtnReasonForFireNotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnReasonForFireNotActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnReasonForFireNotActionPerformed
-
-    private void rbtnReasonForTrafficNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnReasonForTrafficNoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnReasonForTrafficNoActionPerformed
-    
-    private void hideAllPanels(){
+    private void hideAllPanels() {
         pan1.hide();
         pan2.hide();
-        pan3.hide();
-        pan4.hide();
-    
+
     }
-    private void setButtonColour(Button button){
-        button.setBackground(new Color(0,153,0));
+
+    private void setButtonColour(Button button) {
+        button.setBackground(new Color(0, 153, 0));
         button.setForeground(new Color(255, 255, 255));
-    
+
     }
-    
-    private void resetButtonColour(Button button){
-        button.setBackground(new Color(240,240,240));
+
+    private void resetButtonColour(Button button) {
+        button.setBackground(new Color(240, 240, 240));
         button.setForeground(new Color(0, 0, 0));
-    
+
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -1690,63 +825,45 @@ public class EvalutionReport extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new EvalutionReport().setVisible(true);
+                new EvalutionReport(null, null, null).setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnApplicantDetails;
-    private java.awt.Button btnApplicationDetails;
     private java.awt.Button btnDetailsArea;
-    private java.awt.Button btnFinish;
     private java.awt.Button btnNext1;
     private java.awt.Button btnNext2;
-    private java.awt.Button btnNext3;
     private java.awt.Button btnPrev1;
-    private java.awt.Button btnPrev3;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup existingBuilding;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel112;
-    private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel136;
-    private javax.swing.JLabel jLabel137;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel60;
@@ -1754,112 +871,43 @@ public class EvalutionReport extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel80;
-    private javax.swing.JLabel jLabel81;
-    private javax.swing.JLabel jLabel82;
-    private javax.swing.JLabel jLabel84;
-    private javax.swing.JLabel jLabel85;
-    private javax.swing.JLabel jLabel86;
-    private javax.swing.JLabel jLabel87;
-    private javax.swing.JLabel jLabel88;
-    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel90;
-    private javax.swing.JLabel jLabel99;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JSeparator jSeparator12;
-    private javax.swing.JSeparator jSeparator13;
-    private javax.swing.JSeparator jSeparator14;
-    private javax.swing.JSeparator jSeparator15;
-    private javax.swing.JSeparator jSeparator16;
-    private javax.swing.JSeparator jSeparator18;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblMinimize;
     private javax.swing.JPanel pan1;
     private javax.swing.JPanel pan2;
-    private javax.swing.JPanel pan3;
-    private javax.swing.JPanel pan4;
     private javax.swing.JPanel panCard;
     private javax.swing.JPanel panHeader;
     private javax.swing.JPanel panMain;
     private javax.swing.JRadioButton rbtnApprovedSvyrRpt;
     private javax.swing.JRadioButton rbtnAtchmntMarked;
     private javax.swing.JRadioButton rbtnAtchmntNotMarked;
-    private javax.swing.JRadioButton rbtnChartedEngCertifiedNo;
-    private javax.swing.JRadioButton rbtnChartedEngCertifiedYes;
-    private javax.swing.JRadioButton rbtnIsRoadDrainsExistingNo;
-    private javax.swing.JRadioButton rbtnIsRoadDrainsExistingYes;
-    private javax.swing.JRadioButton rbtnMachinEnviromentalPollutionNo;
-    private javax.swing.JRadioButton rbtnMachinEnviromentalPollutionYes;
     private javax.swing.JRadioButton rbtnNotApprovedSvyrRpt;
-    private javax.swing.JRadioButton rbtnOfficerWhoInspected;
     private javax.swing.JRadioButton rbtnRainWaterNo;
     private javax.swing.JRadioButton rbtnRainWaterYes;
-    private javax.swing.JRadioButton rbtnReasonForFireNot;
-    private javax.swing.JRadioButton rbtnReasonForFireYes;
-    private javax.swing.JRadioButton rbtnReasonForTrafficNo;
-    private javax.swing.JRadioButton rbtnReasonForTrafficYes;
-    private javax.swing.JRadioButton rbtnRelevantAuthuritiesApprovalNo;
-    private javax.swing.JRadioButton rbtnRelevantAuthuritiesApprovalYes;
     private javax.swing.JRadioButton rbtnSatisfiedBuildingBoundryNo;
     private javax.swing.JRadioButton rbtnSatisfiedBuildingBoundryYes;
-    private javax.swing.JRadioButton rbtnSocialProblemYes;
     private javax.swing.JRadioButton rbtnStoragePlaceNo;
     private javax.swing.JRadioButton rbtnStoragePlaceYes;
-    private javax.swing.JRadioButton rbtnTechnicalOfficer;
     private javax.swing.JRadioButton rbtnZonalizationPlanNo;
     private javax.swing.JRadioButton rbtnZonalizationPlanYes;
     private javax.swing.ButtonGroup surveyorReport;
     private javax.swing.JTextField txtAppID;
-    private javax.swing.JTextField txtAppliedDate;
-    private javax.swing.JTextArea txtAreaAccordingToZonalizationPlan;
-    private javax.swing.JTextArea txtAreaChartedEngCertifiedNotWhy1;
-    private javax.swing.JTextArea txtAreaMachinEnviromentalPollution;
     private javax.swing.JTextArea txtAreaNotSatisfiedBuildingBoundry;
     private javax.swing.JTextArea txtAreaNotSatisfiedRainWaterDrain;
-    private javax.swing.JTextField txtAreaOfTheLand;
-    private javax.swing.JTextArea txtAreaOtherDetails;
-    private javax.swing.JTextArea txtAreaReasonFOrFire;
-    private javax.swing.JTextArea txtAreaRelevantAuthuritiesApprovalNoWhy;
-    private javax.swing.JTextArea txtAreaThereIsSocialOrEnvProblem;
-    private javax.swing.JTextArea txtAreaTrafficJam;
+    private javax.swing.JTextArea txtAreaTO;
     private javax.swing.JTextArea txtAreaWhatStorage;
-    private javax.swing.JTextArea txtAreaWhySuvReport;
     private javax.swing.JTextField txtCoverHolding;
     private javax.swing.JTextField txtDetaisVehicalPark;
-    private javax.swing.JTextField txtNameRecmnTO;
-    private javax.swing.JTextField txtNoOfHorsePow;
-    private javax.swing.JTextField txtNoOfMachines;
     private javax.swing.JTextField txtRatio;
     private javax.swing.JTextField txtSurveyorName;
     private javax.swing.ButtonGroup zonalizationPlan;

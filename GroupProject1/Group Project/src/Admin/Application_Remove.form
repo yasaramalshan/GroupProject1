@@ -186,11 +186,11 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="0">
-                        <Column editable="false" title="Initial Name" type="java.lang.String"/>
-                        <Column editable="false" title="Last Name" type="java.lang.String"/>
-                        <Column editable="false" title="NIC" type="java.lang.String"/>
-                        <Column editable="false" title="Contact No." type="java.lang.String"/>
-                        <Column editable="false" title="E-mail" type="java.lang.String"/>
+                        <Column editable="false" title="Application ID" type="java.lang.String"/>
+                        <Column editable="false" title="Address" type="java.lang.String"/>
+                        <Column editable="false" title="Owner&apos;s Initial Name" type="java.lang.String"/>
+                        <Column editable="false" title="Owner&apos;s Last Name" type="java.lang.String"/>
+                        <Column editable="false" title="Owner&apos;s NIC" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -330,6 +330,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSearchMethodActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>

@@ -9,7 +9,9 @@ import Admin.Admin_Main;
 import CounterClerk.CounterClerk_Main;
 import ManagementAssistant.ManagementAssistant_Main;
 import Secretary.Secretary_Main;
+import SubjectClerk.SubClerk_Main;
 import TO.TO_Main;
+import Utility.Extra;
 import groupproject.DBOperations;
 import groupproject.Log;
 import java.awt.Button;
@@ -299,10 +301,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordFocusLost
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Exit...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("message_confirm.png")));
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Terminate The System...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
+            Extra.smoothExitWindow(this);
             System.exit(0);
-            
         }
     }//GEN-LAST:event_lblExitMouseClicked
 
@@ -328,22 +330,22 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fields Can't be Empty...!");
         } else if (!isNumeric(userId)) {
             JOptionPane.showMessageDialog(this, "The User ID Must be Numeric...!");
-        } else if ((res = dbOps.userLogin(Integer.parseInt(userId))) == null) {
+        } else if ((res = dbOps.userLogin(userId)) == null) {
             JOptionPane.showMessageDialog(this, "Incorrect User ID...!");
         } else {
             if(res.getUserStatus()==1){
                 JOptionPane.showMessageDialog(this, "User is Already Logged in...!");
             }else if(userPass.equals(res.getUserPassword())){
-            pnlLoad.show();
-            pnlLogin.hide();
+                pnlLoad.show();
+                pnlLogin.hide();
             
             new Timer().schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    dbOps.setLoginStatus(Integer.parseInt(userId), 1);
-                    enter(Integer.parseInt(userId),res.getUserLevel());
+                    dbOps.setLoginStatus(userId, 1);
+                    enter(userId,res.getUserLevel());
                 }
-            }, 2000);
+            }, 1000);
             }else{
                 JOptionPane.showMessageDialog(this, "Incorrect Password...!");
             }
@@ -353,26 +355,26 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void enter(int userId,int userLevel) {
+    private void enter(String userId,int userLevel) {
         this.dispose();
         switch(userLevel){
             case 1: //admin
                 new Admin_Main(userId).setVisible(true);
                 break;
             case 2://counter clerke
-                new CounterClerk_Main().setVisible(true);
+                new CounterClerk_Main(userId).setVisible(true);
                 break;
             case 3://management assistant
-                new ManagementAssistant_Main().setVisible(true);
+                new ManagementAssistant_Main(userId).setVisible(true);
                 break;
             case 4://TO
                 new TO_Main(userId).setVisible(true);
                 break;
             case 5://subject clerke
-                
+                new SubClerk_Main(userId).setVisible(true);
                 break;
             case 6://secretary
-                new Secretary_Main().setVisible(true);
+                new Secretary_Main(userId).setVisible(true);
                 break;
                 
                 

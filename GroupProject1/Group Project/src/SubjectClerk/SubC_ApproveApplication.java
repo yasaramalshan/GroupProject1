@@ -5,10 +5,12 @@
  */
 package SubjectClerk;
 
+import Communication.SendMessage;
+import groupproject.DBOperations;
 import java.awt.Button;
 import java.awt.Color;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -17,13 +19,22 @@ import javax.swing.UIManager;
  * @author Yasara JLP
  */
 public class SubC_ApproveApplication extends javax.swing.JFrame {
-    
-    JComboBox cmb1 = new JComboBox(new String[]{"A","B"});
 
-    int xMouse,yMouse;
-    public SubC_ApproveApplication() {
+    SubClerk_Main parent;
+    String ownerName, applicationID, ownerNIC, applicantPhone, userID;
+    int xMouse, yMouse;
+
+    public SubC_ApproveApplication(SubClerk_Main parent, String ownerName, String applicationID, String ownerNIC, String applicantPhone, String userID) {
         initComponents();
-        
+        this.ownerNIC = ownerNIC;
+        this.applicationID = applicationID;
+        this.ownerName = ownerName;
+        this.userID = userID;
+        this.applicantPhone = applicantPhone;
+        txtApplicationID.setText(applicationID);
+        txtOwner.setText(ownerName);
+        txtNIC.setText(ownerNIC);
+
     }
 
     /**
@@ -49,21 +60,18 @@ public class SubC_ApproveApplication extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        txtFirstName = new javax.swing.JTextField();
-        txtLastName = new javax.swing.JTextField();
+        txtApplicationID = new javax.swing.JTextField();
+        txtOwner = new javax.swing.JTextField();
         txtNIC = new javax.swing.JTextField();
         btnSubmit = new java.awt.Button();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        rbtnIsThereBuildingYes = new javax.swing.JRadioButton();
-        rbtnIsThereBuildingNo = new javax.swing.JRadioButton();
+        rbtConfirm = new javax.swing.JRadioButton();
+        rbtNotConfirm = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtArea = new javax.swing.JTextArea();
+        jLabel27 = new javax.swing.JLabel();
         lblMinimize = new javax.swing.JLabel();
         lblExit = new javax.swing.JLabel();
 
@@ -107,8 +115,8 @@ public class SubC_ApproveApplication extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(49, 58, 115));
-        jLabel2.setText("3.Approvel Details");
-        pan1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 395, -1));
+        jLabel2.setText("2.Approvel Details");
+        pan1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 395, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(49, 58, 115));
@@ -143,10 +151,16 @@ public class SubC_ApproveApplication extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText(":");
-        pan1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 14, -1));
-        pan1.add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 279, -1));
-        pan1.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 279, -1));
-        pan1.add(txtNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 279, -1));
+        pan1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 14, -1));
+
+        txtApplicationID.setEditable(false);
+        pan1.add(txtApplicationID, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 370, -1));
+
+        txtOwner.setEditable(false);
+        pan1.add(txtOwner, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 370, -1));
+
+        txtNIC.setEditable(false);
+        pan1.add(txtNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 370, -1));
 
         btnSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSubmit.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -164,77 +178,54 @@ public class SubC_ApproveApplication extends javax.swing.JFrame {
                 btnSubmitActionPerformed(evt);
             }
         });
-        pan1.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 78, -1));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                { new Integer(1), null, ""},
-                { new Integer(2), null, null},
-                { new Integer(3), null, null},
-                { new Integer(4), null, null},
-                { new Integer(5), null, null},
-                { new Integer(6), null, null}
-            },
-            new String [] {
-                "", "Name", "Designation"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(cmb1));
-        }
-
-        pan1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 600, 120));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(49, 58, 115));
-        jLabel4.setText("2.Panel Details");
-        pan1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 395, -1));
+        pan1.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 78, -1));
 
         jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel46.setText("If Not : ");
-        pan1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 130, 20));
-        pan1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 600, 10));
+        pan1.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 130, 20));
+        pan1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 600, 10));
 
         jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel44.setText("Confirm the Approvel");
-        pan1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 182, 20));
+        jLabel44.setText("Confirm the Approvel   ");
+        pan1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 160, 20));
 
-        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel45.setText(":");
-        pan1.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 14, 20));
+        rbtConfirm.setBackground(new java.awt.Color(255, 255, 255));
+        btnGrpConf.add(rbtConfirm);
+        rbtConfirm.setText("Confirm");
+        rbtConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtConfirmActionPerformed(evt);
+            }
+        });
+        pan1.add(rbtConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
 
-        rbtnIsThereBuildingYes.setBackground(new java.awt.Color(255, 255, 255));
-        btnGrpConf.add(rbtnIsThereBuildingYes);
-        rbtnIsThereBuildingYes.setText("Confirm");
-        pan1.add(rbtnIsThereBuildingYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, -1, -1));
+        rbtNotConfirm.setBackground(new java.awt.Color(255, 255, 255));
+        btnGrpConf.add(rbtNotConfirm);
+        rbtNotConfirm.setSelected(true);
+        rbtNotConfirm.setText("Not Confirm");
+        rbtNotConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtNotConfirmActionPerformed(evt);
+            }
+        });
+        pan1.add(rbtNotConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
 
-        rbtnIsThereBuildingNo.setBackground(new java.awt.Color(255, 255, 255));
-        btnGrpConf.add(rbtnIsThereBuildingNo);
-        rbtnIsThereBuildingNo.setSelected(true);
-        rbtnIsThereBuildingNo.setText("Not Confirm");
-        pan1.add(rbtnIsThereBuildingNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, -1));
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane1.setViewportView(txtArea);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        pan1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 600, 100));
 
-        pan1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 600, 100));
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText(":");
+        pan1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 14, -1));
 
         panCard.add(pan1, "card5");
 
-        panMain.add(panCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 55, 730, 600));
+        panMain.add(panCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 55, 730, 400));
 
         lblMinimize.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblMinimize.setForeground(new java.awt.Color(54, 33, 89));
@@ -268,10 +259,13 @@ public class SubC_ApproveApplication extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panMain, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panMain, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void panMainMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMousePressed
@@ -281,8 +275,8 @@ public class SubC_ApproveApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_panMainMousePressed
 
     private void panMainMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMouseDragged
-        int x = evt.getXOnScreen() , y = evt.getYOnScreen();
-        this.setLocation(x-xMouse, y-yMouse);
+        int x = evt.getXOnScreen(), y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_panMainMouseDragged
 
     private void btnSubmitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseEntered
@@ -294,7 +288,45 @@ public class SubC_ApproveApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubmitMouseExited
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-       
+        try {
+            if (rbtConfirm.isSelected()) {
+                if (new DBOperations().updateApplicationStatus(applicationID, "Secretary")) {
+                    JOptionPane.showMessageDialog(this, "Application Pass Successfull...!", "Pass Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+
+                }
+                this.dispose();
+                parent.setState(0);
+
+            } else {
+                if (txtArea.getText().equals("") && txtArea.getText().length() < 25) {
+                    JOptionPane.showMessageDialog(this, "Enter Sufficient Reason(s)..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else {
+                    if (new DBOperations().updateApplicationStatus(applicationID, "Chief Engineer", "Rejected", userID, txtArea.getText())) {
+                        try {
+                            if (new SendMessage().send(applicantPhone, "Application Rejected...ID : " + applicationID)) {
+                                JOptionPane.showMessageDialog(this, "Application Reject Successfull...!", "Reject Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                                parent.loadTable();
+                                this.dispose();
+                                parent.setState(0);
+                            } else {
+                                JOptionPane.showMessageDialog(this, "Application Reject Successfull...! (No Msg Sended)", "Reject Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                            }
+                        } catch (Exception ex) {
+
+                        }
+                        parent.loadTable();
+                        this.dispose();
+                        parent.setState(0);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void panMainMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMouseReleased
@@ -306,22 +338,33 @@ public class SubC_ApproveApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_lblMinimizeMouseClicked
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        System.exit(0);
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            this.dispose();
+            parent.setState(0);
+        }
     }//GEN-LAST:event_lblExitMouseClicked
-    
 
-    private void setButtonColour(Button button){
-        button.setBackground(new Color(0,153,0));
+    private void rbtNotConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtNotConfirmActionPerformed
+        txtArea.setEnabled(true);
+    }//GEN-LAST:event_rbtNotConfirmActionPerformed
+
+    private void rbtConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtConfirmActionPerformed
+        txtArea.setEnabled(false);
+    }//GEN-LAST:event_rbtConfirmActionPerformed
+
+    private void setButtonColour(Button button) {
+        button.setBackground(new Color(0, 153, 0));
         button.setForeground(new Color(255, 255, 255));
-    
+
     }
-    
-    private void resetButtonColour(Button button){
-        button.setBackground(new Color(240,240,240));
+
+    private void resetButtonColour(Button button) {
+        button.setBackground(new Color(240, 240, 240));
         button.setForeground(new Color(0, 0, 0));
-    
+
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -362,10 +405,10 @@ public class SubC_ApproveApplication extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new SubC_ApproveApplication().setVisible(true);
+                new SubC_ApproveApplication(null, null, null, null, null, null).setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -379,26 +422,23 @@ public class SubC_ApproveApplication extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblMinimize;
     private javax.swing.JPanel pan1;
     private javax.swing.JPanel panCard;
     private javax.swing.JPanel panHeader;
     private javax.swing.JPanel panMain;
-    private javax.swing.JRadioButton rbtnIsThereBuildingNo;
-    private javax.swing.JRadioButton rbtnIsThereBuildingYes;
-    private javax.swing.JTextField txtFirstName;
-    private javax.swing.JTextField txtLastName;
+    private javax.swing.JRadioButton rbtConfirm;
+    private javax.swing.JRadioButton rbtNotConfirm;
+    private javax.swing.JTextField txtApplicationID;
+    private javax.swing.JTextArea txtArea;
     private javax.swing.JTextField txtNIC;
+    private javax.swing.JTextField txtOwner;
     // End of variables declaration//GEN-END:variables
 }

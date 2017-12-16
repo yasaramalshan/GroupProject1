@@ -5,10 +5,9 @@
  */
 package Admin;
 
-import CounterClerk.*;
 import Utility.Extra;
-import groupproject.Applicant;
 import groupproject.DBOperations;
+import groupproject.Employee;
 import java.awt.Button;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -23,13 +22,16 @@ import javax.swing.UIManager;
  */
 public class Register_Employee extends javax.swing.JFrame {
 
-    Applicant applicant = new Applicant();
+    Employee emp = new Employee();
     private int xMouse, yMouse;
     JFrame parent;
 
-    public Register_Employee() {//JFrame parent
+    public Register_Employee(JFrame parent) {//JFrame parent
         initComponents();
         this.parent = parent;
+        emp.setUserID(Extra.employeeIDGenerator());
+        txtUserID.setText(emp.getUserID());
+
     }
 
     /**
@@ -58,23 +60,23 @@ public class Register_Employee extends javax.swing.JFrame {
         txtLastName = new javax.swing.JTextField();
         txtNIC = new javax.swing.JTextField();
         txtTelNo = new javax.swing.JTextField();
-        btnnext = new java.awt.Button();
+        btnNext = new java.awt.Button();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        scrAddress = new javax.swing.JScrollPane();
         txtAddress = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        txtInitName1 = new javax.swing.JTextField();
+        txtUserID = new javax.swing.JTextField();
         pan2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JTextField();
+        txtGovRegNo = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         txtPasswrd = new javax.swing.JTextField();
@@ -82,9 +84,9 @@ public class Register_Employee extends javax.swing.JFrame {
         jLabel45 = new javax.swing.JLabel();
         rbtnIsMale = new javax.swing.JRadioButton();
         rbtnIsFemale = new javax.swing.JRadioButton();
-        cmbWorkPos = new javax.swing.JComboBox<>();
+        cmbDesignation = new javax.swing.JComboBox<>();
         btnPrev = new java.awt.Button();
-        btnRegUser = new java.awt.Button();
+        btnRegEmp = new java.awt.Button();
         jLabel11 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
@@ -92,13 +94,12 @@ public class Register_Employee extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        txtPasswrd1 = new javax.swing.JTextField();
+        txtWards = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(634, 365));
         setResizable(false);
 
         panMain.setBackground(new java.awt.Color(255, 255, 255));
@@ -202,28 +203,23 @@ public class Register_Employee extends javax.swing.JFrame {
         pan1.add(txtNIC, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 325, -1));
         pan1.add(txtTelNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 325, -1));
 
-        btnnext.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnnext.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnnext.setLabel("Next");
-        btnnext.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnNext.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnNext.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnNext.setLabel("Next");
+        btnNext.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnnextMouseEntered(evt);
+                btnNextMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnnextMouseExited(evt);
+                btnNextMouseExited(evt);
             }
         });
-        btnnext.addActionListener(new java.awt.event.ActionListener() {
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnextActionPerformed(evt);
+                btnNextActionPerformed(evt);
             }
         });
-        btnnext.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                btnnextPropertyChange(evt);
-            }
-        });
-        pan1.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 280, 78, -1));
+        pan1.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 280, 78, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -252,9 +248,9 @@ public class Register_Employee extends javax.swing.JFrame {
 
         txtAddress.setColumns(20);
         txtAddress.setRows(5);
-        jScrollPane2.setViewportView(txtAddress);
+        scrAddress.setViewportView(txtAddress);
 
-        pan1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 325, 90));
+        pan1.add(scrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 325, 90));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -265,7 +261,9 @@ public class Register_Employee extends javax.swing.JFrame {
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText(":");
         pan1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 22, -1));
-        pan1.add(txtInitName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 325, -1));
+
+        txtUserID.setEditable(false);
+        pan1.add(txtUserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 325, -1));
 
         panCard.add(pan1, "card2");
 
@@ -293,7 +291,7 @@ public class Register_Employee extends javax.swing.JFrame {
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText(":");
         pan2.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 22, -1));
-        pan2.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 325, -1));
+        pan2.add(txtGovRegNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 325, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -304,6 +302,9 @@ public class Register_Employee extends javax.swing.JFrame {
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText(":");
         pan2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 23, -1));
+
+        txtPasswrd.setEditable(false);
+        txtPasswrd.setText("MahUr2017");
         pan2.add(txtPasswrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 325, -1));
 
         jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -325,15 +326,15 @@ public class Register_Employee extends javax.swing.JFrame {
         buttonGroup1.add(rbtnIsFemale);
         rbtnIsFemale.setSelected(true);
         rbtnIsFemale.setText("Female");
-        rbtnIsFemale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnIsFemaleActionPerformed(evt);
-            }
-        });
         pan2.add(rbtnIsFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
 
-        cmbWorkPos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Counter Clerk", "Secretary", "Technical Officer", "Management Assistant", "Subject Clerk" }));
-        pan2.add(cmbWorkPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 325, -1));
+        cmbDesignation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Counter Clerk", "Secretary", "Technical Officer", "Management Assistant", "Subject Clerk" }));
+        cmbDesignation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDesignationActionPerformed(evt);
+            }
+        });
+        pan2.add(cmbDesignation, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 325, -1));
 
         btnPrev.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnPrev.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -353,23 +354,23 @@ public class Register_Employee extends javax.swing.JFrame {
         });
         pan2.add(btnPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 280, 88, -1));
 
-        btnRegUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnRegUser.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnRegUser.setLabel("Register");
-        btnRegUser.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRegEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRegEmp.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnRegEmp.setLabel("Register");
+        btnRegEmp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnRegUserMouseEntered(evt);
+                btnRegEmpMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnRegUserMouseExited(evt);
+                btnRegEmpMouseExited(evt);
             }
         });
-        btnRegUser.addActionListener(new java.awt.event.ActionListener() {
+        btnRegEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegUserActionPerformed(evt);
+                btnRegEmpActionPerformed(evt);
             }
         });
-        pan2.add(btnRegUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 280, 78, -1));
+        pan2.add(btnRegEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 280, 78, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -386,8 +387,8 @@ public class Register_Employee extends javax.swing.JFrame {
         pan2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 195, 533, 10));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
-        jLabel2.setText("If This User Is A Management Assistant");
-        pan2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 180, 190, -1));
+        jLabel2.setText("If This User Is A Management Assistant Or A Technical Officer");
+        pan2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 180, 290, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -398,7 +399,9 @@ public class Register_Employee extends javax.swing.JFrame {
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText(":");
         pan2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 23, -1));
-        pan2.add(txtPasswrd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 325, -1));
+
+        txtWards.setEditable(false);
+        pan2.add(txtWards, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 325, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         jLabel3.setText("Separate By '/'");
@@ -412,7 +415,7 @@ public class Register_Employee extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panMain, javax.swing.GroupLayout.PREFERRED_SIZE, 634, Short.MAX_VALUE)
+            .addComponent(panMain, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,13 +427,13 @@ public class Register_Employee extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        
-        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?",  "Warning", JOptionPane.YES_NO_OPTION,0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
-            //parent.setState(0);
+            parent.setState(0);
         }
-        
+
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
@@ -452,17 +455,13 @@ public class Register_Employee extends javax.swing.JFrame {
         setOpacity((float) 1);
     }//GEN-LAST:event_panMainMouseReleased
 
-    private void btnnextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnnextMouseEntered
-        setButtonColour(btnnext);
-    }//GEN-LAST:event_btnnextMouseEntered
+    private void btnNextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextMouseEntered
+        setButtonColour(btnNext);
+    }//GEN-LAST:event_btnNextMouseEntered
 
-    private void btnnextMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnnextMouseExited
-        resetButtonColour(btnnext);
-    }//GEN-LAST:event_btnnextMouseExited
-
-    private void rbtnIsFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnIsFemaleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnIsFemaleActionPerformed
+    private void btnNextMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextMouseExited
+        resetButtonColour(btnNext);
+    }//GEN-LAST:event_btnNextMouseExited
 
     private void btnPrevMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrevMouseEntered
         setButtonColour(btnPrev);
@@ -477,26 +476,91 @@ public class Register_Employee extends javax.swing.JFrame {
         pan1.show();
     }//GEN-LAST:event_btnPrevActionPerformed
 
-    private void btnRegUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegUserMouseEntered
-        setButtonColour(btnRegUser);
-    }//GEN-LAST:event_btnRegUserMouseEntered
+    private void btnRegEmpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegEmpMouseEntered
+        setButtonColour(btnRegEmp);
+    }//GEN-LAST:event_btnRegEmpMouseEntered
 
-    private void btnRegUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegUserMouseExited
-        resetButtonColour(btnRegUser);
-    }//GEN-LAST:event_btnRegUserMouseExited
+    private void btnRegEmpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegEmpMouseExited
+        resetButtonColour(btnRegEmp);
+    }//GEN-LAST:event_btnRegEmpMouseExited
 
-    private void btnRegUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegUserActionPerformed
-        new Register_Applicant(this).setVisible(true);
-    }//GEN-LAST:event_btnRegUserActionPerformed
+    private void btnRegEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegEmpActionPerformed
+        emp.setEmail(Extra.capitalizer(txtEmail.getText()));
+        emp.setDesignation(Extra.capitalizer((String) cmbDesignation.getSelectedItem()));
+        emp.setGovRegNo(Extra.capitalizer(txtGovRegNo.getText()));
+        if (rbtnIsFemale.isSelected()) {
+            emp.setGender("Female");
+        } else {
+            emp.setGender("Male");
+        }
+        emp.setPassword(txtPasswrd.getText().trim());
 
-    private void btnnextPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_btnnextPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnnextPropertyChange
+        // check conditions
+        if (!emp.getEmail().equals("") && !Extra.isValidEmail(emp.getEmail())) {
+            JOptionPane.showMessageDialog(this, "Invalid Email..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (cmbDesignation.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Please Select The Employee Designation..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (emp.getGovRegNo().equals("")) {
+            JOptionPane.showMessageDialog(this, "Government Reg.No can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (txtWards.isEditable() && (Extra.isCorrectWards(txtWards.getText().trim()) == null)) {
+            JOptionPane.showMessageDialog(this, "Invalid Ward Set..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else {
+            emp.setAllocatedWards(Extra.isCorrectWards(txtWards.getText().trim()));
+            if (new DBOperations().addEmployee(emp)) {
+                JOptionPane.showMessageDialog(this, "Employee Registration Successfull...!", "Register Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                this.dispose();
+                parent.setState(0);
+            } else {
+                JOptionPane.showMessageDialog(this, "Insertion Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            }
+        }
 
-    private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
-        pan1.hide();
-        pan2.show();
-    }//GEN-LAST:event_btnnextActionPerformed
+    }//GEN-LAST:event_btnRegEmpActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        emp.setInitName(Extra.capitalizer(txtInitName.getText())); // capitalizer method contains the trim().
+        emp.setLastName(Extra.capitalizer(txtLastName.getText()));
+        emp.setAddress(Extra.capitalizer(txtAddress.getText()));
+        emp.setNIC(Extra.capitalizer(txtNIC.getText()));
+        emp.setPhone(Extra.capitalizer(txtTelNo.getText()));
+
+        if (emp.getInitName().equals("")) {
+            JOptionPane.showMessageDialog(this, "Initial Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (!Extra.isInitName(emp.getLastName())) {
+            JOptionPane.showMessageDialog(this, "Wrong Initial Name Format..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (emp.getLastName().equals("")) {
+            JOptionPane.showMessageDialog(this, "Last Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (emp.getLastName().equals("")) {
+            JOptionPane.showMessageDialog(this, "Wrong Last Name Format..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (emp.getAddress().equals("")) {
+            JOptionPane.showMessageDialog(this, "Address can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (emp.getNIC().equals("")) {
+            JOptionPane.showMessageDialog(this, "NIC can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (!Extra.isValidNIC(emp.getNIC())) {
+            JOptionPane.showMessageDialog(this, "Invalid NIC..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (emp.getPhone().equals("")) {
+            JOptionPane.showMessageDialog(this, "Contact Number can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (!Extra.isValidPhoneNumber(emp.getPhone())) {
+            JOptionPane.showMessageDialog(this, "Invalid Contact Number..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else {
+            pan1.hide();
+            pan2.show();
+        }
+
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void cmbDesignationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDesignationActionPerformed
+        switch (cmbDesignation.getSelectedIndex()) {
+            case 3:
+            case 4:
+                txtWards.setEditable(true);
+                break;
+            default:
+                txtWards.setEditable(false);
+                break;
+
+        }
+    }//GEN-LAST:event_cmbDesignationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -536,7 +600,7 @@ public class Register_Employee extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Register_Employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
 
         /* Create and display the form */
         SwingUtilities.invokeLater(new Runnable() {
@@ -548,17 +612,17 @@ public class Register_Employee extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new Register_Employee().setVisible(true);
+                new Register_Employee(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button btnNext;
     private java.awt.Button btnPrev;
-    private java.awt.Button btnRegUser;
-    private java.awt.Button btnnext;
+    private java.awt.Button btnRegEmp;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cmbWorkPos;
+    private javax.swing.JComboBox<String> cmbDesignation;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -587,7 +651,6 @@ public class Register_Employee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblMinimize;
@@ -597,16 +660,17 @@ public class Register_Employee extends javax.swing.JFrame {
     private javax.swing.JPanel panMain;
     private javax.swing.JRadioButton rbtnIsFemale;
     private javax.swing.JRadioButton rbtnIsMale;
+    private javax.swing.JScrollPane scrAddress;
     private javax.swing.JTextArea txtAddress;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtGovRegNo;
     private javax.swing.JTextField txtInitName;
-    private javax.swing.JTextField txtInitName1;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtNIC;
     private javax.swing.JTextField txtPasswrd;
-    private javax.swing.JTextField txtPasswrd1;
     private javax.swing.JTextField txtTelNo;
-    private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtUserID;
+    private javax.swing.JTextField txtWards;
     // End of variables declaration//GEN-END:variables
 
 }

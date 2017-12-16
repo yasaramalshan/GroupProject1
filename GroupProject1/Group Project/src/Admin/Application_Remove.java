@@ -11,10 +11,13 @@ import java.awt.Button;
 import java.awt.Color;
 import java.sql.ResultSet;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,18 +26,34 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Application_Remove extends javax.swing.JFrame {
 
-    ResultSet rs;
-    JTextField txtInitName, txtLastName, txtNIC, txtPhone;
+    ResultSet applications, applicants;
+    JFrame parent;
     DefaultTableModel table;
     private int xMouse, yMouse;
 
-    public Application_Remove(JTextField txtInitName, JTextField txtLastName, JTextField txtNIC, JTextField txtPhone) {
+    public Application_Remove(JFrame parent) {
         initComponents();
-        this.txtInitName = txtInitName;
-        this.txtLastName = txtLastName;
-        this.txtNIC = txtNIC;
-        this.txtPhone = txtPhone;
-        table = (DefaultTableModel) tblResults.getModel();
+        this.parent = parent;
+        this.table = (DefaultTableModel) tblResults.getModel();
+        
+        // for set table header background
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+        headerRenderer.setBackground(new Color(240, 240, 240)); // change background colour
+        headerRenderer.setHorizontalAlignment(JLabel.CENTER); // change alignment of column captions
+
+        for (int i = 0; i < tblResults.getModel().getColumnCount(); i++) {
+            tblResults.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+
+        }
+        tblResults.getTableHeader().setBorder(new BevelBorder(0, Color.WHITE, Color.lightGray));
+
+        // to set column allignments to center
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER); // change alignment of column values
+        tblResults.setDefaultRenderer(String.class, centerRenderer);
+
+        tblResults.setShowGrid(true);//to show gri in table
+        tblResults.setShowHorizontalLines(false);//hide horizontal lines from grid
     }
 
     /**
@@ -142,7 +161,7 @@ public class Application_Remove extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Initial Name", "Last Name", "NIC", "Contact No.", "E-mail"
+                "Application ID", "Address", "Owner's Initial Name", "Owner's Last Name", "Owner's NIC"
             }
         ) {
             Class[] types = new Class [] {
@@ -207,6 +226,11 @@ public class Application_Remove extends javax.swing.JFrame {
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 20, 20));
 
         cmbSearchMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Application ID", "Owner's  NIC", "Owner's Initial Name", "Owner's Last Name" }));
+        cmbSearchMethod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSearchMethodActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmbSearchMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 21, 140, 20));
 
         panMain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 55, 616, 282));
@@ -251,6 +275,7 @@ public class Application_Remove extends javax.swing.JFrame {
         int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
+            parent.setState(0);
         }
 
     }//GEN-LAST:event_lblExitMouseClicked
@@ -284,29 +309,34 @@ public class Application_Remove extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String text = txtField.getText().trim(); // trim() used for remove Leading & trailing spaces.
+        btnRemove.setEnabled(false);
+        table.getDataVector().removeAllElements();
+        table.fireTableDataChanged();
         switch (cmbSearchMethod.getSelectedIndex()) {
 
             case 0: // by application ID search
                 if (text.equals("")) {
-                    JOptionPane.showMessageDialog(this, "NIC can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                    JOptionPane.showMessageDialog(this, "ApplicationID can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 } else if (!Extra.isValidApplcationID(text)) {
                     JOptionPane.showMessageDialog(this, "Invalid ApplicationID..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 } else {
                     generateTable(text, 0);
                 }
                 break;
-            case 1: // by Owner's NIC seaarch
+            case 1: // by Owner's NIC search
                 if (text.equals("")) {
                     JOptionPane.showMessageDialog(this, "Owner's NIC can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-                }else if (!Extra.isValidNIC(text)) {
+                } else if (!Extra.isValidNIC(text)) {
                     JOptionPane.showMessageDialog(this, "Invalid NIC..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-                }  else {
+                } else {
                     generateTable(text, 1);
                 }
                 break;
             case 2: // by owner's initial name
                 if (text.equals("")) {
                     JOptionPane.showMessageDialog(this, "Owner's Initial Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else if (!Extra.isInitName(text)) {
+                    JOptionPane.showMessageDialog(this, "Invalid Initial Name..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 } else {
                     generateTable(text, 2);
                 }
@@ -315,6 +345,8 @@ public class Application_Remove extends javax.swing.JFrame {
             case 3: // by owner's last name
                 if (text.equals("")) {
                     JOptionPane.showMessageDialog(this, "Owner's Last Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                } else if (!Extra.isName_Spaces(text)) {
+                    JOptionPane.showMessageDialog(this, "Invalid Last Name..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 } else {
                     generateTable(text, 2);
                 }
@@ -335,41 +367,92 @@ public class Application_Remove extends javax.swing.JFrame {
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         try {
-            rs.absolute(tblResults.getSelectedRow() + 1);
-            String applicantNIC = rs.getString("nic");
-            if (new DBOperations().removeApplicant(applicantNIC)) {
-                JOptionPane.showMessageDialog(this, "Applicant Removal Successfull...!", "Removal Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(this, "Removal Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            String applicationID = tblResults.getModel().getValueAt(tblResults.getSelectedRow(), 0).toString();
+            int dialogResult = JOptionPane.showConfirmDialog(this, "Are You Sure...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                if (new DBOperations().removeApplication(applicationID)) {
+                    JOptionPane.showMessageDialog(this, "Application Removal Successfull...!", "Removal Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                    this.dispose();
+                    parent.setState(0);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Removal Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                }
             }
-
         } catch (Exception e) {
             System.out.println("Exeption in btnSelectActionPerformed method " + e);
         }
     }//GEN-LAST:event_btnRemoveActionPerformed
 
+    private void cmbSearchMethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSearchMethodActionPerformed
+        table.getDataVector().removeAllElements();
+        table.fireTableDataChanged();
+    }//GEN-LAST:event_cmbSearchMethodActionPerformed
+
     private void generateTable(String text, int method) {
-        rs = new DBOperations().getApplicant(text, method);
-        //System.out.println(rs);
-        try {
-            if (!rs.next()) {
-                btnRemove.setEnabled(false);
-                table.getDataVector().removeAllElements();
-                table.fireTableDataChanged(); // or table.setRowCount(0);
-                JOptionPane.showMessageDialog(this, "Applicant Not Found,Please Register The Applicant..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-                rs.close();
-            } else {
-                btnRemove.setEnabled(true);
-                table.getDataVector().removeAllElements();
-                table.fireTableDataChanged();
-                do {
-                    table.addRow(new Object[]{rs.getString("init_name"), rs.getString("last_name"), rs.getString("nic"), rs.getString("phone"), rs.getString("email")});
-                } while (rs.next());
+
+        DBOperations dbops = new DBOperations();
+        if (method == 0) { // search by application ID
+            applications = dbops.getApplication(text, 0);
+            try {
+                if (!applications.next()) {
+                    btnRemove.setEnabled(false);
+                    table.getDataVector().removeAllElements();
+                    table.fireTableDataChanged(); // or table.setRowCount(0);
+                    JOptionPane.showMessageDialog(this, "Application Not Found..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                    applications.close();
+                } else {
+                    btnRemove.setEnabled(true);
+                    table.getDataVector().removeAllElements();
+                    table.fireTableDataChanged();
+                    // text is the application id
+                    String address = applications.getString("address"), iName, lName, nic = applications.getString("owner_nic");
+                    applicants = dbops.getApplicant(nic, 0);
+                    applicants.next();
+                    iName = applicants.getString("init_name");
+                    lName = applicants.getString("last_name");
+
+                    table.addRow(new Object[]{text, address, iName, lName, nic});
+
+                }
+            } catch (Exception e) {
+                System.out.println("Exeption in generateTable method " + e);
             }
-        } catch (Exception e) {
-            System.out.println("Exeption in generateTable method " + e);
+        } else {
+            applicants = dbops.getApplicant(text, method - 1); // for dbops.getApplicant method's method :- 0,1,2
+
+            try {
+                if (!applicants.next()) {
+                    btnRemove.setEnabled(false);
+                    table.getDataVector().removeAllElements();
+                    table.fireTableDataChanged(); // or table.setRowCount(0);
+                    JOptionPane.showMessageDialog(this, "Owner Not Found..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                    applicants.close();
+                } else {
+                    //btnRemove.setEnabled(true);
+                    table.getDataVector().removeAllElements();
+                    table.fireTableDataChanged();
+
+                    do {
+                        applications = dbops.getApplication(applicants.getString("nic").toString(), 1);//get applications using owner's nic
+
+                        while (applications.next()) {
+                            table.addRow(new Object[]{applications.getString("application_id"), applications.getString("address"), applicants.getString("init_name"), applicants.getString("last_name"), applicants.getString("nic")});
+                        }
+                    } while (applicants.next());
+
+                    if (table.getRowCount() == 0) {
+                        btnRemove.setEnabled(false);
+                        JOptionPane.showMessageDialog(this, "No Ralated Applications...!", "Info", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        btnRemove.setEnabled(true);
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Exeption in generateTable method " + e);
+            }
+
         }
+
     }
 
     /**
@@ -411,68 +494,7 @@ public class Application_Remove extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         SwingUtilities.invokeLater(new Runnable() {
@@ -484,7 +506,7 @@ public class Application_Remove extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new Application_Remove(null, null, null, null).setVisible(true);
+                new Application_Remove(null).setVisible(true);
             }
         });
     }

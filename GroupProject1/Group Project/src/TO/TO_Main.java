@@ -5,20 +5,31 @@
  */
 package TO;
 
+import Admin.Edit_Application;
+import Admin.Password_Change;
+import Admin.View_Application;
+import ManagementAssistant.Application_Reject;
+import ManagementAssistant.Edit_Details;
+import ManagementAssistant.Search_Details;
+import Utility.Extra;
 import groupproject.DBOperations;
+import groupproject.Evolution_Report;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,12 +38,16 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class TO_Main extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    ResultSet rs, application, applicant;
+    DefaultTableModel table;
 
-    public TO_Main(int userId) {
+    public TO_Main(String userID) {
         initComponents();
         showDate();
         showTime();
-        lblUserId.setText(Integer.toString(userId));
+        lblUserId.setText(userID);
+        this.table = (DefaultTableModel) tblRegisteredApplications.getModel();
+        loadTable();
         
         // for set table header background
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
@@ -65,20 +80,16 @@ public class TO_Main extends javax.swing.JFrame {
     private void initComponents() {
 
         panMain = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblRegisteredApplications = new javax.swing.JTable();
+        btnRefresh = new java.awt.Button();
         btnViewForm = new java.awt.Button();
         btnEditForm = new java.awt.Button();
-        btnApproveForm = new java.awt.Button();
+        btnPassForm = new java.awt.Button();
         btnRejectForm = new java.awt.Button();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRegisteredApplications = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -86,16 +97,16 @@ public class TO_Main extends javax.swing.JFrame {
         lblDate = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        btnApplicantRemove = new javax.swing.JLabel();
         btnSearch = new javax.swing.JLabel();
         btnEdit = new javax.swing.JLabel();
-        btnResetPass = new javax.swing.JLabel();
-        btnReport = new javax.swing.JLabel();
+        btnSend = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogOut = new javax.swing.JLabel();
         lblMinimize = new javax.swing.JLabel();
         lblUserId = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        btnChangePass = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -116,50 +127,6 @@ public class TO_Main extends javax.swing.JFrame {
         });
         panMain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(9, 18, 72));
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CounterClerk/Images/home_Plus_20px.png"))); // NOI18N
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CounterClerk/Images/home_Password_Reset_20px.png"))); // NOI18N
-
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CounterClerk/Images/home_Upload_20px.png"))); // NOI18N
-
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CounterClerk/Images/home_Download_20px.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(297, Short.MAX_VALUE))
-        );
-
-        panMain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 500));
-
         jPanel2.setBackground(new java.awt.Color(49, 58, 115));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -169,36 +136,28 @@ public class TO_Main extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(224, 227, 221));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Registered Applications");
+        jLabel5.setText("Pending Applications");
         jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 220, 20));
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 780, 20));
 
-        jScrollPane1.setBorder(null);
-
-        tblRegisteredApplications.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Application_Id", "Owner_Name", "NIC", "Devision_No"
+        btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRefresh.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnRefresh.setLabel("Refresh");
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseEntered(evt);
             }
-        ));
-        tblRegisteredApplications.setGridColor(new java.awt.Color(204, 204, 204));
-        tblRegisteredApplications.setSelectionBackground(new java.awt.Color(79, 142, 255));
-        jScrollPane1.setViewportView(tblRegisteredApplications);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 670, 188));
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseExited(evt);
+            }
+        });
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 100, -1));
 
         btnViewForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnViewForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
@@ -236,23 +195,23 @@ public class TO_Main extends javax.swing.JFrame {
         });
         jPanel2.add(btnEditForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, 100, -1));
 
-        btnApproveForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnApproveForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        btnApproveForm.setLabel("Approve");
-        btnApproveForm.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnPassForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnPassForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnPassForm.setLabel("Pass");
+        btnPassForm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnApproveFormMouseEntered(evt);
+                btnPassFormMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnApproveFormMouseExited(evt);
+                btnPassFormMouseExited(evt);
             }
         });
-        btnApproveForm.addActionListener(new java.awt.event.ActionListener() {
+        btnPassForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnApproveFormActionPerformed(evt);
+                btnPassFormActionPerformed(evt);
             }
         });
-        jPanel2.add(btnApproveForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 100, -1));
+        jPanel2.add(btnPassForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 100, -1));
 
         btnRejectForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRejectForm.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
@@ -271,6 +230,30 @@ public class TO_Main extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnRejectForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, 100, -1));
+
+        jScrollPane1.setBorder(null);
+
+        tblRegisteredApplications.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Application Id", "Owner's Initial Name", "Owner's Last Name", "Owner's NIC", "Ward No"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tblRegisteredApplications.setGridColor(new java.awt.Color(204, 204, 204));
+        tblRegisteredApplications.setSelectionBackground(new java.awt.Color(79, 142, 255));
+        jScrollPane1.setViewportView(tblRegisteredApplications);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 670, 230));
 
         panMain.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 800, 290));
 
@@ -302,31 +285,17 @@ public class TO_Main extends javax.swing.JFrame {
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 10, 150));
 
-        btnApplicantRemove.setBackground(new java.awt.Color(190, 190, 190));
-        btnApplicantRemove.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        btnApplicantRemove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnApplicantRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_app_rem.png"))); // NOI18N
-        btnApplicantRemove.setText("  Application Remove");
-        btnApplicantRemove.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
-        btnApplicantRemove.setOpaque(true);
-        btnApplicantRemove.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnApplicantRemoveMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnApplicantRemoveMouseExited(evt);
-            }
-        });
-        jPanel3.add(btnApplicantRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 190, 25));
-
         btnSearch.setBackground(new java.awt.Color(190, 190, 190));
         btnSearch.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         btnSearch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_Search.png"))); // NOI18N
-        btnSearch.setText(" Search Details                 ");
+        btnSearch.setText(" Search Details           ");
         btnSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
         btnSearch.setOpaque(true);
         btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSearchMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnSearchMouseEntered(evt);
             }
@@ -334,7 +303,7 @@ public class TO_Main extends javax.swing.JFrame {
                 btnSearchMouseExited(evt);
             }
         });
-        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 190, 25));
+        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 190, 25));
 
         btnEdit.setBackground(new java.awt.Color(190, 190, 190));
         btnEdit.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
@@ -344,6 +313,9 @@ public class TO_Main extends javax.swing.JFrame {
         btnEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
         btnEdit.setOpaque(true);
         btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnEditMouseEntered(evt);
             }
@@ -351,41 +323,24 @@ public class TO_Main extends javax.swing.JFrame {
                 btnEditMouseExited(evt);
             }
         });
-        jPanel3.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 190, 25));
+        jPanel3.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 190, 25));
 
-        btnResetPass.setBackground(new java.awt.Color(190, 190, 190));
-        btnResetPass.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        btnResetPass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnResetPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_Forgot_Password.png"))); // NOI18N
-        btnResetPass.setText("Reset Passwords             ");
-        btnResetPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
-        btnResetPass.setOpaque(true);
-        btnResetPass.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSend.setBackground(new java.awt.Color(190, 190, 190));
+        btnSend.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btnSend.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_Message.png"))); // NOI18N
+        btnSend.setText("  Send Messages       ");
+        btnSend.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
+        btnSend.setOpaque(true);
+        btnSend.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnResetPassMouseEntered(evt);
+                btnSendMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnResetPassMouseExited(evt);
+                btnSendMouseExited(evt);
             }
         });
-        jPanel3.add(btnResetPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 190, 25));
-
-        btnReport.setBackground(new java.awt.Color(190, 190, 190));
-        btnReport.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        btnReport.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Admin/Images/home_Report.png"))); // NOI18N
-        btnReport.setText("Report Cheif Engineer");
-        btnReport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(170, 170, 170)));
-        btnReport.setOpaque(true);
-        btnReport.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnReportMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnReportMouseExited(evt);
-            }
-        });
-        jPanel3.add(btnReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 190, 25));
+        jPanel3.add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 190, 25));
 
         panMain.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 800, 180));
 
@@ -434,6 +389,43 @@ public class TO_Main extends javax.swing.JFrame {
 
         panMain.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 800, 30));
 
+        jPanel1.setBackground(new java.awt.Color(9, 18, 72));
+
+        btnChangePass.setBackground(new java.awt.Color(9, 18, 72));
+        btnChangePass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnChangePass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CounterClerk/Images/home_Password_Reset_20px.png"))); // NOI18N
+        btnChangePass.setOpaque(true);
+        btnChangePass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnChangePassMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnChangePassMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnChangePassMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnChangePass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(btnChangePass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(441, Short.MAX_VALUE))
+        );
+
+        panMain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 500));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -467,9 +459,14 @@ public class TO_Main extends javax.swing.JFrame {
     }
 
     private void lblLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogOutMouseClicked
-        new DBOperations().setLoginStatus(Integer.parseInt(lblUserId.getText()), 0);
-        this.dispose();
-        new Login.Login().setVisible(true);
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Logout...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            new DBOperations().setLoginStatus(lblUserId.getText(), 0);
+            //Extra.smoothExitWindow(this);
+            this.dispose();
+            new Login.Login().setVisible(true);
+        }
+        
     }//GEN-LAST:event_lblLogOutMouseClicked
 
     private void panMainMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMousePressed
@@ -507,6 +504,24 @@ public class TO_Main extends javax.swing.JFrame {
         setOpacity((float) 1);
     }//GEN-LAST:event_panMainMouseReleased
 
+    private void btnChangePassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChangePassMouseClicked
+        new Password_Change(this, lblUserId.getText().trim()).setVisible(true);
+        this.setState(1);
+    }//GEN-LAST:event_btnChangePassMouseClicked
+
+    private void btnChangePassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChangePassMouseEntered
+        setLableColour(btnChangePass);
+    }//GEN-LAST:event_btnChangePassMouseEntered
+
+    private void btnChangePassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChangePassMouseExited
+        resetLableColour(btnChangePass);
+    }//GEN-LAST:event_btnChangePassMouseExited
+
+    private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
+        new Search_Details(this).setVisible(true);
+        this.setState(1);
+    }//GEN-LAST:event_btnSearchMouseClicked
+
     private void btnSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseEntered
         setBtnColour(btnSearch);
     }//GEN-LAST:event_btnSearchMouseEntered
@@ -514,6 +529,11 @@ public class TO_Main extends javax.swing.JFrame {
     private void btnSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseExited
         resetBtnColour(btnSearch);
     }//GEN-LAST:event_btnSearchMouseExited
+
+    private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
+        new Edit_Details(this).setVisible(true);
+        this.setState(1);
+    }//GEN-LAST:event_btnEditMouseClicked
 
     private void btnEditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseEntered
         setBtnColour(btnEdit);
@@ -523,33 +543,41 @@ public class TO_Main extends javax.swing.JFrame {
         resetBtnColour(btnEdit);
     }//GEN-LAST:event_btnEditMouseExited
 
-    private void btnResetPassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetPassMouseEntered
-        setBtnColour(btnResetPass);
-    }//GEN-LAST:event_btnResetPassMouseEntered
+    private void btnSendMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSendMouseEntered
+        setBtnColour(btnSend);
+    }//GEN-LAST:event_btnSendMouseEntered
 
-    private void btnResetPassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetPassMouseExited
-        resetBtnColour(btnResetPass);
-    }//GEN-LAST:event_btnResetPassMouseExited
+    private void btnSendMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSendMouseExited
+        resetBtnColour(btnSend);
+    }//GEN-LAST:event_btnSendMouseExited
 
-    private void btnReportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportMouseEntered
-        setBtnColour(btnReport);
-    }//GEN-LAST:event_btnReportMouseEntered
+    private void btnRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseEntered
+        setButtonColour(btnRefresh);
+    }//GEN-LAST:event_btnRefreshMouseEntered
 
-    private void btnReportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportMouseExited
-        resetBtnColour(btnReport);
-    }//GEN-LAST:event_btnReportMouseExited
+    private void btnRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseExited
+        resetButtonColour(btnRefresh);
+    }//GEN-LAST:event_btnRefreshMouseExited
 
-    private void btnViewFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewFormActionPerformed
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        loadTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
-    }//GEN-LAST:event_btnViewFormActionPerformed
+    private void btnViewFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewFormMouseEntered
+        setButtonColour(btnViewForm);
+    }//GEN-LAST:event_btnViewFormMouseEntered
 
     private void btnViewFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewFormMouseExited
         resetButtonColour(btnViewForm);
     }//GEN-LAST:event_btnViewFormMouseExited
 
-    private void btnViewFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewFormMouseEntered
-        setButtonColour(btnViewForm);
-    }//GEN-LAST:event_btnViewFormMouseEntered
+    private void btnViewFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewFormActionPerformed
+        if (!tblRegisteredApplications.getSelectionModel().isSelectionEmpty()) {
+            String applicationID = tblRegisteredApplications.getModel().getValueAt(tblRegisteredApplications.getSelectedRow(), 0).toString();
+            new View_Application(this, applicationID).setVisible(true);
+            this.setState(1);
+        }
+    }//GEN-LAST:event_btnViewFormActionPerformed
 
     private void btnEditFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditFormMouseEntered
         setButtonColour(btnEditForm);
@@ -560,20 +588,30 @@ public class TO_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditFormMouseExited
 
     private void btnEditFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditFormActionPerformed
-        
+        if (!tblRegisteredApplications.getSelectionModel().isSelectionEmpty()) {
+            String applicationID = tblRegisteredApplications.getModel().getValueAt(tblRegisteredApplications.getSelectedRow(), 0).toString();
+            new Edit_Application(this, applicationID).setVisible(true);
+            this.setState(1);
+        }
     }//GEN-LAST:event_btnEditFormActionPerformed
 
-    private void btnApproveFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApproveFormMouseEntered
-        setButtonColour(btnApproveForm);
-    }//GEN-LAST:event_btnApproveFormMouseEntered
+    private void btnPassFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPassFormMouseEntered
+        setButtonColour(btnPassForm);
+    }//GEN-LAST:event_btnPassFormMouseEntered
 
-    private void btnApproveFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApproveFormMouseExited
-        resetButtonColour(btnApproveForm);
-    }//GEN-LAST:event_btnApproveFormMouseExited
+    private void btnPassFormMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPassFormMouseExited
+        resetButtonColour(btnPassForm);
+    }//GEN-LAST:event_btnPassFormMouseExited
 
-    private void btnApproveFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveFormActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnApproveFormActionPerformed
+    private void btnPassFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPassFormActionPerformed
+        if (!tblRegisteredApplications.getSelectionModel().isSelectionEmpty()) {
+            String applicationID = tblRegisteredApplications.getModel().getValueAt(tblRegisteredApplications.getSelectedRow(), 0).toString();
+            String ownerNIC = tblRegisteredApplications.getModel().getValueAt(tblRegisteredApplications.getSelectedRow(), 3).toString();
+            new EvalutionReport(this, applicationID, ownerNIC).setVisible(true);
+            this.setState(1);
+        }
+        
+    }//GEN-LAST:event_btnPassFormActionPerformed
 
     private void btnRejectFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRejectFormMouseEntered
         setButtonColour(btnRejectForm);
@@ -584,17 +622,57 @@ public class TO_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRejectFormMouseExited
 
     private void btnRejectFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectFormActionPerformed
-        // TODO add your handling code here:
+        if (!tblRegisteredApplications.getSelectionModel().isSelectionEmpty()) {
+            String applicationID = tblRegisteredApplications.getModel().getValueAt(tblRegisteredApplications.getSelectedRow(), 0).toString();
+            String ownerNIC = tblRegisteredApplications.getModel().getValueAt(tblRegisteredApplications.getSelectedRow(), 3).toString();
+            String ownerPhone = null;
+            try {
+                rs = new DBOperations().getApplicant(ownerNIC, 0);rs.next();
+                ownerPhone = rs.getString("phone");
+            } catch (Exception e) {
+            }
+            new Application_Reject(this, applicationID,lblUserId.getText(),ownerPhone).setVisible(true);
+            this.setState(1);
+        }
     }//GEN-LAST:event_btnRejectFormActionPerformed
 
-    private void btnApplicantRemoveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicantRemoveMouseExited
-        resetBtnColour(btnApplicantRemove);
-    }//GEN-LAST:event_btnApplicantRemoveMouseExited
+    private void loadTable() {
+        table.getDataVector().removeAllElements();
+        table.fireTableDataChanged();
 
-    private void btnApplicantRemoveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApplicantRemoveMouseEntered
-        setBtnColour(btnApplicantRemove);
-    }//GEN-LAST:event_btnApplicantRemoveMouseEntered
+        DBOperations dbops = new DBOperations();
+        try {
+            rs = dbops.getEmployee(lblUserId.getText(), 3); // get user's allocated wards
+            rs.next();
+            String userAllocatedWards = rs.getString("allocated_wards");
+            String applicationWardNo;
 
+            rs = dbops.getStatusData("Technical Officer"); // get data from state table
+
+            while (rs.next()) {
+                application = dbops.getApplication(rs.getString("application_id"), 0);
+                application.next(); // set the pointer to the data row
+                applicationWardNo = application.getString("ward_no").split(" - ")[0];
+                if (userAllocatedWards.contains(applicationWardNo)) {
+                    applicant = dbops.getApplicant(application.getString("owner_nic"), 0);
+                    applicant.next();
+                    table.addRow(new Object[]{application.getString("application_id"), applicant.getString("init_name"), applicant.getString("last_name"), applicant.getString("nic"), application.getString("ward_no")});
+                }
+
+            }
+        } catch (Exception e) {
+            System.out.println("exeption in loadTable method in CounterClerk_Main " + e);
+        } finally {
+            try {
+                rs.close();
+                applicant.close();
+                application.close();
+            } catch (Exception e) {
+            }
+
+        }
+    }
+    
     private void setBtnColour(JLabel label){
         label.setBackground(new Color(150, 150, 150));
     }
@@ -613,6 +691,16 @@ public class TO_Main extends javax.swing.JFrame {
         button.setBackground(new Color(240,240,240));
         button.setForeground(new Color(0, 0, 0));
     
+    }
+    
+    private void setLableColour(JLabel lbl) {
+        lbl.setBackground(new Color(106,116,145));
+
+    }
+
+    private void resetLableColour(JLabel lbl){
+        lbl.setBackground(new Color(9,18,72));
+
     }
     
     /**
@@ -644,12 +732,7 @@ public class TO_Main extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         SwingUtilities.invokeLater(new Runnable() {
@@ -661,7 +744,7 @@ public class TO_Main extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new TO_Main(0).setVisible(true);
+                new TO_Main(null).setVisible(true);
             }
         });
         
@@ -669,23 +752,19 @@ public class TO_Main extends javax.swing.JFrame {
     
                         
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnApplicantRemove;
-    private java.awt.Button btnApproveForm;
+    private javax.swing.JLabel btnChangePass;
     private javax.swing.JLabel btnEdit;
     private java.awt.Button btnEditForm;
+    private java.awt.Button btnPassForm;
+    private java.awt.Button btnRefresh;
     private java.awt.Button btnRejectForm;
-    private javax.swing.JLabel btnReport;
-    private javax.swing.JLabel btnResetPass;
     private javax.swing.JLabel btnSearch;
+    private javax.swing.JLabel btnSend;
     private java.awt.Button btnViewForm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -29,6 +29,7 @@ public class Register_Applicant extends javax.swing.JFrame {
     public Register_Applicant(JFrame parent) { // JFrame parent
         initComponents();
         this.parent = parent;
+        
     }
 
     /**
@@ -338,16 +339,14 @@ public class Register_Applicant extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegisterMouseExited
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        try {
-            applicant.setFirstName(Extra.capitalizer(txtInitName.getText())); // capitalizer method contains the trim().
+        
+        applicant.setFirstName(Extra.capitalizer(txtInitName.getText())); // capitalizer method contains the trim().
         applicant.setLastName(Extra.capitalizer(txtLastName.getText()));
         applicant.setAddress(Extra.capitalizer(txtAddress.getText()));
         applicant.setNIC(Extra.capitalizer(txtNIC.getText()));
         applicant.setPhone(Extra.capitalizer(txtTelNo.getText()));
         applicant.setEmail(Extra.capitalizer(txtEmail.getText()));
-        } catch (Exception e) {
-            System.out.println("xxxxx "+e);
-        }
+        
 
         if (applicant.getFirstName().equals("")) {
             JOptionPane.showMessageDialog(this, "Initial Name can't be Epmty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
@@ -372,6 +371,8 @@ public class Register_Applicant extends javax.swing.JFrame {
             } else {
                 if (dbops.addApplicant(applicant)) {
                     JOptionPane.showMessageDialog(this, "Applicant Registration Successfull...!", "Register Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                    this.dispose();
+                    parent.setState(0);
                 } else {
                     JOptionPane.showMessageDialog(this, "Insertion Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 }

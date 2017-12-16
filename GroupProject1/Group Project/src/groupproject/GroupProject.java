@@ -10,6 +10,5 @@ import Login.Login;
 public class GroupProject {
     public static void main(String[] args){
         new Login().setVisible(true);
-    
     }
 }

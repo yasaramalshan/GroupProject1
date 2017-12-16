@@ -5,8 +5,13 @@
  */
 package Admin;
 
+import Utility.Extra;
+import groupproject.DBOperations;
 import java.awt.Button;
 import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -16,9 +21,14 @@ import javax.swing.UIManager;
  */
 public class Password_Change extends javax.swing.JFrame {
 
-    int xMouse,yMouse;
-    public Password_Change() {
+    JFrame parent;
+    String userID;
+    int xMouse, yMouse;
+
+    public Password_Change(JFrame parent, String userID) {
         initComponents();
+        this.parent = parent;
+        this.userID = userID;
     }
 
     /**
@@ -39,11 +49,11 @@ public class Password_Change extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        btnSend = new java.awt.Button();
+        btnChange = new java.awt.Button();
         jLabel2 = new javax.swing.JLabel();
-        jTextCurrentPassword = new javax.swing.JTextField();
-        jTextNewPassword = new javax.swing.JTextField();
-        jTextNewPasswordAgain = new javax.swing.JTextField();
+        txtCurrentPassword = new javax.swing.JTextField();
+        txtNewPassword = new javax.swing.JTextField();
+        txtConfirmNewPassword = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -131,36 +141,36 @@ public class Password_Change extends javax.swing.JFrame {
         jLabel5.setText("New Password ");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 141, 20));
 
-        btnSend.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnSend.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnSend.setLabel("Change");
-        btnSend.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnChange.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnChange.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnChange.setLabel("Change");
+        btnChange.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSendMouseEntered(evt);
+                btnChangeMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSendMouseExited(evt);
+                btnChangeMouseExited(evt);
             }
         });
-        btnSend.addActionListener(new java.awt.event.ActionListener() {
+        btnChange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSendActionPerformed(evt);
+                btnChangeActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 78, -1));
+        jPanel1.add(btnChange, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 78, -1));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Confirm New Password");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 141, 20));
 
-        jTextCurrentPassword.addActionListener(new java.awt.event.ActionListener() {
+        txtCurrentPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextCurrentPasswordActionPerformed(evt);
+                txtCurrentPasswordActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextCurrentPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 320, -1));
-        jPanel1.add(jTextNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 320, -1));
-        jPanel1.add(jTextNewPasswordAgain, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 320, -1));
+        jPanel1.add(txtCurrentPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 320, -1));
+        jPanel1.add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 320, -1));
+        jPanel1.add(txtConfirmNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 320, -1));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -177,7 +187,7 @@ public class Password_Change extends javax.swing.JFrame {
         jLabel27.setText(":");
         jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 22, -1));
 
-        panMain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 62, 650, 240));
+        panMain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 62, 650, 230));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,10 +203,15 @@ public class Password_Change extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        System.exit(0);
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            this.dispose();
+            parent.setState(0);
+        }
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
@@ -209,38 +224,66 @@ public class Password_Change extends javax.swing.JFrame {
     }//GEN-LAST:event_panMainMousePressed
 
     private void panMainMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panMainMouseDragged
-        int x = evt.getXOnScreen() , y = evt.getYOnScreen();
-        this.setLocation(x-xMouse, y-yMouse);
+        int x = evt.getXOnScreen(), y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_panMainMouseDragged
 
-    private void btnSendMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSendMouseEntered
-        setButtonColour(btnSend);
-    }//GEN-LAST:event_btnSendMouseEntered
+    private void btnChangeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChangeMouseEntered
+        setButtonColour(btnChange);
+    }//GEN-LAST:event_btnChangeMouseEntered
 
-    private void btnSendMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSendMouseExited
-        resetButtonColour(btnSend);
-    }//GEN-LAST:event_btnSendMouseExited
+    private void btnChangeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChangeMouseExited
+        resetButtonColour(btnChange);
+    }//GEN-LAST:event_btnChangeMouseExited
 
-    private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
-        
-    }//GEN-LAST:event_btnSendActionPerformed
+    private void btnChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeActionPerformed
+        String currPass = txtCurrentPassword.getText().trim(), newPass = txtNewPassword.getText().trim(), conNewPass = txtConfirmNewPassword.getText().trim(), error = null;
+        if (currPass.equals("")) {
+            JOptionPane.showMessageDialog(this, "Current Password Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (newPass.equals("")) {
+            JOptionPane.showMessageDialog(this, "New Password Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (conNewPass.equals("")) {
+            JOptionPane.showMessageDialog(this, "Confirm New Password Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else {
+            DBOperations dbops = new DBOperations();
+            String currentPassword = dbops.getPassword(userID);
+            if (!txtCurrentPassword.getText().trim().equals(currentPassword)) {
+                JOptionPane.showMessageDialog(this, "Current Password Did Not Match..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (!(error = Extra.isProperPassword(userID, newPass)).equals("")) {
+                JOptionPane.showMessageDialog(this, error, "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (!conNewPass.equals(newPass)) {
+                JOptionPane.showMessageDialog(this, "New Password and Confirm New Password Not Matched...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else {
+                int dialogResult = JOptionPane.showConfirmDialog(this, "Are You Sure...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
+                if (dialogResult == JOptionPane.YES_OPTION) {
+                    if (dbops.changeUserPass(userID, newPass)) {
+                        JOptionPane.showMessageDialog(this, "Password Changed Successfull...!", "Reset Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                        this.dispose();
+                        parent.setState(0);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Password Change Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_btnChangeActionPerformed
 
-    private void jTextCurrentPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCurrentPasswordActionPerformed
+    private void txtCurrentPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCurrentPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextCurrentPasswordActionPerformed
+    }//GEN-LAST:event_txtCurrentPasswordActionPerformed
 
-    private void setButtonColour(Button button){
-        button.setBackground(new Color(0,153,0));
+    private void setButtonColour(Button button) {
+        button.setBackground(new Color(0, 153, 0));
         button.setForeground(new Color(255, 255, 255));
-    
+
     }
-    
-    private void resetButtonColour(Button button){
-        button.setBackground(new Color(240,240,240));
+
+    private void resetButtonColour(Button button) {
+        button.setBackground(new Color(240, 240, 240));
         button.setForeground(new Color(0, 0, 0));
-    
+
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -277,14 +320,14 @@ public class Password_Change extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new Password_Change().setVisible(true);
+                new Password_Change(null, null).setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button btnSend;
+    private java.awt.Button btnChange;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
@@ -295,11 +338,11 @@ public class Password_Change extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextCurrentPassword;
-    private javax.swing.JTextField jTextNewPassword;
-    private javax.swing.JTextField jTextNewPasswordAgain;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblMinimize;
     private javax.swing.JPanel panMain;
+    private javax.swing.JTextField txtConfirmNewPassword;
+    private javax.swing.JTextField txtCurrentPassword;
+    private javax.swing.JTextField txtNewPassword;
     // End of variables declaration//GEN-END:variables
 }

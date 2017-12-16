@@ -5,6 +5,8 @@
  */
 package CounterClerk;
 
+import Admin.Search_Applicant;
+import Communication.SendMessage;
 import Utility.Extra;
 import groupproject.Application;
 import groupproject.DBOperations;
@@ -16,6 +18,7 @@ import java.io.FileInputStream;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -25,15 +28,18 @@ import javax.swing.UIManager;
  * @author Yasara JLP
  */
 public class Register_Application extends javax.swing.JFrame {
-    FileInputStream  surveyorPlanNew,buildingPlanNew,buildingPlanOld,cocOld;
+
+    FileInputStream surveyorPlanNew, buildingPlanNew, buildingPlanOld, cocOld;
     Application application;
     private int xMouse, yMouse;
+    CounterClerk_Main parent;
 
-    public Register_Application() {
+    public Register_Application(CounterClerk_Main parent) {
         initComponents();
         initializer();
+        this.parent = parent;
         application = new Application();
-        txtApplicationID.setText(Extra.applicationIDGenerator());
+        txtApplicationID.setText(Extra.applicationIDGenerator(parent));
     }
 
     /**
@@ -103,13 +109,8 @@ public class Register_Application extends javax.swing.JFrame {
         pan2 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        txtType = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        txtUse = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        txtBuildingCoveredArea = new javax.swing.JTextField();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
@@ -133,19 +134,24 @@ public class Register_Application extends javax.swing.JFrame {
         rbtnIsObtainedCoCNo = new javax.swing.JRadioButton();
         rbtnIsObtainedCoCYes = new javax.swing.JRadioButton();
         jLabel109 = new javax.swing.JLabel();
-        jLabel110 = new javax.swing.JLabel();
         jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
         rbtnIsEffectOnOthersYes = new javax.swing.JRadioButton();
         rbtnIsEffectOnOthersNo = new javax.swing.JRadioButton();
+        scrAreaAddress = new javax.swing.JScrollPane();
+        txtAreaAddress = new javax.swing.JTextArea();
+        jSeparator1 = new javax.swing.JSeparator();
         scrAreaEffect = new javax.swing.JScrollPane();
         txtAreaEffects = new javax.swing.JTextArea();
-        jSeparator1 = new javax.swing.JSeparator();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel136 = new javax.swing.JLabel();
+        cmbType = new javax.swing.JComboBox<>();
+        cmbUse = new javax.swing.JComboBox<>();
         pan3 = new javax.swing.JPanel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
         btnNext3 = new java.awt.Button();
         btnPrev3 = new java.awt.Button();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel71 = new javax.swing.JLabel();
@@ -185,6 +191,10 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel128 = new javax.swing.JLabel();
         txtLeftBoader = new javax.swing.JTextField();
         jLabel129 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        txtBuildingCoveredArea = new javax.swing.JTextField();
+        jLabel110 = new javax.swing.JLabel();
         pan4 = new javax.swing.JPanel();
         jLabel73 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
@@ -383,10 +393,11 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel17.setText(":");
         pan1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 442, 14, -1));
 
-        cmbStreetName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Item 2", "Item 3", "Item 4" }));
+        cmbStreetName.setEditable(true);
+        cmbStreetName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Pamunuwa Road", "Highlevel Road", "Dehiwala Road", "Piliyandala Road", "Wattegedara Road", "Old Kottawa Road", "Nagahawatte Road", "Polwatta Road", "Pathiragoda Road", "Elhena Road", "Waraketiya Road", "Temple Road" }));
         pan1.add(cmbStreetName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 313, 279, -1));
 
-        cmbWardNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "12", "34" }));
+        cmbWardNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "1 - Mirihana South", "2 - Mirihana North", "3 - Madiwela", "4 - Pragathipura", "5 - Udahamulla", "6 - Thalapathpitiya", "7 - Pamunuwa", "8 - Thalawathugoda", "9 - Kalalgoda", "10 - Depanama", "11 - Kottawa West", "12 - Kottawa East", "13 - Rukmale", "14 - Makumbura", "15 - Kottawa South", "16 - Kottawa Town", "17 - Pannipitiya", "18 - Maharagama South", "19 - MaharagamaNorth", "20 - Pathiragoda", "21 - Navinna", "22 - Gangodavila", "23 - Wattegedara", "24 - Godigamuwa North", "25 - Godigamuwa South" }));
         pan1.add(cmbWardNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 345, 279, -1));
         pan1.add(txtSurvPlanNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 377, 279, -1));
         pan1.add(txtBlockNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 409, 170, -1));
@@ -540,29 +551,16 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel28.setText("Type Of The New Building");
         pan2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 247, 182, 20));
-        pan2.add(txtType, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 247, 279, -1));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel30.setText("Proposed Use");
         pan2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 278, 182, 20));
-        pan2.add(txtUse, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 278, 279, -1));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel32.setText("Effects On Neighbour Houses");
         pan2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 310, 182, 20));
-
-        jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel40.setText("The Area Covered by The Building");
-        pan2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 440, 182, 20));
-
-        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel41.setText(":");
-        pan2.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 442, 14, -1));
-        pan2.add(txtBuildingCoveredArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 441, 170, -1));
 
         jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -657,7 +655,7 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel103.setText(":");
         pan2.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 109, 14, 20));
 
-        cmbCurBuildingPurpose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Select -", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCurBuildingPurpose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Select -", "Commercial", "Industrial", "Residance", "Mix Residence" }));
         pan2.add(cmbCurBuildingPurpose, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 78, 279, -1));
 
         rbtnIsPlanApprovedNo.setBackground(new java.awt.Color(255, 255, 255));
@@ -717,11 +715,6 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel109.setText(":");
         pan2.add(jLabel109, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 247, 14, 20));
 
-        jLabel110.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jLabel110.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel110.setText("sq ft");
-        pan2.add(jLabel110, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 440, 30, 20));
-
         jLabel111.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel111.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel111.setText(":");
@@ -753,27 +746,39 @@ public class Register_Application extends javax.swing.JFrame {
         });
         pan2.add(rbtnIsEffectOnOthersNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, -1, -1));
 
+        txtAreaAddress.setColumns(20);
+        txtAreaAddress.setRows(5);
+        scrAreaAddress.setViewportView(txtAreaAddress);
+
+        pan2.add(scrAreaAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 280, 50));
+        pan2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 64, 485, 10));
+
         txtAreaEffects.setColumns(20);
         txtAreaEffects.setRows(5);
         scrAreaEffect.setViewportView(txtAreaEffects);
 
-        pan2.add(scrAreaEffect, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 336, 280, 90));
-        pan2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 64, 485, 10));
+        pan2.add(scrAreaEffect, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 336, 280, 50));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel33.setText("Address");
+        pan2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 410, 182, 20));
+
+        jLabel136.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel136.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel136.setText(":");
+        pan2.add(jLabel136, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 410, 14, 20));
+
+        cmbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Select -", "New Construct", "Renovation", "Attachment" }));
+        pan2.add(cmbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 247, 279, -1));
+
+        cmbUse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Select -", "Commercial", "Industrial", "Residance", "Mix Residence" }));
+        pan2.add(cmbUse, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 279, -1));
 
         panCard.add(pan2, "card5");
 
         pan3.setBackground(new java.awt.Color(255, 255, 255));
         pan3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel49.setText(" Distance From :");
-        pan3.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 255, 130, 20));
-
-        jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel51.setText("The Road");
-        pan3.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 286, 182, 20));
 
         btnNext3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnNext3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -811,156 +816,182 @@ public class Register_Application extends javax.swing.JFrame {
         });
         pan3.add(btnPrev3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 471, 78, -1));
 
+        jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel49.setText(" Distance From :");
+        pan3.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 130, 20));
+
+        jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel51.setText("The Road");
+        pan3.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 182, 20));
+
         jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel47.setText("Area Scales of Floors :");
-        pan3.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 25, 130, 20));
-        pan3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 45, 485, 10));
+        pan3.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 130, 20));
+        pan3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 485, 10));
 
         jLabel71.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel71.setText("Ground Floor");
-        pan3.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 55, 182, 20));
+        pan3.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 182, 20));
 
         jLabel72.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel72.setText(":");
-        pan3.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 55, 14, 20));
+        pan3.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 14, 20));
 
         jLabel98.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel98.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel98.setText("First Floor");
-        pan3.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 86, 182, 20));
+        pan3.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 182, 20));
 
         jLabel99.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel99.setText(":");
-        pan3.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 86, 14, 20));
+        pan3.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 14, 20));
 
         jLabel100.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel100.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel100.setText("Second Floor");
-        pan3.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 117, 182, 20));
+        pan3.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 182, 20));
 
         jLabel101.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel101.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel101.setText(":");
-        pan3.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 117, 14, 20));
+        pan3.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 14, 20));
 
         jLabel113.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel113.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel113.setText("Third Floor");
-        pan3.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 148, 182, 20));
+        pan3.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 182, 20));
 
         jLabel114.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel114.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel114.setText(":");
-        pan3.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 148, 14, 20));
+        pan3.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 14, 20));
 
         jLabel115.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel115.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel115.setText("Under Ground");
-        pan3.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 179, 182, 20));
+        pan3.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 182, 20));
 
         jLabel116.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel116.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel116.setText(":");
-        pan3.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 179, 14, 20));
-        pan3.add(txtGroundFloor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 55, 220, -1));
+        pan3.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 14, 20));
+        pan3.add(txtGroundFloor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 220, -1));
 
         jLabel117.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel117.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel117.setText("sq ft");
-        pan3.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 55, 30, 20));
-        pan3.add(txtFirstFloor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 86, 220, -1));
+        pan3.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 30, 20));
+        pan3.add(txtFirstFloor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 220, -1));
 
         jLabel118.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel118.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel118.setText("sq ft");
-        pan3.add(jLabel118, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 86, 30, 20));
+        pan3.add(jLabel118, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 30, 20));
 
         jLabel119.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel119.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel119.setText("sq ft");
-        pan3.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 117, 30, 20));
-        pan3.add(txtSecondFloor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 117, 220, -1));
-        pan3.add(txtThirdFloor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 148, 220, -1));
+        pan3.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 170, 30, 20));
+        pan3.add(txtSecondFloor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 220, -1));
+        pan3.add(txtThirdFloor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 220, -1));
 
         jLabel120.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel120.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel120.setText("sq ft");
-        pan3.add(jLabel120, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 148, 30, 20));
-        pan3.add(txtUnderGroundFloor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 179, 220, -1));
+        pan3.add(jLabel120, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 30, 20));
+        pan3.add(txtUnderGroundFloor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 220, -1));
 
         jLabel121.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel121.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel121.setText("sq ft");
-        pan3.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 179, 30, 20));
+        pan3.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 30, 20));
 
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel64.setText("Area Scales of Floors :");
-        pan3.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 225, 130, 20));
-        pan3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 245, 485, 10));
+        pan3.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 130, 20));
+        pan3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 485, 10));
 
         jLabel122.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel122.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel122.setText(":");
-        pan3.add(jLabel122, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 286, 14, 20));
-        pan3.add(txtRoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 286, 220, -1));
+        pan3.add(jLabel122, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 14, 20));
+        pan3.add(txtRoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 220, -1));
 
         jLabel123.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel123.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel123.setText("m");
-        pan3.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 286, 30, 20));
+        pan3.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 30, 20));
 
         jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("The Back Boader Of The Land");
-        pan3.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 317, 182, 20));
+        pan3.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 182, 20));
 
         jLabel124.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel124.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel124.setText(":");
-        pan3.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 317, 14, 20));
-        pan3.add(txtBackBoader, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 317, 220, -1));
+        pan3.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 14, 20));
+        pan3.add(txtBackBoader, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 220, -1));
 
         jLabel125.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel125.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel125.setText("m");
-        pan3.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 317, 30, 20));
+        pan3.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 30, 20));
 
         jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel66.setText("The Right Boader Of The Land");
-        pan3.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 348, 182, 20));
+        pan3.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 182, 20));
 
         jLabel126.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel126.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel126.setText(":");
-        pan3.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 348, 14, 20));
-        pan3.add(txtRightBoader, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 348, 220, -1));
+        pan3.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 14, 20));
+        pan3.add(txtRightBoader, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 220, -1));
 
         jLabel127.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel127.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel127.setText("m");
-        pan3.add(jLabel127, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 348, 30, 20));
+        pan3.add(jLabel127, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 30, 20));
 
         jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel67.setText("The Left Boader Of The Land");
-        pan3.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 379, 182, 20));
+        pan3.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 182, 20));
 
         jLabel128.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel128.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel128.setText(":");
-        pan3.add(jLabel128, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 379, 14, 20));
-        pan3.add(txtLeftBoader, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 379, 220, -1));
+        pan3.add(jLabel128, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 14, 20));
+        pan3.add(txtLeftBoader, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 220, -1));
 
         jLabel129.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel129.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel129.setText("m");
-        pan3.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 379, 30, 20));
+        pan3.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 30, 20));
+
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel40.setText("The Area Covered by The Building");
+        pan3.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 35, 182, 20));
+
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setText(":");
+        pan3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 35, 14, -1));
+        pan3.add(txtBuildingCoveredArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 35, 170, -1));
+
+        jLabel110.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel110.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel110.setText("sq ft");
+        pan3.add(jLabel110, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 35, 30, 20));
 
         panCard.add(pan3, "card5");
 
@@ -976,6 +1007,8 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel76.setText("Surveyor Plan");
         pan4.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 273, 190, 20));
+
+        txtSurveyorPlan.setEditable(false);
         pan4.add(txtSurveyorPlan, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 273, 430, -1));
 
         jLabel90.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -1119,6 +1152,8 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel77.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel77.setText("Building Plan");
         pan4.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 304, 190, 20));
+
+        txtBuildingPlan.setEditable(false);
         pan4.add(txtBuildingPlan, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 304, 430, -1));
 
         jLabel133.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1144,6 +1179,8 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel78.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel78.setText("Building Plan Of Existing Building");
         pan4.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 190, 20));
+
+        txtExistingBuildingPlan.setEditable(false);
         pan4.add(txtExistingBuildingPlan, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 370, 430, -1));
 
         jLabel134.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1163,6 +1200,8 @@ public class Register_Application extends javax.swing.JFrame {
         jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel79.setText("CoC Report Of Existing Building");
         pan4.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 401, 190, 20));
+
+        txtExistingCoC.setEditable(false);
         pan4.add(txtExistingCoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 401, 430, -1));
 
         jLabel135.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1219,6 +1258,7 @@ public class Register_Application extends javax.swing.JFrame {
         int dialogResult = JOptionPane.showConfirmDialog(this, "Would You Like to Cancel...?", "Warning", JOptionPane.YES_NO_OPTION, 0, new ImageIcon(getClass().getResource("Images/message_confirm.png")));
         if (dialogResult == JOptionPane.YES_OPTION) {
             this.dispose();
+            parent.setState(0);
         }
     }//GEN-LAST:event_lblExitMouseClicked
 
@@ -1246,10 +1286,7 @@ public class Register_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddOwnerMouseExited
 
     private void btnAddOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOwnerActionPerformed
-
         new Search_Applicant(txtInitName, txtLastName, txtNIC, txtPhone).setVisible(true);
-
-
     }//GEN-LAST:event_btnAddOwnerActionPerformed
 
     private void btnRegOwnerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegOwnerMouseEntered
@@ -1340,25 +1377,21 @@ public class Register_Application extends javax.swing.JFrame {
         }
 
         if (isCurBuildingOk) {
-            if (txtType.getText().trim().equals("")) {
-                JOptionPane.showMessageDialog(this, "Type Of The New Building Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-            } else if (txtUse.getText().trim().equals("")) {
-                JOptionPane.showMessageDialog(this, "Proposed Use Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-            } else if (txtType.getText().trim().equals("")) {
-                JOptionPane.showMessageDialog(this, "Type Of The New Building Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            if (cmbType.getSelectedIndex() == 0) {
+                JOptionPane.showMessageDialog(this, "Please Select The Type Of The New Building..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (cmbUse.getSelectedIndex() == 0) {
+                JOptionPane.showMessageDialog(this, "Please Select The Proposed Use Of The New Building..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
             } else if (rbtnIsEffectOnOthersYes.isSelected() && txtAreaEffects.getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(this, "Effect Field Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-            } else if (txtBuildingCoveredArea.getText().trim().equals("")) {
-                JOptionPane.showMessageDialog(this, "The Area Covered by The Building Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-            } else if (!Extra.isDouble(txtBuildingCoveredArea.getText().trim())) {
-                JOptionPane.showMessageDialog(this, "The Area Covered by The Building Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+            } else if (txtAreaAddress.getText().trim().equals("")) {
+                JOptionPane.showMessageDialog(this, "The Address Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
             } else {
-                application.setTypeOfTheBuilding(txtType.getText());
-                application.setProposedUse(txtUse.getText());
+                application.setTypeOfTheBuilding(cmbType.getSelectedItem().toString());
+                application.setProposedUse(cmbUse.getSelectedItem().toString());
                 if (rbtnIsEffectOnOthersYes.isSelected()) {
                     application.setEffectOnNeighbour(txtAreaEffects.getText());
                 }
-                application.setAreaCoveredByBuilding(Double.parseDouble(txtBuildingCoveredArea.getText()));
+                application.setAddress(txtAreaAddress.getText().trim());
 
                 hideAllPanels();
                 pan3.show();
@@ -1378,22 +1411,22 @@ public class Register_Application extends javax.swing.JFrame {
     private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
         if (txtRoadWidth.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "The Road Width Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(!Extra.isDouble(txtRoadWidth.getText().trim())) {
+        } else if (!Extra.isDouble(txtRoadWidth.getText().trim())) {
             JOptionPane.showMessageDialog(this, "The Road Width Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(txtSurveyorPlan.getText().trim().equals("")){
+        } else if (txtSurveyorPlan.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Please Attach The Survayor Plan..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(txtBuildingPlan.getText().trim().equals("")){
+        } else if (txtBuildingPlan.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Please Attach The Building Plan..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (rbtnIsThereBuildingYes.isSelected() && txtExistingBuildingPlan.getText().trim().equals("")) {
+        } else if ((rbtnIsThereBuildingYes.isSelected() && rbtnIsPlanApprovedYes.isSelected()) && txtExistingBuildingPlan.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Please Attach The Building Plan Of Existing Building..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (rbtnIsThereBuildingYes.isSelected() && txtExistingCoC.getText().trim().equals("")) {
+        } else if ((rbtnIsThereBuildingYes.isSelected() && rbtnIsObtainedCoCYes.isSelected()) && txtExistingCoC.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Please Attach The CoC Report Of Existing Building..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else{
+        } else {
             application.setWidthOfTheEntranceRoad(Float.parseFloat(txtRoadWidth.getText().trim()));
             if (rbtnEntranceRoadPublic.isSelected()) {
                 application.setTypeOfTheRoad("Public");
             } else {
-                application.setTypeOfTheRoad("Public");
+                application.setTypeOfTheRoad("Private");
             }
             if (rbtnWallsComplete.isSelected()) {
                 application.setWalls(true);
@@ -1412,20 +1445,37 @@ public class Register_Application extends javax.swing.JFrame {
             }
             application.setSurvayorPlan(surveyorPlanNew);
             application.setNewBuildingPlan(buildingPlanNew);
-            if(rbtnIsThereBuildingYes.isSelected()){
-                application.setExistingBuildingPlan(buildingPlanOld);
-                application.setExistingBuildingCoC(cocOld);
+            if (rbtnIsThereBuildingYes.isSelected()) {
+                if (rbtnIsPlanApprovedYes.isSelected()) {
+                    application.setExistingBuildingPlan(buildingPlanOld);
+                }
+                if (rbtnIsObtainedCoCYes.isSelected()) {
+                    application.setExistingBuildingCoC(cocOld);
+                }
+
             }
-            
-            if (new DBOperations().addApplication(application)) {
-                JOptionPane.showMessageDialog(this, "Application Registration Successfull...!", "Register Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+
+            DBOperations dbops = new DBOperations();
+            if (dbops.addApplication(application) && dbops.initializeApplicationStatus(application.getApplicationID())) {
+                try {
+                    if (new SendMessage().send(txtPhone.getText(), "Application Registration Successfull...ID : " + txtApplicationID.getText())) {
+                        JOptionPane.showMessageDialog(this, "Application Registration Successfull...!", "Register Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Application Registration Successfull...! (No Msg Sended)", "Register Succeed", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("Images/message_success.png")));
+
+                    }
+                } catch (Exception ex) {
+
+                }
                 this.dispose();
+                parent.loadTable();
+                parent.setState(0);
             } else {
                 JOptionPane.showMessageDialog(this, "Insertion Failed..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
             }
-            
+
         }
-        
+
     }//GEN-LAST:event_btnFinishActionPerformed
 
     private void btnPrev2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrev2MouseEntered
@@ -1451,51 +1501,53 @@ public class Register_Application extends javax.swing.JFrame {
 
     private void btnNext3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext3ActionPerformed
         // data validation for Area Scales
-        if (txtGroundFloor.getText().trim().equals("")) {
+        if (txtBuildingCoveredArea.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "The Area Covered by The Building Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (!Extra.isDouble(txtBuildingCoveredArea.getText().trim())) {
+            JOptionPane.showMessageDialog(this, "The Area Covered by The Building Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
+        } else if (txtGroundFloor.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Ground Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(!Extra.isDouble(txtGroundFloor.getText().trim())) {
+        } else if (!Extra.isDouble(txtGroundFloor.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Ground Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(Double.parseDouble(txtGroundFloor.getText().trim())== 0f) {
+        } else if (Double.parseDouble(txtGroundFloor.getText().trim()) == 0f) {
             JOptionPane.showMessageDialog(this, "Ground Floor Data Can't Be Zero..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (txtFirstFloor.getText().trim().equals("")) {
+        } else if (txtFirstFloor.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "First Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(!Extra.isDouble(txtFirstFloor.getText().trim())) {
+        } else if (!Extra.isDouble(txtFirstFloor.getText().trim())) {
             JOptionPane.showMessageDialog(this, "First Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (txtSecondFloor.getText().trim().equals("")) {
+        } else if (txtSecondFloor.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Second Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(!Extra.isDouble(txtSecondFloor.getText().trim())) {
+        } else if (!Extra.isDouble(txtSecondFloor.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Second Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (txtThirdFloor.getText().trim().equals("")) {
+        } else if (txtThirdFloor.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Third Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(!Extra.isDouble(txtThirdFloor.getText().trim())) {
+        } else if (!Extra.isDouble(txtThirdFloor.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Third Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (txtUnderGroundFloor.getText().trim().equals("")) {
+        } else if (txtUnderGroundFloor.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Under Ground Floor Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(!Extra.isDouble(txtUnderGroundFloor.getText().trim())) {
+        } else if (!Extra.isDouble(txtUnderGroundFloor.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Under Ground Floor Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }
-        // data validation for Distances
+        } // data validation for Distances
         else if (txtRoad.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Distance From The Road Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(!Extra.isDouble(txtRoad.getText().trim())) {
+        } else if (!Extra.isDouble(txtRoad.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Distance From The Road Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(Double.parseDouble(txtRoad.getText().trim())==0f) {
+        } else if (Double.parseDouble(txtRoad.getText().trim()) == 0f) {
             JOptionPane.showMessageDialog(this, "Distance From The Road Data Can't Be Zero..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (txtBackBoader.getText().trim().equals("")) {
+        } else if (txtBackBoader.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Distance From The Back Boader Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(!Extra.isDouble(txtBackBoader.getText().trim())) {
+        } else if (!Extra.isDouble(txtBackBoader.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Distance From The Back Boader Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (txtRightBoader.getText().trim().equals("")) {
+        } else if (txtRightBoader.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Distance From The Right Boader Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(!Extra.isDouble(txtRightBoader.getText().trim())) {
+        } else if (!Extra.isDouble(txtRightBoader.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Distance From The Right Boader Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if (txtLeftBoader.getText().trim().equals("")) {
+        } else if (txtLeftBoader.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Distance From The Left Boader Data Can't Be Empty..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }else if(!Extra.isDouble(txtLeftBoader.getText().trim())) {
+        } else if (!Extra.isDouble(txtLeftBoader.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Distance From The Left Boader Data Must Be Numeric..!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
-        }
-        
-        else {
+        } else {
+            application.setAreaCoveredByBuilding(Double.parseDouble(txtBuildingCoveredArea.getText()));
             double floorAreas[] = new double[5];
             floorAreas[0] = Double.parseDouble(txtGroundFloor.getText().trim());
             floorAreas[1] = Double.parseDouble(txtFirstFloor.getText().trim());
@@ -1507,7 +1559,7 @@ public class Register_Application extends javax.swing.JFrame {
             distances[1] = Double.parseDouble(txtBackBoader.getText().trim());
             distances[2] = Double.parseDouble(txtRightBoader.getText().trim());
             distances[3] = Double.parseDouble(txtLeftBoader.getText().trim());
-            
+
             application.setFloorAreas(floorAreas);
             application.setDistances(distances);
             hideAllPanels();
@@ -1538,13 +1590,13 @@ public class Register_Application extends javax.swing.JFrame {
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
             if (img != null) {
-                if ((file.length()/1024)>=2048) {
+                if ((file.length() / 1024) >= 2048) {
                     JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 } else {
                     surveyorPlanNew = new FileInputStream(file);
                     txtSurveyorPlan.setText(path);
                 }
-                
+
             } else {
                 JOptionPane.showMessageDialog(this, "Please Select An Image File...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
             }
@@ -1563,7 +1615,7 @@ public class Register_Application extends javax.swing.JFrame {
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
             if (img != null) {
-                if ((file.length()/1024)>=2048) {
+                if ((file.length() / 1024) >= 2048) {
                     JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 } else {
                     buildingPlanNew = new FileInputStream(file);
@@ -1586,10 +1638,10 @@ public class Register_Application extends javax.swing.JFrame {
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
             if (img != null) {
-                if ((file.length()/1024)>=2048) {
+                if ((file.length() / 1024) >= 2048) {
                     JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 } else {
-                    buildingPlanOld  = new FileInputStream(file);
+                    buildingPlanOld = new FileInputStream(file);
                     txtExistingBuildingPlan.setText(path);
                 }
             } else {
@@ -1609,7 +1661,7 @@ public class Register_Application extends javax.swing.JFrame {
             String path = file.getAbsolutePath();
             Image img = ImageIO.read(file);
             if (img != null) {
-                if ((file.length()/1024)>=2048) {
+                if ((file.length() / 1024) >= 2048) {
                     JOptionPane.showMessageDialog(this, "Size Of The Image File Must Be Less Than 2048 KB...!", "Error", JOptionPane.ERROR_MESSAGE, new ImageIcon(getClass().getResource("Images/message_error.png")));
                 } else {
                     cocOld = new FileInputStream(file);
@@ -1765,7 +1817,7 @@ public class Register_Application extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                new Register_Application().setVisible(true);
+                new Register_Application(null).setVisible(true);
             }
         });
 
@@ -1796,6 +1848,8 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JButton btnSurveyorPlan;
     private javax.swing.JComboBox<String> cmbCurBuildingPurpose;
     private javax.swing.JComboBox<String> cmbStreetName;
+    private javax.swing.JComboBox<String> cmbType;
+    private javax.swing.JComboBox<String> cmbUse;
     private javax.swing.JComboBox<String> cmbWardNo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1838,6 +1892,7 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel133;
     private javax.swing.JLabel jLabel134;
     private javax.swing.JLabel jLabel135;
+    private javax.swing.JLabel jLabel136;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1857,6 +1912,7 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -1927,8 +1983,10 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnRoofNotComplete;
     private javax.swing.JRadioButton rbtnWallsComplete;
     private javax.swing.JRadioButton rbtnWallsNotComplete;
+    private javax.swing.JScrollPane scrAreaAddress;
     private javax.swing.JScrollPane scrAreaEffect;
     private javax.swing.JTextField txtApplicationID;
+    private javax.swing.JTextArea txtAreaAddress;
     private javax.swing.JTextArea txtAreaEffects;
     private javax.swing.JTextField txtAreaOfTheLand;
     private javax.swing.JTextField txtBackBoader;
@@ -1953,9 +2011,7 @@ public class Register_Application extends javax.swing.JFrame {
     private javax.swing.JTextField txtSurvPlanNo;
     private javax.swing.JTextField txtSurveyorPlan;
     private javax.swing.JTextField txtThirdFloor;
-    private javax.swing.JTextField txtType;
     private javax.swing.JTextField txtUnderGroundFloor;
-    private javax.swing.JTextField txtUse;
     // End of variables declaration//GEN-END:variables
 
 }
